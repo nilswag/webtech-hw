@@ -1,0 +1,91 @@
+/* Color Themes */
+.light-mode {
+    --background-color: #e0e0e0;
+    --primary-text-color: #1f1f1f;
+    --secundary-text-color: #e0e0e0;
+    --primary-theme-color: red; /* sport club color */
+    --secundary-theme-color: darkred;
+    --tertiary-theme-color: blue;
+}
+
+:root {
+    --header-height: 8rem;
+}
+
+html {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 62.5%;
+}
+
+h1 {
+    font-size: 3.2rem;
+    height: fit-content;
+}
+
+p, a, li {
+    font-size: 1.8rem;
+}
+
+body {
+    width: 100%;
+    height: fit-content;
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--background-color);
+}
+
+header {
+    width: 100%;
+    height: var(--header-height);
+    position: fixed;
+    display: flex;
+    flex: 0;
+    background-color: var(--primary-theme-color);
+    z-index: 1000;
+}
+
+header h1 {
+    margin: 0 2rem;
+    text-align: center;
+    align-self: center;
+}
+
+.header_navigation {
+    width: 30%;
+    height: 100%;
+    display: flex;
+}
+
+.header_navigation a {
+    /* margin: 1rem 0; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    color: var(--primary-text-color);
+    /* border-radius: 1rem; */
+	transition: all 0.2s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.header_navigation a:hover {
+    background-color: var(--secundary-theme-color);
+    color: var(--secundary-text-color);
+}
+
+main {
+    width: 90%;
+    margin-top: var(--header-height);
+    flex: 1;
+    background-color: green;
+}
+
+footer {
+    width: 100%;
+    height: fit-content;
+    min-height: 10rem;
+    flex: 0;
+    background-color: var(--tertiary-theme-color);
+}
