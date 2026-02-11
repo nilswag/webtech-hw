@@ -60,13 +60,13 @@ header h1 {
 }
 
 .header_navigation a {
-    /* margin: 1rem 0; */
+    margin: 1rem 0;
     display: flex;
     justify-content: center;
     align-items: center;
     flex: 1;
     color: var(--primary-text-color);
-    /* border-radius: 1rem; */
+    border-radius: 1rem;
 	transition: all 0.2s cubic-bezier(0.76, 0, 0.24, 1);
 }
 
