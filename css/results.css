@@ -1,0 +1,24 @@
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main table {
+    display: block;
+    text-align: center;
+    font-size: 3rem;
+}
+
+table, th, td {
+    border: 2px dotted var(--tertiary-theme-color);
+}
+
+main table tr:nth-child(even) {
+    background-color: var(--secundary-theme-color);
+}
+
+.results__table__row--winning {
+    color: limegreen;
+}
