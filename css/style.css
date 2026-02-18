@@ -19,7 +19,10 @@ html {
 
 h1 {
     font-size: 3.2rem;
-    height: fit-content;
+}
+
+h2 {
+    font-size: 2.5rem;
 }
 
 p, a, li {
