@@ -2,4 +2,13 @@
 main {
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
+}
+
+section {
+    margin: auto 10%;
+}
+
+img {
+    max-width: 10%;
 }
