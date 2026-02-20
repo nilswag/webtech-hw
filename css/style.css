@@ -25,6 +25,22 @@ html {
     scrollbar-color: var(--secundary-theme-color) var(--primary-theme-color);
 }
 
+h1 {
+    font-size: 3.2rem;
+}
+
+h2 {
+    font-size: 2.6rem;
+}
+
+h3 {
+    font-size: 2.0rem;
+}
+
+p, a, li {
+    font-size: 1.8rem;
+}
+
 body {
     width: 100%;
     height: fit-content;
