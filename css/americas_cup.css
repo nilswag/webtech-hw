@@ -24,10 +24,6 @@ main {
     background: linear-gradient(to right, #000000aa, #000000aa), url(../media/images/yachts_1.jpg) no-repeat center / cover;
 }
 
-body {
-    background: url(../media/images/yachts_2.jpg) no-repeat center / cover, #000000;
-}
-
 @media only screen and (min-width: 900px) {
     main section {
         display: flex;
