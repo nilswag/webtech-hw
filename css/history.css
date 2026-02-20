@@ -29,10 +29,29 @@ main {
 
 .timeline .pin{
     position: relative;
-    width: 10rem;
+    width: 6rem;
     height: 3rem;
     align-content: center;
     justify-content: center;
+}
+
+.timeline h2{
+    font-size: 2rem;
+}
+
+main h1{
+    position: absolute;
+    z-index: 2;
+    top: 12%;
+    align-self: center;
+    color: var(--secundary-text-color);
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    padding: 5px 10px;
+}
+
+.timeline p{
+    color: var(--primary-text-color);
 }
 
 .timeline .pin .pin-text{
@@ -93,7 +112,7 @@ main {
     box-sizing: border-box;
     position: absolute;
     border-radius: inherit;
-    background-color: rgba(255, 255, 255, 0.3);
+    background-color: rgba(255, 255, 255, 0.5);
     padding: 10%;
     overflow: scroll;
     width: 100%;
