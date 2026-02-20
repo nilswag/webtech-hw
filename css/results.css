@@ -26,12 +26,8 @@ main table td {
     margin-bottom: 1%;
 }
 
-body {
-    background: url(../media/images/team_1.jpg) no-repeat center / cover, #000000;
-}
-
 main table tr:nth-child(even) {
-    background-color: var(--secundary-theme-color);
+    background-color: var(--tertiary-theme-color);
 }
 
 .results__table__row--winning {
