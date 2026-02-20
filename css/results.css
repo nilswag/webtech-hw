@@ -1,18 +1,21 @@
 
 main {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
+    color: var(--secundary-text-color);
+    background: linear-gradient(to right, #000000aa, #000000aa), url(../media/images/yachts_3.jpg) no-repeat center / cover;
 }
 
 main table {
     display: block;
     text-align: center;
     font-size: 3rem;
+    border-spacing: 10%;
 }
 
-table, th, td {
-    border: 2px dotted var(--tertiary-theme-color);
+body {
+    background: url(../media/images/team_1.jpg) no-repeat center / cover, #000000;
 }
 
 main table tr:nth-child(even) {
