@@ -1,3 +1,4 @@
+@import "color-themes.css";
 
 main {
     display: flex;
@@ -12,6 +13,7 @@ h1 {
 }
 
 main table {
+    width: 100%;
     display: block;
     text-align: center;
     font-size: 3rem;
@@ -32,4 +34,10 @@ main table tr:nth-child(even) {
 
 .results__table__row--winning {
     color: limegreen;
+}
+
+@media only screen and (min-width: 900px) {
+    main {
+        overflow-x: auto;
+    }
 }
