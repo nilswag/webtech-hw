@@ -4,7 +4,7 @@ main {
     flex-direction: column;
     align-items: center;
     color: var(--secundary-text-color);
-    background: linear-gradient(to right, #000000aa, #000000aa), url(../media/images/yachts_3.jpg) no-repeat center / cover;
+    background: linear-gradient(to right,  #000000bb, #000000bb), url(../media/images/yachts_3.jpg) no-repeat center / cover;
 }
 
 h1 {

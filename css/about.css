@@ -1,0 +1,40 @@
+
+main {
+    width: 80%;
+    color: var(--secundary-text-color);
+    background: linear-gradient(to right, #000000bb, #000000bb), url(../media/images/yachts_2.jpg) no-repeat center / cover;
+}
+
+main a {
+    text-decoration: underline;
+}
+
+main a:visited {
+    color: var(--secundary-text-color);
+}
+
+main section h2, main section h3 {
+    margin-top: 3%;
+}
+
+main section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 25% 5%;
+}
+
+body {
+    background: linear-gradient(to right, #00000055, #00000055), url(../media/images/team_1.jpg) no-repeat center / cover;
+}
+
+@media only screen and (min-width: 900px) {
+    main section {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-evenly;
+        margin: 15% 15%;
+    }
+}
