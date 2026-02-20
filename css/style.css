@@ -66,19 +66,19 @@ header a span {
     animation-fill-mode: none;
 }
 
-.header-title {
+.header__title {
     text-align-last:justify;
     font-size: 2.5rem;
 }
 
-.header-navigation {
+.header__navigation {
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.header-navigation a {
+.header__navigation a {
     width: 100%;
     display: block;
     font-size: 2rem;
@@ -87,7 +87,7 @@ header a span {
     transition: all 0.2s cubic-bezier(0.76, 0, 0.24, 1);
 }
 
-.header-navigation a:hover {
+.header__navigation a:hover {
     background-color: var(--secundary-theme-color);
     color: var(--primary-text-color);
 }
@@ -128,12 +128,12 @@ footer a:hover {
 }
 
 @media only screen and (max-width: 900px) {
-    .menu-toggle {
+    .menu__toggle {
         height: 8rem;
         aspect-ratio: 1 / 1;
     }
 
-    #navigation-toggle-button {
+    #navigation__toggle__button {
         height: 100%;
         aspect-ratio: 1 / 1;
         display: flex;
@@ -143,11 +143,11 @@ footer a:hover {
         background-color: transparent;
     }
 
-    #navigation-toggle-button:checked {
+    #navigation__toggle__button:checked {
         appearance: unset;
     }
 
-    .menu-toggle svg {
+    .menu__toggle svg {
         height: 5rem;
         aspect-ratio: 1 / 1;
         margin: calc((8rem - 5rem) / 2);
@@ -157,48 +157,48 @@ footer a:hover {
         pointer-events: none;
     }
 
-    .menu-toggle svg path {
+    .menu__toggle svg path {
         stroke: var(--secundary-text-color);
     }
 
-    .menu-toggle #navigation-toggle-button + svg {
+    .menu__toggle #navigation__toggle__button + svg {
         transition: rotate 0.3s cubic-bezier(0.37, 0, 0.63, 1);
     }
 
-    .menu-toggle #navigation-toggle-button:checked + svg {
+    .menu__toggle #navigation__toggle__button:checked + svg {
         rotate: 90deg;
         transition: rotate 0.3s cubic-bezier(0.37, 0, 0.63, 1);
     }
 
-    .menu-toggle:has(#navigation-toggle-button) ~ .header-navigation {
+    .menu__toggle:has(#navigation__toggle__button) ~ .header__navigation {
         display: none;
     }
 
-    .menu-toggle:has(#navigation-toggle-button:checked) ~ .header-navigation {
+    .menu__toggle:has(#navigation__toggle__button:checked) ~ .header__navigation {
         display: block;
     }
 
-    header:has(.menu-toggle #navigation-toggle-button:checked) {
+    header:has(.menu__toggle #navigation__toggle__button:checked) {
         height: fit-content;
     }
 }
 
 @media only screen and (min-width: 900px) {
-    .menu-toggle {
+    .menu__toggle {
         visibility: hidden;
     }
     
-        .header-title {
-            margin-left: 4rem;
-        }
+    .header__title {
+        margin-left: 4rem;
+    }
     
-    .header-navigation {
+    .header__navigation {
         width: 40%;
         margin-left: 2rem;
         flex-direction: row;
     }
 
-    .header-navigation a {
+    .header__navigation a {
         border-radius: 1rem;
     }
 

@@ -88,7 +88,7 @@ main {
     text-align: center;
 }
 
-.news-items {
+.news__items {
     width: 100%;
     padding-bottom: 1px;
     margin-bottom: 5%;
@@ -99,34 +99,34 @@ main {
     scroll-snap-type: x mandatory;
 }
 
-.news-item {
+.news__item {
     flex: 0 0 45%;
     padding: 1rem;
     border: 2px solid var(--primary-theme-color);
     scroll-snap-align: center;
 }
 
-.news-item h3 {
+.news__item h3 {
     margin: 1rem 0;
 }
 
-.news-item img {
+.news__item img {
     width: 100%;
 }
 
-.news-item .date {
+.news__item .date {
     font-size: .7em;
 }
 
-.news-item .description {
+.news__item .description {
     padding-top: 1rem;
 }
 
-.news-item a {
+.news__item a {
     color: var(--secundary-text-color);
 }
 
-.news-item a:hover {
+.news__item a:hover {
     text-decoration: underline;
 }
 

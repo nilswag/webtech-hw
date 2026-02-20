@@ -6,6 +6,7 @@ main {
     align-items: center;
     color: var(--secundary-text-color);
     background: linear-gradient(to right,  #000000bb, #000000bb), url(../media/images/yachts_3.jpg) no-repeat center / cover;
+    overflow-x: scroll;
 }
 
 h1 {
@@ -13,6 +14,8 @@ h1 {
 }
 
 main table {
+    width: 100%;
+    padding: 5%;
     font-size: 3rem;
     border-collapse: collapse;
 }
