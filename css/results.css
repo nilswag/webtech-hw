@@ -1,0 +1,39 @@
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--secundary-text-color);
+    background: linear-gradient(to right, #000000aa, #000000aa), url(../media/images/yachts_3.jpg) no-repeat center / cover;
+}
+
+h1 {
+    margin-bottom: 2%;
+}
+
+main table {
+    display: block;
+    text-align: center;
+    font-size: 3rem;
+    border-collapse: collapse;
+}
+
+main table th {
+    padding-bottom: 1%;
+}
+
+main table td {
+    margin-bottom: 1%;
+}
+
+body {
+    background: url(../media/images/team_1.jpg) no-repeat center / cover, #000000;
+}
+
+main table tr:nth-child(even) {
+    background-color: var(--secundary-theme-color);
+}
+
+.results__table__row--winning {
+    color: limegreen;
+}
