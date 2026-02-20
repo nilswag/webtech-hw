@@ -1,18 +1,44 @@
 
-main section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 5% 15%;
+:root {
+    --text-color: #ebebeb;
 }
 
-main section h2 {
-    margin-top: 0.5%;
+main a {
+    text-decoration: underline;
+}
+
+main a:visited {
+    color: var(--text-color);
+}
+
+main section {
+    display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        margin: 25% 5%;
+}
+
+main section h2, main section h3 {
+    margin-top: 3%;
+}
+
+main {
+    color: var(--text-color);
+    background: linear-gradient(to right, #000000aa, #000000aa), url(../media/images/yachts_1.jpg) no-repeat center / cover;
+    height: 2vh;
+}
+
+body {
+    background: url(../media/images/yachts_2.jpg) no-repeat center / cover, #000000;
 }
 
 @media only screen and (min-width: 900px) {
     main section {
-        margin: 2% 15%;
+        display: flex;
+        flex-direction: column;
         align-items: flex-start;
+        justify-content: space-evenly;
+        margin: 15% 15%;
     }
 }
