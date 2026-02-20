@@ -5,14 +5,8 @@ main {
     flex: 1;
     flex-direction: column;
     -ms-flex-align: end;
-    /* background-color: yellow; */
-    /* height: 1000px; */
     justify-content: center;
     align-content: center;
-}
-
-main h1 {
-    /* position: absolute; */
 }
 
 .timeline{
@@ -39,7 +33,6 @@ main h1 {
     height: 3rem;
     align-content: center;
     justify-content: center;
-    /* margin-left: 18%; */
 }
 
 .timeline .pin .pin-text{
@@ -56,10 +49,6 @@ main h1 {
 
 .timeline .text .blurb p{
     margin: 2rem 0;
-}
-
-.timeline .text-image{
-    
 }
 
 .gray-scale{
@@ -113,12 +102,48 @@ main h1 {
     left: 0px;
 }
 
-.timeline .bar{
+#bar{
+    box-sizing: border-box;
     position: absolute;
     z-index: 2;
     width: 2%;
-    height: 90%;
+    height: 100%;
+    padding: 10vh 0;
     left: 5%;
     justify-self: center;
     stroke: black;
+}
+
+
+@media only screen and (min-width: 1000px) {
+    .timeline{
+        overflow-x: scroll;
+        scroll-snap-type: x mandatory;
+    }
+
+    .timeline article{
+        height: 80vh;
+        width: 100%;
+        flex-direction: row;
+    }
+
+    .timeline article section{
+        flex-direction: column-reverse;
+        justify-content: center;
+        padding: 5% 20vh;
+    }
+
+    .timeline article section .text{
+        height: 60%;
+        width: fit-content; 
+    }
+
+    .timeline article section .text img{
+        height: 100%;
+        width: auto;
+    }
+
+    #bar{
+        display: none;
+    }
 }
