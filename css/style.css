@@ -64,7 +64,7 @@ header {
     z-index: 1000;
 }
 
-header a h1 span {
+header a span {
     animation-name: fanPageText;
     animation-duration: 30s;
     animation-timing-function: linear;

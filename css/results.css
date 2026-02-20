@@ -5,6 +5,7 @@ main {
     align-items: center;
     color: var(--secundary-text-color);
     background: linear-gradient(to right, #000000aa, #000000aa), url(../media/images/yachts_3.jpg) no-repeat center / cover;
+    overflow-x: scroll;
 }
 
 h1 {
@@ -12,6 +13,7 @@ h1 {
 }
 
 main table {
+    width: 100%;
     display: block;
     text-align: center;
     font-size: 3rem;
@@ -32,4 +34,10 @@ main table tr:nth-child(even) {
 
 .results__table__row--winning {
     color: limegreen;
+}
+
+@media only screen and (min-width: 900px) {
+    main {
+        overflow-x: auto;
+    }
 }
