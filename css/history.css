@@ -5,8 +5,9 @@ main {
     flex: 1;
     flex-direction: column;
     -ms-flex-align: end;
-    justify-content: center;
+    justify-content: space-evenly;
     align-content: center;
+    padding: 0% 5% 2%;
 }
 
 .timeline{
@@ -84,7 +85,7 @@ main h1{
     display: flex;
     flex-direction: row;
     position: relative;
-    stroke: peru;
+    stroke: var(--secundary-theme-color);
     stroke-width: 5px;
     padding: 20vh 5%;
     justify-content: start;
@@ -167,5 +168,10 @@ main h1{
 
     #bar{
         display: none;
+    }
+
+    main h1{
+        position: relative;
+        top: 9%;
     }
 }
