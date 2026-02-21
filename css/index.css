@@ -103,6 +103,7 @@ main {
     flex: 0 0 45%;
     padding: 1rem;
     border: 2px solid var(--primary-theme-color);
+    border-radius: 1rem 0;
     scroll-snap-align: center;
 }
 
