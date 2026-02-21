@@ -1,5 +1,3 @@
-/* @import url("./style.css"); */
-
 main {
     display: flex;
     flex: 1;
@@ -54,7 +52,7 @@ main h1{
     justify-content: center;
 }
 
-.timeline__pin-text{
+.timeline__pin__text{
     position: absolute;
     z-index: 2;
     left: 0;
@@ -85,7 +83,6 @@ main h1{
     padding: 20vh 6%;
     justify-content: start;
     align-items: center;
-    /* background-size: cover; */
     scroll-snap-align: center;
 }
 
