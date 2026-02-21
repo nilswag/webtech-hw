@@ -1,13 +1,21 @@
-/* @import url("./style.css"); */
-
 main {
     display: flex;
     flex: 1;
     flex-direction: column;
-    -ms-flex-align: end;
     justify-content: space-evenly;
     align-content: center;
     padding: 0% 5% 2%;
+}
+
+main h1{
+    position: absolute;
+    z-index: 2;
+    top: 12%;
+    align-self: center;
+    color: var(--secundary-text-color);
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    padding: 5px 10px;
 }
 
 .timeline{
@@ -23,16 +31,8 @@ main {
     display: flex;
     flex-direction: column;
     width: 100%;
-    background-color: aqua;
+    background-color: var(--secundary-theme-color);
     align-self: center;
-    justify-content: center;
-}
-
-.timeline .pin{
-    position: relative;
-    width: 6rem;
-    height: 3rem;
-    align-content: center;
     justify-content: center;
 }
 
@@ -40,22 +40,19 @@ main {
     font-size: 2rem;
 }
 
-main h1{
-    position: absolute;
-    z-index: 2;
-    top: 12%;
-    align-self: center;
-    color: var(--secundary-text-color);
-    background-color: rgba(0, 0, 0, 0.5);
-    border-radius: 10px;
-    padding: 5px 10px;
-}
-
 .timeline p{
     color: var(--primary-text-color);
 }
 
-.timeline .pin .pin-text{
+.timeline__pin{
+    position: relative;
+    width: 6rem;
+    height: 3rem;
+    align-content: center;
+    justify-content: center;
+}
+
+.timeline__pin__text{
     position: absolute;
     z-index: 2;
     left: 0;
@@ -65,10 +62,6 @@ main h1{
     margin: 0 1rem;
     text-align: center;
     align-content: center;
-}
-
-.timeline .text .blurb p{
-    margin: 2rem 0;
 }
 
 .gray-scale{
@@ -87,33 +80,32 @@ main h1{
     position: relative;
     stroke: var(--secundary-theme-color);
     stroke-width: 5px;
-    padding: 20vh 5%;
+    padding: 20vh 6%;
     justify-content: start;
     align-items: center;
-    /* background-size: cover; */
     scroll-snap-align: center;
 }
 
-.timeline article section .text{
+.timeline__blurb{
     position: relative;
     width: 80%;
     border-style: solid;
-    border-color: black;
+    border-color: var(--tertiary-theme-color);
     border-width: 4px;
     border-radius: 10px;
 }
 
-.timeline article section .text img{
+.timeline__blurb img{
     box-sizing: border-box;
     width: 100%;
     height: auto;
     border-radius: inherit;
 }
-.timeline article section .text .blurb{
+.timeline__blurb__text{
     box-sizing: border-box;
     position: absolute;
     border-radius: inherit;
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(0, 0, 0, 0.3);
     padding: 10%;
     overflow: scroll;
     width: 100%;
@@ -122,7 +114,15 @@ main h1{
     left: 0px;
 }
 
-#bar{
+.timeline__blurb__text p{
+    color: var(--secundary-text-color);
+    text-shadow: 2px 0px 4px black,
+                -2px 0px 4px black,
+                 0px 2px 4px black,
+                 0px -2px 4px black;
+}
+
+.timeline__bar{
     box-sizing: border-box;
     position: absolute;
     z-index: 2;
@@ -131,15 +131,19 @@ main h1{
     padding: 10vh 0;
     left: 5%;
     justify-self: center;
-    stroke: black;
+    stroke: var(--tertiary-theme-color);
 }
 
 
-@media only screen and (min-width: 1000px) {
+@media only screen and (min-width: 900px) {
+    main h1{
+        position: relative;
+        top: 9%;
+    }
+
     .timeline{
         height: 60vh;
         overflow-y: hidden;
-        scroll-snap-type: y none;
         overflow-x: scroll;
         scroll-snap-type: x mandatory;
     }
@@ -156,22 +160,17 @@ main h1{
         padding: 0% 20vw;
     }
 
-    .timeline article section .text{
+    .timeline__blurb{
         height: 60%;
         width: fit-content; 
     }
 
-    .timeline article section .text img{
+    .timeline__blurb img{
         height: 100%;
         width: auto;
     }
 
-    #bar{
+    .timeline__bar{
         display: none;
-    }
-
-    main h1{
-        position: relative;
-        top: 9%;
     }
 }
