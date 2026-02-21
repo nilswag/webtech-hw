@@ -115,6 +115,11 @@ main h1{
 }
 
 .timeline__blurb__text p{
+    margin: 2rem 0;
+    color: var(--secundary-text-color);
+}
+
+.timeline__blurb__text > *{
     color: var(--secundary-text-color);
     text-shadow: 2px 0px 4px black,
                 -2px 0px 4px black,
