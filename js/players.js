@@ -39,6 +39,16 @@ class Person {
     set nationality(nationality) {
         this.#nationality = nationality;
     }
+
+    static from(o) {
+        if (!o) return null;
+        return new Person(
+            o.firstName,
+            o.lastName,
+            o.born,
+            o.nationality
+        );
+    }
 };
 
 class Player extends Person {
@@ -81,6 +91,20 @@ class Player extends Person {
     }
     set formerTeams(formerTeams) {
         this.#formerTeams = formerTeams;
+    }
+
+    static from(o) {
+        if (!o) return null;
+        return new Player(
+            o.firstName,
+            o.lastName,
+            o.born,
+            o.nationality,
+            o.role,
+            o.number,
+            o.photo,
+            o.formerTeams
+        );
     }
 };
 
