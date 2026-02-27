@@ -195,7 +195,7 @@ footer a:hover {
     }
     
     .header__navigation {
-        width: 40%;
+        width: 50%;
         margin-left: 2rem;
         flex-direction: row;
     }
