@@ -3,7 +3,15 @@ const fileInput = document.getElementById("file-input");
 
 fileInput.onchange = (e) => {
     const file = e.target.files[0];
-    if (!file || !file.type.startsWith("application/json")) return;
+    if (!file) {
+        window.alert("Invalid file, please try uploading again.");
+        return;
+    }
+
+    if (!file.type.startsWith("application/json")) {
+        window.alert("Please only upload JSON files.");
+        return;
+    }
 
     const fileReader = new FileReader();
 
