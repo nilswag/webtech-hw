@@ -1,7 +1,7 @@
 
 const fileInput = document.getElementById("file-input");
 
-fileInput.onchange = (e) => {
+fileInput.addEventListener("change", (e) => {
     const file = e.target.files[0];
     if (!file) {
         window.alert("Invalid file, please try uploading again.");
@@ -23,4 +23,4 @@ fileInput.onchange = (e) => {
     };
 
     fileReader.readAsText(file); 
-};
+});
