@@ -39,16 +39,6 @@ class Person {
     set nationality(nationality) {
         this.#nationality = nationality;
     }
-
-    static from(o) {
-        if (!o) return null;
-        return new Person(
-            o.firstName,
-            o.lastName,
-            o.born,
-            o.nationality
-        );
-    }
 };
 
 class Player extends Person {
@@ -93,12 +83,12 @@ class Player extends Person {
         this.#formerTeams = formerTeams;
     }
 
-    static from(o) {
+    static fromJSON(o) {
         if (!o) return null;
         return new Player(
             o.firstName,
             o.lastName,
-            o.born,
+            new Date(o.born),
             o.nationality,
             o.role,
             o.number,
@@ -140,8 +130,3 @@ class Team {
         this.#city = city;
     }
 };
-
-console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa");
-console.log((new Person("nee", "22", "tot", "morgen")));
-console.log(new Player("Stuurman", 10000, "photooo", "HOOG VERRAAD! HOE DURF JE!!!!!!!!!!"));
-// new Player()
