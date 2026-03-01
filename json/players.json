@@ -23,5 +23,33 @@
         {"firstName": "Erik", "lastName": "Hansen", "born": "16/03/1983", "nationality": "Norwegian", "role": "Rigging Master", "number": 21, "formerTeams": ["Team Brunel (Ocean Race)", "Desafío Español"]},
         {"firstName": "Beau", "lastName": "Jackson", "born": "04/09/1994", "nationality": "New Zealand", "role": "Cyclor (Power)", "number": 22, "formerTeams": ["Shosholoza", "NZ Rugby Sevens"]},
         {"firstName": "Clara", "lastName": "Vidal", "born": "10/11/1992", "nationality": "Spanish", "role": "Shore Manager", "number": 23, "formerTeams": ["None"]}
+    ], 
+
+    "Team": [
+        {"title": "Oracle Team USA", "country": "USA", "city": "San Francisco"},
+        {"title": "Team Korea", "country": "South Korea", "city": "Seoul"},
+        {"title": "Black Foils", "country": "New Zealand", "city": "Auckland"},
+        {"title": "Artemis Racing", "country": "Sweden", "city": "Gothenburg"},
+        {"title": "Luna Rossa Prada Pirelli", "country": "Italy", "city": "Cagliari"},
+        {"title": "Live Ocean Racing", "country": "New Zealand", "city": "Auckland"},
+        {"title": "Desafío Español", "country": "Spain", "city": "Valencia"},
+        {"title": "American Magic", "country": "USA", "city": "Newport"},
+        {"title": "Alinghi Red Bull Racing", "country": "Switzerland", "city": "Geneva"},
+        {"title": "Groupama Team France", "country": "France", "city": "Lorient"},
+        {"title": "SoftBank Team Japan", "country": "Japan", "city": "Tokyo"},
+        {"title": "SailGP Japan", "country": "Japan", "city": "Kasumigaura"},
+        {"title": "Mascalzone Latino", "country": "Italy", "city": "Naples"},
+        {"title": "INEOS Britannia", "country": "UK", "city": "Portsmouth"},
+        {"title": "Orient Express Racing Team", "country": "France", "city": "Saint-Tropez"},
+        {"title": "Stars & Stripes", "country": "USA", "city": "Long Beach"},
+        {"title": "Victory Challange", "country": "Sweden", "city": "Stockholm"},
+        {"title": "TP52 Circuit", "country": "International", "city": "undefined"},
+        {"title": "Team Tilt", "country": "Switzerland", "city": "Geneva"},
+        {"title": "NZL Sailing Team", "country": "New Zealand", "city": "Auckland"},
+        {"title": "+39 Challange", "country": "Italy", "city": "Palermo"},
+        {"title": "China Team", "country": "China", "city": "Qingdao"},
+        {"title": "SailGP NZ", "country": "New Zealand", "city": "Christchurch"},
+        {"title": "Team Brunel", "country": "Netherlands", "city": "Amsterdam"},
+        {"title": "Shosholoza", "country": "South Africa", "city": "Cape Town"}
     ]
 }
