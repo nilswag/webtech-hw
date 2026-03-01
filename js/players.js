@@ -82,6 +82,20 @@ class Player extends Person {
     set formerTeams(formerTeams) {
         this.#formerTeams = formerTeams;
     }
+
+    static fromJSON(o) {
+        if (!o) return null;
+        return new Player(
+            o.firstName,
+            o.lastName,
+            new Date(o.born),
+            o.nationality,
+            o.role,
+            o.number,
+            o.photo,
+            o.formerTeams
+        );
+    }
 };
 
 class Team {
@@ -116,8 +130,3 @@ class Team {
         this.#city = city;
     }
 };
-
-console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa");
-console.log((new Person("nee", "22", "tot", "morgen")));
-console.log(new Player("Stuurman", 10000, "photooo", "HOOG VERRAAD! HOE DURF JE!!!!!!!!!!"));
-// new Player()
