@@ -18,6 +18,7 @@ const buildCrewDOM = (parent, articleClass, data) => {
             case "ul":
                 for (const teamName of object.teams) {
                     const li = document.createElement("li");
+                    li.setAttribute("class", "players__teams-list-item")
                     const team = teams.find(t => t.title === teamName);
                     if (team)
                         li.innerText = `${team.title} from ${team.city} in ${team.country}`;
