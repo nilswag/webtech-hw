@@ -17,9 +17,15 @@ fileInput.addEventListener("change", (e) => {
 
     fileReader.onload = (e) => {
         const json = JSON.parse(e.target.result);
-        let players = [];
-        json.forEach(el => players.push(Player.from(el)));
+        if (!Array.isArray(json.players) || !Array.isArray(json.teams)) {
+            window.alert("The specified json file is in the wrong format.");
+            return;
+        }
+
+        let players = json.players.map(o => Player.fromJSON(o));
+        let teams = json.teams.map(o => Team.fromJSON(o));
         console.log(players);
+        console.log(teams);
     };
 
     fileReader.readAsText(file); 

@@ -15,6 +15,7 @@ class Person {
     get firstName() {
         return this.#firstName;
     }
+
     set firstName(firstName) {
         this.#firstName = firstName;
     }
@@ -22,6 +23,7 @@ class Person {
     get lastName() {
         return this.#lastName;
     }
+
     set lastName(lastName) {
         this.#lastName = lastName;
     }
@@ -29,6 +31,7 @@ class Person {
     get born() {
         return this.#born;
     }
+
     set born(born) {
         this.#born = born;
     }
@@ -36,6 +39,7 @@ class Person {
     get nationality() {
         return this.#nationality;
     }
+
     set nationality(nationality) {
         this.#nationality = nationality;
     }
@@ -58,6 +62,7 @@ class Player extends Person {
     get role() {
         return this.#role;
     }
+
     set role(role) {
         this.#role = role;
     }
@@ -65,6 +70,7 @@ class Player extends Person {
     get number() {
         return this.#number;
     }
+
     set number(number) {
         this.#number = number;
     }
@@ -72,6 +78,7 @@ class Player extends Person {
     get photo() {
         return this.#photo;
     }
+
     set photo(photo) {
         this.#photo = photo;
     }
@@ -79,6 +86,7 @@ class Player extends Person {
     get formerTeams() {
         return this.#formerTeams;
     }
+
     set formerTeams(formerTeams) {
         this.#formerTeams = formerTeams;
     }
@@ -112,6 +120,7 @@ class Team {
     get title() {
         return this.#title;
     }
+
     set title(title) {
         this.#title = title;
     }
@@ -119,6 +128,7 @@ class Team {
     get country() {
         return this.#country;
     }
+    
     set country(country) {
         this.#country = country;
     }
@@ -126,7 +136,17 @@ class Team {
     get city() {
         return this.#city;
     }
+
     set city(city){
         this.#city = city;
+    }
+
+    static fromJSON(o) {
+        if (!o) return null;
+        return new Team(
+            o.title,
+            o.country,
+            o.city
+        );  
     }
 };
