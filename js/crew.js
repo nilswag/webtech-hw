@@ -1,6 +1,70 @@
 
-const fileInput = document.getElementById("file-input");
+let players = [];
+let teams = [];
 
+const buildCrewDOM = (parent, articleClass, data) => {
+    const article = document.createElement("article");
+    article.setAttribute("class", articleClass);
+
+    for (let object of data) {
+        const el = document.createElement(object.el);
+        el.setAttribute("class", object.class);
+
+        switch (object.el) {
+            case "img":
+                el.setAttribute("src", object.src);
+                el.setAttribute("alt", object.alt);
+                break;
+            case "ul":
+                for (const teamName of object.teams) {
+                    const li = document.createElement("li");
+                    li.setAttribute("class", "players__teams-list-item")
+                    const team = teams.find(t => t.title === teamName);
+                    if (team)
+                        li.innerText = `${team.title} from ${team.city} in ${team.country}`;
+                    else
+                        li.innerText = teamName;
+                    el.appendChild(li);
+                }
+                break;
+            default:
+                el.innerText = object.content;
+                break;
+        }
+
+        article.appendChild(el);
+    }
+
+    parent.appendChild(article);
+};
+
+const fileReader = new FileReader();
+fileReader.onload = (e) => {
+    const json = JSON.parse(e.target.result);
+    if (!Array.isArray(json.players) || !Array.isArray(json.teams)) {
+        window.alert("The specified json file is in the wrong format.");
+        return;
+    }
+
+    players = json.players.map(o => Player.fromJSON(o));
+    teams = json.teams.map(o => Team.fromJSON(o));
+
+    // TODO: maybe other name idk
+    const playerSection = document.querySelector(".players__section");
+    players.forEach(p => buildCrewDOM(playerSection, "player", [
+        { el: "h2", class: "player__full-name", content: `${p.firstName} ${p.lastName}` },
+        { el: "p", class: "player__born", content: `Born: ${p.born.toDateString()}` },
+        { el: "p", class: "player__nationality", content: `Nationality: ${p.nationality}` },
+        { el: "p", class: "player__role", content: `Role: ${p.role}` },
+        { el: "p", class: "player__number", content: `Number: ${p.number}` },
+        { el: "img", class: "player__photo", src: `../media/images/portraits/${p.firstName.toLowerCase()}_${p.lastName.toLowerCase()}.png`, alt: `Portrait of the player ${p.firstName} ${p.lastName}`},
+        { el: "p", class: "player__former-teams-label", content: "Former teams: " },
+        { el: "ul", class: "player__teams-list", teams: p.formerTeams }
+    ]));
+};
+
+
+const fileInput = document.getElementById("file-input");
 fileInput.addEventListener("change", (e) => {
     const file = e.target.files[0];
     if (!file) {
@@ -12,15 +76,6 @@ fileInput.addEventListener("change", (e) => {
         window.alert("Please only upload JSON files.");
         return;
     }
-
-    const fileReader = new FileReader();
-
-    fileReader.onload = (e) => {
-        const json = JSON.parse(e.target.result);
-        let players = [];
-        json.forEach(el => players.push(Player.from(el)));
-        console.log(players);
-    };
 
     fileReader.readAsText(file); 
 });
