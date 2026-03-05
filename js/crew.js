@@ -9,6 +9,7 @@ const buildCrewDOM = (parent, articleClass, data) => {
     for (let object of data) {
         const el = document.createElement(object.el);
         el.setAttribute("class", object.class);
+        el.setAttribute("title", object.title);
 
         switch (object.el) {
             case "img":
@@ -52,14 +53,13 @@ fileReader.onload = (e) => {
     // TODO: maybe other name idk
     const playerSection = document.querySelector(".players__section");
     players.forEach(p => buildCrewDOM(playerSection, "player", [
-        { el: "h2", class: "player__full-name", content: `${p.firstName} ${p.lastName}` },
-        { el: "p", class: "player__born", content: `Born: ${p.born.toDateString()}` },
-        { el: "p", class: "player__nationality", content: `Nationality: ${p.nationality}` },
-        { el: "p", class: "player__role", content: `Role: ${p.role}` },
-        { el: "p", class: "player__number", content: `Number: ${p.number}` },
-        { el: "img", class: "player__photo", src: `../media/images/portraits/${p.firstName.toLowerCase()}_${p.lastName.toLowerCase()}.png`, alt: `Portrait of the player ${p.firstName} ${p.lastName}`},
-        { el: "p", class: "player__former-teams-label", content: "Former teams: " },
-        { el: "ul", class: "player__teams-list", teams: p.formerTeams }
+        { el: "h2", class: "player__full-name", content: `${p.firstName} ${p.lastName}`, title: "Full name" },
+        { el: "p", class: "player__born", content: `${p.born.toDateString()}`, title: "Birthdate" },
+        { el: "p", class: "player__nationality", content: `${p.nationality}`, title: "Nationality" },
+        { el: "p", class: "player__role", content: `${p.role}`, title: "Role" },
+        { el: "p", class: "player__number", content: `${p.number}`, title: "Number" },
+        { el: "img", class: "player__photo", src: `../media/images/portraits/${p.firstName.toLowerCase()}_${p.lastName.toLowerCase()}.png`, alt: `Portrait of the player ${p.firstName} ${p.lastName}`, title: "Portrait" },
+        { el: "ul", class: "player__teams-list", teams: p.formerTeams, title: "Former teams" }
     ]));
 };
 
