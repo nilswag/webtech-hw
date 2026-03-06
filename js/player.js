@@ -97,7 +97,7 @@ class Player extends Person {
         this.#formerTeams = formerTeams;
     }
 
-    static fromJSON(o) {
+    static fromJSON(o, teams) {
         if (!o) return null;
         return new Player(
             o.firstName,
@@ -107,7 +107,11 @@ class Player extends Person {
             o.role,
             o.number,
             o.photo,
-            o.formerTeams
+            o.formerTeams.map(str => {
+                const match = teams.find(t => t.title.startsWith(str));
+                if (match) return match;
+                return new Team(str, "N/A", "N/A")
+            })
         );
     }
 
@@ -155,7 +159,8 @@ class Player extends Person {
         p.formerTeams.forEach(team => {
             const item = document.createElement("li");
             item.classList.add("player__teams-list--item");
-            item.innerText = team;
+            if (team) item.innerText = team.title;
+            else item.innerText = "None";
             teamsList.appendChild(item);
             Team.toHTML(team, item);
         });

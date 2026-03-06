@@ -10,8 +10,8 @@ fileReader.addEventListener("load", (e) => {
         return;
     }
 
-    players = json.players.map(o => Player.fromJSON(o));
-    teams = json.teams.map(o => Team.fromJSON(o));
+    teams = json.teams.map(o => Team.fromJSON(o));    
+    players = json.players.map(o => Player.fromJSON(o, teams));
 
     const playerSection = document.querySelector(".players__section");
     players.forEach(p => Player.toHTML(p, playerSection));
