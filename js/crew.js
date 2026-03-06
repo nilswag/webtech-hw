@@ -2,6 +2,7 @@
 let players = [];
 let teams = [];
 const playersSection = document.querySelector(".players__section");
+const html = document.querySelector("html");
 
 const optionsBlacklist = [
     "meta",
@@ -36,11 +37,13 @@ applyButton.addEventListener("click", (e) => {
     }
     const fontSize = document.querySelector(".crew-menus__font-size");
     const fontColor = document.querySelector(".crew-menus__font-color");
+    const backgroundColor = document.querySelector(".crew-menus__background-color");    
 
     const tags = document.querySelectorAll(selectOptions.value);
     tags.forEach(tag => {
         if (fontSize) tag.style.setProperty("font-size", `${fontSize.value}px`, "important");
         if (fontColor) tag.style.setProperty("color", fontColor.value, "important");
+        if (backgroundColor) tag.style.setProperty("background-color", backgroundColor.value, "important");
     });
 });
 
@@ -57,7 +60,6 @@ fileReader.addEventListener("load", (e) => {
     players.forEach(p => Player.toHTML(p, playersSection));
     
     const seen = new Set();
-    const html = document.querySelector("html");
     updateSelectOptions(seen, html);
 });
 
@@ -76,3 +78,5 @@ fileInput.addEventListener("change", (e) => {
 
     fileReader.readAsText(file); 
 });
+
+updateSelectOptions(new Set(), html);
