@@ -141,6 +141,7 @@ class Player extends Person {
         photo.classList.add("player__photo");
         photo.src = `../media/images/portraits/${p.firstName.toLowerCase()}_${p.lastName.toLowerCase()}.png`;
         photo.alt = `Portrait of the player ${p.firstName} ${p.lastName}`;
+        photo.title = `Portrait of the player ${p.firstName} ${p.lastName}`;
         article.appendChild(photo);
 
         const teamsList = document.createElement("ul");
