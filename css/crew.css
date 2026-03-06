@@ -98,3 +98,9 @@
     width: 75px;
     align-self: center;
 }
+
+@media (min-width: 900px) {
+    .player {
+        width: 24%;
+    }
+}

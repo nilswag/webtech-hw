@@ -12,6 +12,7 @@
 html {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 62.5%;
+    color: var(--primary-text-color);
 
     scrollbar-width: thin;
     scrollbar-color: var(--secundary-theme-color) var(--primary-theme-color);
@@ -52,9 +53,9 @@ header {
     position: fixed;
     display: flex;
     align-items: center;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     background-color: var(--primary-theme-color);
-    color: var(--secundary-text-color);
+    color: var(--secundary-theme-color);
     z-index: 1000;
 }
 
@@ -112,7 +113,7 @@ footer {
     justify-content: space-between;
     flex: 0;
     background-color: var(--tertiary-theme-color);
-    color: var(--secundary-text-color);
+    color: var(--secundary-theme-color);
     font-size: 1.2rem;
 }
 
