@@ -7,7 +7,8 @@ const optionsBlacklist = [
     "meta",
     "head",
     "script",
-    "title"
+    "title",
+    "link"
 ];
 
 const selectOptions = document.querySelector(".crew-menus__select");
