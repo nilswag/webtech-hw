@@ -129,6 +129,63 @@ footer a:hover {
     text-decoration: underline;
 }
 
+.color-mode-screen--hide{
+    display: none;
+}
+
+.color-mode-screen--show{
+    display: block;
+    position: fixed;
+    box-sizing: border-box;
+    right: 0%;
+    top: 10%;
+    width: 100%;
+    height: fit-content;
+    background-color: var(--primary-theme-color);
+    padding: 10px;
+    border-radius: 0 0 10px 10px;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    /* flex-wrap: wrap; */
+    align-content: center;
+    gap: 10px;
+}
+
+form div{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+form input{
+    width: 20px;
+    flex: 1;
+    background-color: var(--secundary-theme-color);
+    color: var(--primary-text-color);
+}
+
+label{
+    margin: auto 0;
+    text-align: center;
+    flex: 2;
+}
+
+#cancel{
+    flex: 1;
+}
+
+#color-mode{
+    margin: 2.5% 0 5%;
+    width: 30%;
+    height: 10%;
+    text-align: center;
+    font-size: 2rem;
+    background-color: var(--secundary-theme-color);
+    color: var(--primary-text-color);
+}
+
 @media only screen and (max-width: 900px) {
     .menu__toggle {
         height: 8rem;
@@ -177,7 +234,7 @@ footer a:hover {
     }
 
     .menu__toggle:has(#navigation__toggle__button:checked) ~ .header__navigation {
-        display: block;
+        display: flex;
     }
 
     header:has(.menu__toggle #navigation__toggle__button:checked) {
@@ -195,13 +252,27 @@ footer a:hover {
     }
     
     .header__navigation {
-        width: 50%;
+        width: 75%;
         margin-left: 2rem;
         flex-direction: row;
+        /* gap: 1rem; */
     }
 
     .header__navigation a {
         border-radius: 1rem;
+    }
+
+    .color-mode-screen--show{
+        width: 30%;
+        right: 0;
+        top: var(--header-height);
+    }
+
+    #color-mode{
+        width: 10vw;
+        justify-self: center;
+        align-self: center;
+        margin: auto 5%;
     }
 
     footer {
