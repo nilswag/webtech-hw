@@ -3,12 +3,19 @@ let players = [];
 let teams = [];
 const playersSection = document.querySelector(".players__section");
 
+const optionsBlacklist = [
+    "meta",
+    "head",
+    "script",
+    "title"
+];
+
 const selectOptions = document.querySelector(".crew-menus__select");
 const updateSelectOptions = (seen, parent) => {
     for (let node of parent.childNodes) {
         if (node.nodeType !== Node.ELEMENT_NODE) continue;
         const name = node.tagName.toLowerCase();
-        if (seen.has(name)) continue;
+        if (seen.has(name) || optionsBlacklist.includes(name)) continue;
         seen.add(name);
         if (node.childNodes.length != 0) updateSelectOptions(seen, node);
     
@@ -31,8 +38,8 @@ applyButton.addEventListener("click", (e) => {
 
     const tags = document.querySelectorAll(selectOptions.value);
     tags.forEach(tag => {
-        if (fontSize) tag.style.fontSize = `${fontSize.value}px`;
-        if (fontColor) tag.style.color = fontColor.value;
+        if (fontSize) tag.style.setProperty("font-size", `${fontSize.value}px`, "important");
+        if (fontColor) tag.style.setProperty("color", fontColor.value, "important");
     });
 });
 
@@ -49,8 +56,8 @@ fileReader.addEventListener("load", (e) => {
     players.forEach(p => Player.toHTML(p, playersSection));
     
     const seen = new Set();
-    const body = document.querySelector("body")
-    updateSelectOptions(seen, body);
+    const html = document.querySelector("html");
+    updateSelectOptions(seen, html);
 });
 
 const fileInput = document.getElementById("file-input");
