@@ -1,4 +1,5 @@
-const colorThemeButton = document.getElementById('colorMode');
+const colorThemeButton = document.getElementById('color-mode');
+const colorModeForm = document.getElementById('color-mode-form');
 
 var styleSheet;
 
@@ -14,6 +15,21 @@ window.addEventListener("load", load);
 
 colorThemeButton.addEventListener("input", colorModeSwitch);
 
+colorModeForm.addEventListener("submit", function(e) {
+    e.preventDefault();
+    const formData = new FormData(colorModeForm);
+
+    addThemeColors(formData.get("theme name"), formData.get("background color"), formData.get("primary text color"), formData.get("secundary text color"), formData.get("primary theme color"), formData.get("secundary theme color"), formData.get("tertiary theme color"));
+
+    document.getElementById("color-mode-screen").classList.remove("color-mode-screen--show");
+});
+
+document.getElementById("cancel").addEventListener("click", function() {
+    document.getElementById("color-mode-screen").classList.remove("color-mode-screen--show");
+
+    load();
+});
+
 
 // window.matchMedia("(prefers-color-sceme:light)").addEventListener("change", function(e) {console.log(e.matches? "light" : "dark");});
 
@@ -23,30 +39,23 @@ colorThemeButton.addEventListener("input", colorModeSwitch);
     //     }
     // }
 
-class ThemeColors{
-    #backgroundColor;
-    #primaryTextColor;
-    #secundaryTextColor;
-    #primaryThemeColor;
-    #secundaryThemeColor;
-    #tertiaryThemeColor;
-
-    constructor(){
-
-    }
-
+function load() {
+    let sessionColorCookie = sessionStorage.getItem("color-mode");
+    let localColorCookie = localStorage.getItem("color-mode");
+    colorThemeButton.value = sessionColorCookie === null ? localColorCookie === null ? "light-mode" : localColorCookie : sessionColorCookie;
+    colorModeSwitch();
 }
 
 function addThemeColors(name, backgroundColor, primaryTextColor, secundaryTextColor, primaryThemeColor, secundaryThemeColor, tertiaryThemeColor) {
 
     let child = document.createElement("option");
     let text = document.createTextNode(name);
-    child.value = name;
+    child.value = name.replaceAll(" ", "-");
     child.appendChild(text);
-    let option = document.getElementById("colorMode");
-    option.insertBefore(child, option.lastElementChild);
+    colorThemeButton.insertBefore(child, colorThemeButton.lastElementChild);
+    colorThemeButton.value = child.value;
 
-    let string = "." + name + " {";
+    let string = "." + child.value + " {";
     string += "--background-color: " + backgroundColor + ";";
     string += "--primary-text-color: " + primaryTextColor + ";";
     string += "--secundary-text-color: " + secundaryTextColor + ";";
@@ -56,23 +65,17 @@ function addThemeColors(name, backgroundColor, primaryTextColor, secundaryTextCo
     string += "}";
     // alert(string);
     styleSheet.insertRule(string, 2);
-}
 
-addThemeColors("teest", "#00ff00", "#FFFFFF", "#0055AA", "#105500", "#102099", "#101010");
-
-function load() {
-    let sessionColorCookie = sessionStorage.getItem("colorMode");
-    let localColorCookie = localStorage.getItem("colorMode");
-    colorThemeButton.value = sessionColorCookie !== null ? sessionColorCookie : localColorCookie !== null ? localColorCookie : "light-mode";
     colorModeSwitch();
 }
 
 function colorModeSwitch(){
-    // if(colorThemeButton.value === "custom") {
-        
-    // }
-    let classes = document.getElementsByTagName("html")[0].classList;
-    localStorage.setItem("colorMode", colorThemeButton.value);
-    sessionStorage.setItem("colorMode", colorThemeButton.value);
-    classes.replace(classes.item(0), colorThemeButton.value);
+    if(colorThemeButton.value === "custom") {
+        document.getElementById("color-mode-screen").classList.add("color-mode-screen--show");
+    } else {
+        let classes = document.getElementsByTagName("html")[0].classList;
+        localStorage.setItem("colorMode", colorThemeButton.value);
+        sessionStorage.setItem("colorMode", colorThemeButton.value);
+        classes.replace(classes.item(0), colorThemeButton.value);
+    }
 }
