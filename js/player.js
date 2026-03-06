@@ -110,6 +110,52 @@ class Player extends Person {
             o.formerTeams
         );
     }
+
+    static toHTML(p, parent) {
+        if (!p || !parent) return;
+
+        const article = document.createElement("article");
+        article.classList.add("player");
+
+        const fullName = document.createElement("h2");
+        fullName.classList.add("player__full-name");
+        fullName.innerText = `${p.firstName} ${p.lastName}`;
+        fullName.title = "Full name";
+        article.appendChild(fullName);
+
+        const data = [
+            [ "player__born", `${p.born.toDateString()}`, "Player birthdate" ],
+            [ "player__nationality", `${p.nationality}`, "Player nationality" ],
+            [ "player__role", `${p.role}`, "Player role" ],
+            [ "player__number", `${p.number}`, "Player number" ],
+        ];
+        data.forEach(arr => {
+            const element = document.createElement("p");
+            element.classList.add(arr[0]);
+            element.innerText = arr[1],
+            element.title = arr[2];
+            article.appendChild(element);
+        });
+
+        const photo = document.createElement("img");
+        photo.classList.add("player__photo");
+        photo.src = `../media/images/portraits/${p.firstName.toLowerCase()}_${p.lastName.toLowerCase()}.png`;
+        photo.alt = `Portrait of the player ${p.firstName} ${p.lastName}`;
+        article.appendChild(photo);
+
+        const teamsList = document.createElement("ul");
+        teamsList.classList.add("player__teams-list");
+        p.formerTeams.forEach(team => {
+            const item = document.createElement("li");
+            item.classList.add("player__teams-list--item");
+            item.innerText = team;
+            teamsList.appendChild(item);
+        });
+        article.appendChild(teamsList);
+
+        parent.appendChild(article);
+    }
+
 };
 
 class Team {
