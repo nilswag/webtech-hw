@@ -69,8 +69,8 @@ fileReader.addEventListener("load", (e) => {
         return;
     }
 
-    players = json.players.map(Player.fromJSON);
     teams = json.teams.map(Team.fromJSON);
+    players = json.players.map(p => Player.fromJSON(p, teams));
     players.forEach(p => Player.toHTML(p, playersSection));
     
     const seen = new Set();
