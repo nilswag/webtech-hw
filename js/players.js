@@ -6,10 +6,10 @@ class Person {
     #nationality;
 
     constructor(fistName, lastName, born, nationality) {
-        this.firstName = fistName;
-        this.lastName = lastName;
-        this.born = born;
-        this.nationality = nationality;
+        this.#firstName = fistName;
+        this.#lastName = lastName;
+        this.#born = born;
+        this.#nationality = nationality;
     }
 
     get firstName() {
@@ -33,6 +33,7 @@ class Person {
     }
 
     set born(born) {
+        if (typeof born !== "date") return;
         this.#born = born;
     }
 
@@ -41,6 +42,7 @@ class Person {
     }
 
     set nationality(nationality) {
+        if (typeof nationality !== "string") return;
         this.#nationality = nationality;
     }
 };
@@ -53,10 +55,10 @@ class Player extends Person {
 
     constructor(firstName, lastName, born, nationality, role, number, photo, formerTeams){
         super(firstName, lastName, born,  nationality);
-        this.role = role;
-        this.number = number;
-        this.photo = photo;
-        this.formerTeams = formerTeams;
+        this.#role = role;
+        this.#number = number;
+        this.#photo = photo;
+        this.#formerTeams = formerTeams;
     }
 
     get role() {
@@ -64,6 +66,7 @@ class Player extends Person {
     }
 
     set role(role) {
+        if (typeof role !== "string") return;
         this.#role = role;
     }
 
@@ -72,6 +75,7 @@ class Player extends Person {
     }
 
     set number(number) {
+        if (typeof number !== "number") return;
         this.#number = number;
     }
 
@@ -80,6 +84,7 @@ class Player extends Person {
     }
 
     set photo(photo) {
+        if (typeof photo !== "string") return; 
         this.#photo = photo;
     }
 
@@ -88,6 +93,7 @@ class Player extends Person {
     }
 
     set formerTeams(formerTeams) {
+        if (typeof formerTeams !== "array") return;
         this.#formerTeams = formerTeams;
     }
 
@@ -112,9 +118,9 @@ class Team {
     #city;
 
     constructor(title, country, city) {
-        this.title = title;
-        this.country = country;
-        this.city = city;
+        this.#title = title;
+        this.#country = country;
+        this.#city = city;
     }
 
     get title() {
@@ -122,6 +128,7 @@ class Team {
     }
 
     set title(title) {
+        if (typeof title !== "string") return;
         this.#title = title;
     }
 
@@ -130,6 +137,7 @@ class Team {
     }
     
     set country(country) {
+        if (typeof country !== "string") return;
         this.#country = country;
     }
 
@@ -138,6 +146,7 @@ class Team {
     }
 
     set city(city){
+        if (typeof city !== "string") return;
         this.#city = city;
     }
 
