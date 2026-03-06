@@ -7,7 +7,7 @@
         <meta name="description" content="A fan page of the America's Cup team the Emirates Team New Zealand.">
         <link rel="shortcut icon" href="media/images/icons/site-logo-fav.png" type="image/x-icon">
         <link rel="stylesheet" href="css/reset.css">
-        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/style.css" title="main-css">
         <link rel="stylesheet" href="css/index.css">
     </head>
     <body>
@@ -41,6 +41,47 @@
                 <a href="html/americas_cup.html">
                     America's Cup
                 </a>
+                <select name="colorMode" id="color-mode">
+                    <option value="light-mode">Light</option>
+                    <option value="dark-mode">Dark</option>
+                    <option value="custom">custom</option>
+                </select>
+                <div id="color-mode-screen" class="color-mode-screen--hide">
+                <form action="" method="post" id="color-mode-form">
+                    <div>
+                        <label for="theme-name"><p>Theme name: </p></label>
+                        <input type="text" name="theme name" id="theme-name" required>
+                    </div>
+                    <div>
+                        <label for="background-color"><p>Background color: </p></label>
+                        <input type="color" name="background color" id="background-color" value="#e0e0e0">
+                    </div>
+                    <div>
+                        <label for="primary-text-color"><p>Primary text color: </p></label>
+                        <input type="color" name="primary text color" id="primary-text-color" value="#1f1f1f">
+                    </div>
+                    <div>
+                        <label for="secundary-text-color"><p>Secundary text color: </p></label>
+                        <input type="color" name="secundary text color" id="secundary-text-color" value="#00b2a9">
+                    </div>
+                    <div>
+                        <label for="primary-theme-color"><p>Primary theme color: </p></label>
+                        <input type="color" name="primary theme color" id="primary-theme-color" value="#002b28">
+                    </div>
+                    <div>
+                        <label for="secundary-theme-color"><p>Secundary theme color: </p></label>
+                        <input type="color" name="secundary theme color" id="secundary-theme-color" value="#00b2a9">
+                    </div>
+                    <div>
+                        <label for="tertiary-theme-color"><p>tertiary theme color: </p></label>
+                        <input type="color" name="tertiary theme color" id="tertiary-theme-color" value="#002420">
+                    </div>
+                    <div>
+                        <button type="button" id="cancel">Cancel</button>
+                        <input type="submit" value="submit">
+                    </div>
+                </form>
+                </div>
             </nav>
         </header>
         <main>
@@ -147,5 +188,7 @@
                 </ul>
             </div>
         </footer>
+
+        <script src="js/themeColors.js"></script>
     </body>
 </html>

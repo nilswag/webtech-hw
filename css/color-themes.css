@@ -6,3 +6,12 @@
     --secundary-theme-color: #00b2a9;
     --tertiary-theme-color: #002420;
 }
+
+.dark-mode {
+    --background-color: #1f1f1f;
+    --primary-text-color: #e0e0e0;
+    --secundary-text-color: #00b2a9;
+    --primary-theme-color: #002b28; /* sport club color */
+    --secundary-theme-color: #00b2a9;
+    --tertiary-theme-color: #002420;
+}

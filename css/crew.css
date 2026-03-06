@@ -76,8 +76,25 @@
     font-size: 1.4rem;
 }
 
-@media (min-width: 900px) {
-    .player {
-        width: 24%;
-    }
+.crew-menus {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.6rem;
+}
+
+.crew-menus__input-container {
+    margin: 10px auto;
+}
+
+.crew-menus__select {
+    width: 100px;
+}
+
+.crew-menus__font-size {
+    width: 50px;
+}
+
+.crew-menus__apply {
+    width: 75px;
+    align-self: center;
 }
