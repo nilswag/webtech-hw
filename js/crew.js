@@ -6,13 +6,15 @@ const playersSection = document.querySelector(".players__section");
 const selectOptions = document.querySelector(".crew-menus__select");
 const updateSelectOptions = (seen, parent) => {
     for (let node of parent.childNodes) {
-        if (node.nodeType !== Node.ELEMENT_NODE || seen.has(node.tagName)) continue;
-        seen.add(node.tagName);
+        if (node.nodeType !== Node.ELEMENT_NODE) continue;
+        const name = node.tagName.toLowerCase();
+        if (seen.has(name)) continue;
+        seen.add(name);
         if (node.childNodes.length != 0) updateSelectOptions(seen, node);
     
         let option = document.createElement("option");
-        option.value = node.tagName;
-        option.innerText = node.tagName;
+        option.value = name;
+        option.innerText = name;
     
         selectOptions.appendChild(option);
     }
@@ -29,9 +31,10 @@ fileReader.addEventListener("load", (e) => {
     players = json.players.map(Player.fromJSON);
     teams = json.teams.map(Team.fromJSON);
     players.forEach(p => Player.toHTML(p, playersSection));
-
+    
     const seen = new Set();
-    updateSelectOptions(seen, playersSection);
+    const body = document.querySelector("body")
+    updateSelectOptions(seen, body);
 });
 
 const fileInput = document.getElementById("file-input");
