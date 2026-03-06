@@ -16,7 +16,7 @@
         {"firstName": "Anya", "lastName": "Petrova", "born": "1997-01-21", "nationality": "Estonian", "role": "Aerodynamicist", "number": 14, "formerTeams": ["Alinghi Red Bull Racing"]},
         {"firstName": "Leo", "lastName": "Costa", "born": "1990-06-30", "nationality": "Portuguese", "role": "Sailmaker", "number": 15, "formerTeams": ["American Magic", "TP52 Circuit"]},
         {"firstName": "Jack", "lastName": "Reid", "born": "1989-02-14", "nationality": "American", "role": "Tactician", "number": 16, "formerTeams": ["None"]},
-        {"firstName": "Sofia", "lastName": "Müller", "born": "1996-08-08", "nationality": "Swiss", "role": "Systems Engineer", "number": 17, "formerTeams": ["Alinghi", "Team Tilt"]},
+        {"firstName": "Sofia", "lastName": "Muller", "born": "1996-08-08", "nationality": "Swiss", "role": "Systems Engineer", "number": 17, "formerTeams": ["Alinghi", "Team Tilt"]},
         {"firstName": "Tom", "lastName": "Baker", "born": "1991-12-11", "nationality": "British", "role": "Mechatronics", "number": 18, "formerTeams": ["INEOS Britannia", "McLaren Applied", "NZL Sailing Team"]},
         {"firstName": "Luca", "lastName": "Bianchi", "born": "1986-05-02", "nationality": "Italian", "role": "Hydraulic Lead", "number": 19, "formerTeams": ["Luna Rossa", "+39 Challenge"]},
         {"firstName": "Zoe", "lastName": "Fisher", "born": "1999-07-27", "nationality": "New Zealand", "role": "Reserve Helm", "number": 20, "formerTeams": ["China Team", "SailGP NZ"]},
