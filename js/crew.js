@@ -3,7 +3,7 @@ let players = [];
 let teams = [];
 
 const fileReader = new FileReader();
-fileReader.onload = (e) => {
+fileReader.addEventListener("load", (e) => {
     const json = JSON.parse(e.target.result);
     if (!Array.isArray(json.players) || !Array.isArray(json.teams)) {
         window.alert("The specified json file is in the wrong format.");
@@ -15,7 +15,7 @@ fileReader.onload = (e) => {
 
     const playerSection = document.querySelector(".players__section");
     players.forEach(p => Player.toHTML(p, playerSection));
-}
+});
 
 const fileInput = document.getElementById("file-input");
 fileInput.addEventListener("change", (e) => {
