@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html class="light-mode" lang="en">
+<html class="light-mode b" lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +8,7 @@
         <meta name="description" content="A fan page of the America's Cup team the Emirates Team New Zealand.">
         <link rel="shortcut icon" href="../media/images/icons/site-logo-fav.png" type="image/x-icon">
         <link rel="stylesheet" href="../css/reset.css">
-        <link rel="stylesheet" href="../css/style.css">
+        <link rel="stylesheet" href="../css/style.css" title="main-css">
         <link rel="stylesheet" href="../css/history.css">
     </head>
     <body>
@@ -41,6 +41,11 @@
                     America's Cup
                 </a>
             </nav>
+            <select name="colorMode" id="colorMode">
+                <option value="light-mode">Light</option>
+                <option value="dark-mode">Dark</option>
+                <option value="custom">cusom</option>
+            </select>
         </header>
         <main>
             <article class="timeline">
@@ -404,5 +409,7 @@
                 </ul>
             </div>
         </footer>
+        
+        <script src="../js/themeColors.js"></script>
     </body>
 </html>
