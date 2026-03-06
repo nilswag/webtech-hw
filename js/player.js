@@ -123,34 +123,43 @@ class Player extends Person {
         fullName.title = "Full name";
         article.appendChild(fullName);
 
-        const data = [
-            [ "player__born", `${p.born.toDateString()}`, "Player birthdate" ],
-            [ "player__nationality", `${p.nationality}`, "Player nationality" ],
-            [ "player__role", `${p.role}`, "Player role" ],
-            [ "player__number", `${p.number}`, "Player number" ],
-        ];
-        data.forEach(arr => {
-            const element = document.createElement("p");
-            element.classList.add(arr[0]);
-            element.innerText = arr[1],
-            element.title = arr[2];
-            article.appendChild(element);
-        });
-
         const photo = document.createElement("img");
         photo.classList.add("player__photo");
         photo.src = `../media/images/portraits/${p.firstName.toLowerCase()}_${p.lastName.toLowerCase()}.png`;
         photo.alt = `Portrait of the player ${p.firstName} ${p.lastName}`;
         article.appendChild(photo);
 
+        const data = [
+            [ "player__born", `${p.born.toDateString()}`, "Player birthdate", "BORN" ],
+            [ "player__nationality", `${p.nationality}`, "Player nationality", "NATIONALITY" ],
+            [ "player__role", `${p.role}`, "Player role", "ROLE" ],
+            [ "player__number", `#${p.number}`, "Player number", "NUMBER" ],
+        ];
+        data.forEach(arr => {
+            const heading = document.createElement("h3");
+            const element = document.createElement("p");
+            heading.classList.add("player__element--heading");
+            heading.innerText = arr[3];
+            element.classList.add(arr[0]);
+            element.innerText = arr[1],
+            element.title = arr[2];
+            article.appendChild(heading);
+            article.appendChild(element);
+        });
+
+        const teamListHeading = document.createElement("h3");
         const teamsList = document.createElement("ul");
+        teamListHeading.classList.add("player__element--heading");
+        teamListHeading.innerText = "FORMER TEAMS";
         teamsList.classList.add("player__teams-list");
         p.formerTeams.forEach(team => {
             const item = document.createElement("li");
             item.classList.add("player__teams-list--item");
             item.innerText = team;
             teamsList.appendChild(item);
+            Team.toHTML(team, item);
         });
+        article.appendChild(teamListHeading);
         article.appendChild(teamsList);
 
         parent.appendChild(article);
@@ -203,5 +212,13 @@ class Team {
             o.country,
             o.city
         );  
+    }
+
+    static toHTML(team, parent) {
+        const article = document.createElement("article");
+        article.classList.add("team");
+
+        parent.appendChild(article);
+
     }
 };
