@@ -1,4 +1,4 @@
-
+const main = document.getElementsByTagName("main")[0];
 let players = [];
 let teams = [];
 const playersSection = document.querySelector(".players__section");
@@ -46,6 +46,20 @@ applyButton.addEventListener("click", (e) => {
         if (backgroundColor) tag.style.setProperty("background-color", backgroundColor.value, "important");
     });
 });
+
+const heading = document.createElement("h1");
+heading.innerText = "Crew";
+main.appendChild(heading);
+
+const fileReaderInput = document.createElement("input");
+fileReaderInput.type = "file";
+fileReaderInput.id = "file-input";
+main.appendChild(fileReaderInput);
+
+const playerSection = document.createElement("section");
+playerSection.classList.add("players__section");
+main.appendChild(playerSection);
+
 
 const fileReader = new FileReader();
 fileReader.addEventListener("load", (e) => {
