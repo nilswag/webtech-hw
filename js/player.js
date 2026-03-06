@@ -151,21 +151,23 @@ class Player extends Person {
             article.appendChild(element);
         });
 
-        const teamListHeading = document.createElement("h3");
-        const teamsList = document.createElement("ul");
-        teamListHeading.classList.add("player__element--heading");
-        teamListHeading.innerText = "FORMER TEAMS";
-        teamsList.classList.add("player__teams-list");
-        p.formerTeams.forEach(team => {
-            const item = document.createElement("li");
-            item.classList.add("player__teams-list--item");
-            if (team) item.innerText = team.title;
-            else item.innerText = "None";
-            teamsList.appendChild(item);
-            Team.toHTML(team, item);
-        });
-        article.appendChild(teamListHeading);
-        article.appendChild(teamsList);
+        if (p.formerTeams[0].title !== "None") {
+            const teamListHeading = document.createElement("h3");
+            const teamsList = document.createElement("ul");
+            teamListHeading.classList.add("player__element--heading");
+            teamListHeading.innerText = "FORMER TEAMS";
+            teamsList.classList.add("player__teams-list");
+            p.formerTeams.forEach(team => {
+                const item = document.createElement("li");
+                item.classList.add("player__teams-list--item");
+                if (team) item.innerText = team.title;
+                else item.innerText = "None";
+                teamsList.appendChild(item);
+                Team.toHTML(team, item);
+            });
+            article.appendChild(teamListHeading);
+            article.appendChild(teamsList);
+        };
 
         parent.appendChild(article);
     }
@@ -222,6 +224,17 @@ class Team {
     static toHTML(team, parent) {
         const article = document.createElement("article");
         article.classList.add("team");
+
+        const heading = document.createElement("h2");
+        heading.classList.add("team__heading");
+        heading.innerText = team.title;
+
+        const paragraph = document.createElement("p");
+        paragraph.classList.add("team__paragraph");
+        paragraph.innerText = `${team.title} is a team from ${team.country} that's located in the city ${team.city}.`;
+
+        article.appendChild(heading);
+        article.appendChild(paragraph);
 
         parent.appendChild(article);
 

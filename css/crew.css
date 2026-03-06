@@ -21,7 +21,7 @@
         font-size: 1.4rem;
     }
 
-    p {
+    > p {
         text-align: center;
         padding-bottom: .5rem;
         border-bottom: 1px solid var(--secundary-theme-color);
@@ -45,13 +45,35 @@
     border-radius: 5px;
 }
 
+.player__teams-list--item {
+    margin-left: 1.5rem;
+    list-style-position: outside;
+}
+
 .team {
     width: 100%;
     height: fit-content;
+    padding: .5rem;
+    border: 1px solid var(--secundary-theme-color);
+    border-radius: 0 0 5px 5px;
+    box-sizing: border-box;
+    display: none;
     position: absolute;
     top: 100%;
-    background-color: blue;
+    background-color: var(--primary-theme-color);
     z-index: 500;
+}
+
+.player__teams-list--item:hover > .team {
+    display: block;
+}
+
+.team__heading {
+    font-size: 1.8rem;
+}
+
+.team__paragraph {
+    font-size: 1.4rem;
 }
 
 @media (min-width: 900px) {
