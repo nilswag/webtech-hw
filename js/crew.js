@@ -20,6 +20,22 @@ const updateSelectOptions = (seen, parent) => {
     }
 };
 
+const applyButton = document.querySelector(".crew-menus__apply");
+applyButton.addEventListener("click", (e) => {    
+    if (!selectOptions.value) {
+        window.alert("Please select an element.");
+        return;
+    }
+    const fontSize = document.querySelector(".crew-menus__font-size");
+    const fontColor = document.querySelector(".crew-menus__font-color");
+
+    const tags = document.querySelectorAll(selectOptions.value);
+    tags.forEach(tag => {
+        if (fontSize) tag.style.fontSize = `${fontSize.value}px`;
+        if (fontColor) tag.style.color = fontColor.value;
+    });
+});
+
 const fileReader = new FileReader();
 fileReader.addEventListener("load", (e) => {
     const json = JSON.parse(e.target.result);
