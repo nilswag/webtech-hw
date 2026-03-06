@@ -42,7 +42,7 @@ main {
 }
 
 .introduction p a:hover {
-    color: var(--primary-theme-color);
+    color: var(--tertiary-text-color);
     text-decoration: underline;
 }
 
@@ -63,11 +63,11 @@ main {
 }
 
 .boat-specs table thead tr th {
-    border-bottom: 1px solid var(--primary-theme-color);
+    border-bottom: 1px solid var(--tertiary-text-color);
 }
 
 .boat-specs table tbody tr th {
-    border-right: 1px solid var(--primary-theme-color);
+    border-right: 1px solid var(--tertiary-text-color);
 }
 
 .boat-specs table th, .boat-specs table td {
@@ -102,7 +102,7 @@ main {
 .news__item {
     flex: 0 0 45%;
     padding: 1rem;
-    border: 2px solid var(--primary-theme-color);
+    border: 2px solid var(--tertiary-text-color);
     border-radius: 1rem 0;
     scroll-snap-align: center;
 }

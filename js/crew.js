@@ -1,7 +1,6 @@
 const main = document.getElementsByTagName("main")[0];
 let players = [];
 let teams = [];
-const playersSection = document.querySelector(".players__section");
 const html = document.querySelector("html");
 
 const optionsBlacklist = [
@@ -56,9 +55,9 @@ fileReaderInput.type = "file";
 fileReaderInput.id = "file-input";
 main.appendChild(fileReaderInput);
 
-const playerSection = document.createElement("section");
-playerSection.classList.add("players__section");
-main.appendChild(playerSection);
+const playersSection = document.createElement("section");
+playersSection.classList.add("players__section");
+main.appendChild(playersSection);
 
 
 const fileReader = new FileReader();
