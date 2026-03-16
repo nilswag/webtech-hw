@@ -1,2 +1,2 @@
-import { runQuery } from "../database.js";
+import { execQuery, runQuery } from "../database.js";
 
