@@ -22,10 +22,20 @@ export async function runQuery(sql, ...args) {
     });
 };
 
-// Query data to retrieve
+// Query data to retrieve (returns all resulting rows)
 export async function queryAll(sql, ...args) {
     return new Promise((resolve, reject) => {
         db.all(sql, args, (err, rows) => {
+            if (err) reject(err);
+            resolve(rows);
+        });
+    });
+}
+
+// Query data to retrieve (returns first resulting row)
+export async function queryFirst(sql, ...args) {
+    return new Promise((resolve, reject) => {
+        db.get(sql, args, (err, rows) => {
             if (err) reject(err);
             resolve(rows);
         });
