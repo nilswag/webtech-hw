@@ -1,12 +1,11 @@
 // all DDL queries go in here
-import { runQuery } from "./database.js";
+import { execQuery, runQuery } from "./database.js";
 
 export async function test() {
-    await runQuery(`
+    await execQuery(`
         CREATE TABLE IF NOT EXISTS Test(
-            id INT,
-            str TEXT,
-            PRIMARY KEY (id)
+            id INTEGER PRIMARY KEY,
+            str TEXT
         );
     `);
 };
