@@ -1,8 +1,9 @@
+import * as service from "../services/playersService.js";
 
-export function getPlayers() {
-
+export async function getPlayers(req, res) {
+    
 };
 
-export function getPlayer() {
-    
+export async function getPlayer(req, res) {
+
 }
