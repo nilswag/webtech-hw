@@ -1,6 +1,6 @@
 import * as setup from "../database/setup.js";
 import express from "express";
-import { log } from "./middleware/logging.js";
+import { log, error } from "./middleware/logging.js";
 import playersRoute from "./routes/playersRoute.js";
 
 for (let setupFunc of Object.values(setup)) await setupFunc();
@@ -13,6 +13,15 @@ app.use(log);
 
 // custom routes
 app.use("/players", playersRoute);
+
+// testing get requests
+app.get("/test", (req, res, next) => {
+    res.send("This is an error.").status(404);
+    next(new Error("Hello"));
+});
+
+// error middleware
+app.use(error);
 
 app.listen(port, () => {
     console.log(`Listening to port ${port}`);
