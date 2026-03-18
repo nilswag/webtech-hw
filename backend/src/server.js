@@ -15,12 +15,6 @@ app.use(log);
 // custom routes
 app.use("/players", playersRoute);
 
-// testing get requests
-app.get("/test", (req, res, next) => {
-    res.send("This is an error.").status(404);
-    next(new Error("Hello"));
-});
-
 // error middleware
 app.use(error);
 
