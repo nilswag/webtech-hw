@@ -3,6 +3,6 @@ import * as controller from "../controllers/playersController.js";
 const router = new express.Router();
 
 router.get("/", controller.getPlayers);
-router.get("/:id", controller.getPlayers);
+router.get("/:id", controller.getPlayer);
 
 export default router;

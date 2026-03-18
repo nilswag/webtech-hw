@@ -9,6 +9,9 @@ export function log(req, res, next) {
 };
 
 export function error(err, req, res, next) {
-    console.error(`[${timestamp()} Error: ${err.message || "Internal server error"}`);
-    next();
+    const message = err.message || "Internal server error";
+    console.error(`[${timestamp()} Error: ${message}`);
+    res.status(err.status || 500).json({
+        message: message
+    });
 };
