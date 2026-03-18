@@ -1,6 +1,6 @@
 import { fetchAll } from "../database.js";
 
-export async function fetchAllPlayers() {
+export async function fetchPlayers() {
     return await fetchAll("SELECT * FROM Players;");
 }
 
