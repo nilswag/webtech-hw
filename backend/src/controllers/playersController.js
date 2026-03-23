@@ -1,6 +1,6 @@
 import * as service from "../services/playersService.js";
 
-export async function getPlayers(req, res) {
+export async function getPlayers(req, res, next) {
     try {
         const result = await service.getPlayers();
         res.status(200).json(result);
@@ -9,7 +9,7 @@ export async function getPlayers(req, res) {
     }
 };
 
-export async function getPlayer(req, res) {
+export async function getPlayer(req, res, next) {
     try {
         const result = await service.getPlayer(req.params.id);
         if (result.length == 0)
@@ -20,9 +20,11 @@ export async function getPlayer(req, res) {
     }
 }
 
-export async function postPlayer(req, res) {
+export async function putPlayer(req, res, next) {
     try {
-        
+
+
+        res.status(200).json(result.changes);
     } catch (err) {
         return next(err);
     }
