@@ -5,7 +5,15 @@ export async function getPlayers() {
 }
 
 export async function getPlayer(id) {
-    return await queries.fetchPlayer(id);
+    const result = await queries.fetchPlayer(id);
+
+    if (result.length === 0) {
+        const err = new Error("Player could not be found.");
+        err.status = 400;
+        throw err;
+    }
+
+    return result;
 }
 
 export async function addPlayer(firstName, lastName, age) {

@@ -16,6 +16,6 @@ export function error(err, req, res, next) {
 
 export function validator(req, res, next) {
     const result = validationResult(req);
-    if (result.isEmpty()) next();
-    res.send({ errors: result.array() }).status(400);
+    if (result.isEmpty()) return next();
+    res.status(400).json({ errors: result.array() });
 }
