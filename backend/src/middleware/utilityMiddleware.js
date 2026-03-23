@@ -1,4 +1,5 @@
 import * as logging from "../util/logging.js";
+import { validationResult } from "express-validator";
 
 export function log(req, res, next) {
     logging.log(`${req.method} request at ${req.url}`)
@@ -12,3 +13,9 @@ export function error(err, req, res, next) {
         message: message
     });
 };
+
+export function validator(req, res, next) {
+    const result = validationResult(req);
+    if (result.isEmpty()) next();
+    res.send({ errors: result.array() }).status(400);
+}
