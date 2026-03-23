@@ -1,6 +1,6 @@
 import * as setup from "../database/setup.js";
 import express from "express";
-import { log, error } from "./middleware/logging.js";
+import { log, error, logReq, errorReq } from "./middleware/loggingMiddleware.js";
 import playersRoute from "./routes/playersRoutes.js";
 
 for (let setupFunc of Object.values(setup)) await setupFunc();
