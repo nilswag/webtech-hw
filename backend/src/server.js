@@ -1,6 +1,6 @@
 import * as setup from "../database/setup.js";
 import express from "express";
-import { log, error } from "./middleware/loggingMiddleware.js";
+import { log, error } from "./middleware/utilityMiddleware.js";
 import playersRoute from "./routes/playersRoutes.js";
 
 for (let setupFunc of Object.values(setup)) await setupFunc();
@@ -8,7 +8,7 @@ for (let setupFunc of Object.values(setup)) await setupFunc();
 const app = express();
 const port = process.env.PORT || 3001;
 
-// default middleware + log middleware
+// default middleware
 app.use(express.json());
 app.use(log);
 
