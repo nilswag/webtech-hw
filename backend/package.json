@@ -10,9 +10,6 @@
     "dev": "node --watch src/server.js",
     "start": "npm install && node src/server.js"
   },
-  "devDependencies": {
-    "nodemon": "^3.1.14"
-  },
   "dependencies": {
     "express": "^5.2.1",
     "sqlite3": "^6.0.1"

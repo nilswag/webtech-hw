@@ -19,3 +19,11 @@ export async function getPlayer(req, res) {
         return next(err);
     }
 }
+
+export async function postPlayer(req, res) {
+    try {
+        
+    } catch (err) {
+        return next(err);
+    }
+}
