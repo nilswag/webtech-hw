@@ -7,12 +7,12 @@ const router = new express.Router();
 
 router.get("/", controller.getPlayers);
 
+router.get("/:id", controller.getPlayer);
+
 router.put("/add", [
     body("firstName").isString().notEmpty(),
     body("lastName").isString().notEmpty(),
     body("age").isInt()
 ], validator, controller.putPlayer);
-
-router.get("/:id", controller.getPlayer);
 
 export default router;

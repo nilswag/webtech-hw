@@ -20,9 +20,9 @@ export async function getPlayer(req, res, next) {
 
 export async function putPlayer(req, res, next) {
     try {
-
-
-        res.status(200).json(result.changes);
+        const { firstName, lastName, age } = req.body;
+        const result = await service.addPlayer(firstName, lastName, age);
+        res.status(200);
     } catch (err) {
         return next(err);
     }
