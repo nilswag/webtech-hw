@@ -4,5 +4,6 @@ const router = new express.Router();
 
 router.get("/", controller.getPlayers);
 router.get("/:id", controller.getPlayer);
+router.put("/add", controller.putPlayer);
 
 export default router;
