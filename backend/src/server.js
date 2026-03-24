@@ -1,20 +1,27 @@
-import * as setup from "../database/setup.js";
 import express from "express";
+import path from "path";
+
 import { log, error } from "./middleware/utilityMiddleware.js";
-import playersRoute from "./routes/playersRoutes.js";
+import { __rootDirName } from "../util/frontendUtil.js";
+import * as setup from "../database/setup.js";
+import playersRoutes from "./routes/playersRoutes.js";
+import frontendRoutes from "./routes/frontendRoutes.js";
 
 // Loops through all setup functions for the database tables.
 for (let setupFunc of Object.values(setup)) await setupFunc();
 
 const app = express();
-const port = process.env.PORT || 3001;
+const port = process.env.PORT || 8020;
 
 // default middleware
 app.use(express.json());
 app.use(log);
 
 // custom routes
-app.use("/api/players", playersRoute);
+app.use("/api/players", playersRoutes);
+
+app.use(express.static(path.join(__rootDirName, "frontend/public")));
+app.use("/", frontendRoutes);
 
 // error middleware
 app.use(error);
