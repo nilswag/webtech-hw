@@ -14,7 +14,7 @@ app.use(express.json());
 app.use(log);
 
 // custom routes
-app.use("/players", playersRoute);
+app.use("/api/players", playersRoute);
 
 // error middleware
 app.use(error);
