@@ -10,9 +10,12 @@ router.get("/", controller.getPlayers);
 router.get("/:id", controller.getPlayer);
 
 router.put("/add", [
-    body("firstName").isString().notEmpty(),
-    body("lastName").isString().notEmpty(),
-    body("age").isInt()
+    body("firstName").isString(),
+    body("lastName").isString(),
+    body("age").isInt(),
+    body("role").isString(),
+    body("number").isInt(),
+    body("photo").isString()
 ], validator, controller.putPlayer);
 
 export default router;
