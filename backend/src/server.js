@@ -1,18 +1,19 @@
 import express from "express";
 import path from "path";
 
-import { log, error } from "./middleware/logging.js";
+import { log, error } from "./middleware/utilityMiddleware.js";
 import { __rootDirName } from "../util/frontendUtil.js";
 import * as setup from "../database/setup.js";
 import playersRoutes from "./routes/playersRoutes.js";
 import frontendRoutes from "./routes/frontendRoutes.js";
 
+// Loops through all setup functions for the database tables.
 for (let setupFunc of Object.values(setup)) await setupFunc();
 
 const app = express();
 const port = process.env.PORT || 8020;
 
-// default middleware + log middleware
+// default middleware
 app.use(express.json());
 app.use(log);
 
