@@ -27,11 +27,14 @@ export async function getPlayer(id) {
 
 /**
  * Service call to database to add a player.
- * @param {*} firstName First name of the player.
- * @param {*} lastName Last name of the player.
- * @param {*} age Age of the player.
- * @returns 
+ * @param {*} firstName First name of player.
+ * @param {*} lastName Last name of player.
+ * @param {*} age Age of player.
+ * @param {*} role Role of player.
+ * @param {*} number Number of player.
+ * @param {*} photo Path of photo of player.
+ * @returns An empty promise.
  */
-export async function addPlayer(firstName, lastName, age) {
-    return await queries.addPlayer(firstName, lastName, age);
+export async function addPlayer(firstName, lastName, age, role, number, photo) {
+    return await queries.addPlayer(firstName, lastName, age, role, number, photo);
 }
