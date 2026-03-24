@@ -1,5 +1,8 @@
 import * as service from "../services/playersService.js";
 
+/**
+ * Endpoint for getting all players.
+ */
 export async function getPlayers(req, res, next) {
     try {
         const result = await service.getPlayers();
@@ -9,6 +12,9 @@ export async function getPlayers(req, res, next) {
     }
 };
 
+/**
+ * Endpoint for getting a specific player.
+ */
 export async function getPlayer(req, res, next) {
     try {
         const result = await service.getPlayer(req.params.id);
@@ -18,6 +24,9 @@ export async function getPlayer(req, res, next) {
     }
 }
 
+/**
+ * Endpoint for adding a player.
+ */
 export async function putPlayer(req, res, next) {
     try {
         const { firstName, lastName, age } = req.body;
