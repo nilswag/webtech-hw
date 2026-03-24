@@ -10,6 +10,9 @@ import { execQuery, runQuery } from "./database.js";
 //     `);
 // };
 
+/**
+ * Function to setup players database table.
+ */
 export async function players() {
     await execQuery(`
         CREATE TABLE IF NOT EXISTS Players(
@@ -24,6 +27,9 @@ export async function players() {
     `);
 }
 
+/**
+ * Function to setup users database table.
+ */
 export async function users() {
     await execQuery(`
         CREATE TABLE IF NOT EXISTS Users(
