@@ -18,12 +18,15 @@ export async function fetchPlayer(id) {
 }
 
 /**
- * Function to add a player to database.
- * @param {*} firstName First name of the player.
- * @param {*} lastName Last name of the player.
- * @param {*} age Age of the player.
+ * Query to database to add player.
+ * @param {*} firstName First name of player.
+ * @param {*} lastName Last name of player.
+ * @param {*} age Age of player.
+ * @param {*} role Role of player.
+ * @param {*} number Number of player.
+ * @param {*} photo Path to photo of player.
  * @returns An empty promise.
  */
-export async function addPlayer(firstName, lastName, age) {
-    return await runQuery("INSERT INTO Players(firstName, lastName, age) VALUES(?, ?, ?);", firstName, lastName, age);
+export async function addPlayer(firstName, lastName, age, role, number, photo) {
+    return await runQuery("INSERT INTO Players(firstName, lastName, age, role, number, photo) VALUES(?, ?, ?, ?, ?, ?);", firstName, lastName, age, role, number, photo);
 }
