@@ -3,9 +3,6 @@ import { validationResult } from "express-validator";
 
 /**
  * Middleware to log requests.
- * @param {*} req Request object.
- * @param {*} res Result object.
- * @param {*} next Next middleware.
  */
 export function log(req, res, next) {
     logging.log(`${req.method} request at ${req.url}`)
@@ -14,10 +11,6 @@ export function log(req, res, next) {
 
 /**
  * Middleware to log errors.
- * @param {*} err The error to be logged.
- * @param {*} req Request object.
- * @param {*} res Result object.
- * @param {*} next Next middleware.
  */
 export function error(err, req, res, next) {
     const message = err.message || "Internal server error";
@@ -29,9 +22,6 @@ export function error(err, req, res, next) {
 
 /**
  * Middleware to handle express-validator errors.
- * @param {*} req Request object.
- * @param {*} res Result object.
- * @param {*} next Next middleware.
  */
 export function validator(req, res, next) {
     const result = validationResult(req);
