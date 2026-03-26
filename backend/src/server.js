@@ -20,7 +20,7 @@ app.use(log);
 
 // custom routes
 app.use("/api/players", playersRoutes);
-app.use("/api/users/register", usersRoutes);
+app.use("/api/users", usersRoutes);
 
 app.use(express.static(path.join(__rootDirName, "frontend/public")));
 app.use("/", frontendRoutes);
