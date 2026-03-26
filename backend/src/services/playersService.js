@@ -5,7 +5,7 @@ import * as queries from "../../database/queries/playersQueries.js";
  * @returns The result of the fetchPlayers query.
  */
 export async function getPlayers() {
-    return await queries.fetchPlayers();
+    return await queries.getPlayers();
 }
 
 /**
@@ -14,7 +14,7 @@ export async function getPlayers() {
  * @returns A promise containing the resulting player or an error.
  */
 export async function getPlayer(id) {
-    const result = await queries.fetchPlayer(id);
+    const result = await queries.getPlayer(id);
 
     if (result.length === 0) {
         const err = new Error("Player could not be found.");
