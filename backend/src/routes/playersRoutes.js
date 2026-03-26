@@ -9,7 +9,7 @@ router.get("/", controller.getPlayers);
 
 router.get("/:id", controller.getPlayer);
 
-router.put("/add", [
+router.post("/add", [
     body("firstName").isString(),
     body("lastName").isString(),
     body("age").isInt(),

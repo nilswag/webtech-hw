@@ -8,7 +8,27 @@
     </head>
     <body>
         <header></header>
-        <main>Hello Register</main>
+        <main>
+            <form class="register" action="/api/users/register" method="post">
+                <div class="register__firstname">
+                    <label for="firstName">First name: </label>
+                    <input type="text" name="firstName" id="firstName" placeholder="John" required>
+                </div>
+                <div class="register__lastname">
+                    <label for="lastName">Last name: </label>
+                    <input type="text" name="lastName" id="lastName" placeholder="Doe" required>
+                </div>
+                <div class="register__email">
+                    <label for="email">Email: </label>
+                    <input type="email" name="email" id="email" required>
+                </div>
+                <div class="register__password">
+                    <label for="password">Password: </label>
+                    <input type="password" name="password" id="password" required>
+                </div>
+                <button type="submit">Register</button>
+            </form>
+        </main>
         <footer></footer>
     </body>
 </html>
