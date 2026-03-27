@@ -6,7 +6,7 @@ import { error } from "../../../common/util/logging.js";
  * @returns Response body (in json).
  */
 export async function getData(endpoint) {
-    const url = "http://localhost:8020/api/" + endpoint;
+    const url = "http://localhost:8020/api" + endpoint;
     try {
         const response = await fetch(url);
         if (!response.ok) throw new Error(`Response status: ${response.status}`);
