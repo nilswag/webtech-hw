@@ -5,6 +5,7 @@ import { log, error } from "./middleware/utilityMiddleware.js";
 import { __rootDirName } from "../util/frontendUtil.js";
 import * as setup from "../database/setup.js";
 import playersRoutes from "./routes/playersRoutes.js";
+import statisticsRoutes from "./routes/statisticsRoute.js";
 import frontendRoutes from "./routes/frontendRoutes.js";
 
 // Loops through all setup functions for the database tables.
@@ -19,6 +20,7 @@ app.use(log);
 
 // custom routes
 app.use("/api/players", playersRoutes);
+app.use("/api/statistics", statisticsRoutes);
 
 app.use(express.static(path.join(__rootDirName, "frontend/public")));
 app.use("/", frontendRoutes);

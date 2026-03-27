@@ -1,0 +1,155 @@
+@import "color-themes.css";
+
+main {
+    padding: 5% 0 0;
+    overflow-x: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.4rem;
+}
+
+#image-carousel {
+    width: 100%;
+    display: flex;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: thin;
+}
+
+#image-carousel img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1920 / 1080;
+    scroll-snap-align: center;
+}
+
+.basic-information {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.introduction {
+    width: 90%;
+    padding: 5%;
+    font-size: 1.6rem;
+}
+
+.introduction p a {
+    color: var(--secundary-text-color);
+}
+
+.introduction p a:hover {
+    color: var(--tertiary-text-color);
+    text-decoration: underline;
+}
+
+.boat-specs {
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.boat-specs h2 {
+    text-align: center;
+}
+
+.boat-specs table {
+    margin-top: 2%;
+    border-collapse: collapse;
+}
+
+.boat-specs table thead tr th {
+    border-bottom: 1px solid var(--tertiary-text-color);
+}
+
+.boat-specs table tbody tr th {
+    border-right: 1px solid var(--tertiary-text-color);
+}
+
+.boat-specs table th, .boat-specs table td {
+    padding: .1em .2em;
+}
+
+.boat-specs table tbody th {
+    text-align: right;
+}
+
+.news {
+    width: 90%;
+    margin-top: 5%;
+}
+
+.news h2 {
+    width: 100%;
+    text-align: center;
+}
+
+.news__items {
+    width: 100%;
+    padding-bottom: 1px;
+    margin-bottom: 5%;
+    display: flex;
+    gap: 1rem;
+    overflow-x: scroll;
+    scrollbar-width: thin;
+    scroll-snap-type: x mandatory;
+}
+
+.news__item {
+    flex: 0 0 45%;
+    padding: 1rem;
+    border: 2px solid var(--tertiary-text-color);
+    border-radius: 1rem 0;
+    scroll-snap-align: center;
+}
+
+.news__item h3 {
+    margin: 1rem 0;
+}
+
+.news__item img {
+    width: 100%;
+}
+
+.news__item .date {
+    font-size: .7em;
+}
+
+.news__item .description {
+    padding-top: 1rem;
+}
+
+.news__item a {
+    color: var(--secundary-text-color);
+}
+
+.news__item a:hover {
+    text-decoration: underline;
+}
+
+@media only screen and (min-width: 900px) {
+    #image-carousel img {
+        width: auto;
+        height: 400px;
+    }
+
+    .basic-information {
+        width: 90%;
+        padding: 2rem;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-evenly;
+    }
+
+    .introduction {
+        padding: 0;
+    }
+
+    .basic-information article {
+        width: 45%;
+    }
+}
