@@ -2,7 +2,7 @@ import express from "express";
 import path from "path";
 
 import { log, error } from "./middleware/utilityMiddleware.js";
-import { __rootDirName } from "../util/frontendUtil.js";
+import { __rootDirName } from "./util/frontendUtil.js";
 import * as setup from "../database/setup.js";
 import playersRoutes from "./routes/playersRoutes.js";
 import frontendRoutes from "./routes/frontendRoutes.js";

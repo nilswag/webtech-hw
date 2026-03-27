@@ -1,4 +1,4 @@
-import { staticHtml } from "../../util/frontendUtil.js"
+import { staticHtml } from "../util/frontendUtil.js"
 
 export async function index(req, res) {
     res.sendFile(staticHtml("index.html"));
