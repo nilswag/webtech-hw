@@ -10,13 +10,33 @@ import { execQuery, runQuery } from "./database.js";
 //     `);
 // };
 
+/**
+ * Function to setup players database table.
+ */
 export async function players() {
     await execQuery(`
         CREATE TABLE IF NOT EXISTS Players(
             id INTEGER PRIMARY KEY,
-            firstName TEXT NOT NULL,
-            lastName TEXT NOT NULL,
-            age INTEGER NOT NULL
+            firstName TEXT,
+            lastName TEXT,
+            age INTEGER,
+            role TEXT,
+            number INTEGER,
+            photo TEXT
+        );
+    `);
+}
+
+/**
+ * Function to setup users database table.
+ */
+export async function users() {
+    await execQuery(`
+        CREATE TABLE IF NOT EXISTS Users(
+            id INTEGER PRIMARY KEY,
+            firstName TEXT,
+            lastName TEXT,
+            email TEXT
         );
     `);
 }
