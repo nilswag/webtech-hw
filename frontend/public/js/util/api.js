@@ -12,7 +12,7 @@ export async function getData(endpoint) {
         if (!response.ok) throw new Error(`Response status: ${response.status}`);
 
         const result = await response.json();
-        return result
+        return result;
     } catch (err){
         error(err);
     }
