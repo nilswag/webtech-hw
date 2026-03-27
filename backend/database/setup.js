@@ -17,11 +17,11 @@ export async function players() {
     await execQuery(`
         CREATE TABLE IF NOT EXISTS Players(
             id INTEGER PRIMARY KEY,
-            firstName TEXT,
-            lastName TEXT,
+            firstName TEXT NOT NULL,
+            lastName TEXT NOT NULL,
             age INTEGER,
-            role TEXT,
-            number INTEGER,
+            role TEXT NOT NULL,
+            number INTEGER NOT NULL,
             photo TEXT
         );
     `);
@@ -31,12 +31,14 @@ export async function players() {
  * Function to setup users database table.
  */
 export async function users() {
+    // We will not hash passwords for the sake of simplicity
     await execQuery(`
         CREATE TABLE IF NOT EXISTS Users(
             id INTEGER PRIMARY KEY,
-            firstName TEXT,
-            lastName TEXT,
-            email TEXT
+            firstName TEXT NOT NULL,
+            lastName TEXT NOT NULL,
+            email TEXT NOT NULL,
+            password TEXT NOT NULL
         );
     `);
 }
