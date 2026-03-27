@@ -17,11 +17,11 @@ export async function players() {
     await execQuery(`
         CREATE TABLE IF NOT EXISTS Players(
             id INTEGER PRIMARY KEY,
-            firstName TEXT NOT NULL,
-            lastName TEXT NOT NULL,
+            firstName TEXT,
+            lastName TEXT,
             age INTEGER,
-            role TEXT NOT NULL,
-            number INTEGER NOT NULL,
+            role TEXT,
+            number INTEGER,
             photo TEXT
         );
     `);
