@@ -10,8 +10,8 @@ import { execQuery, fetchFirst, runQuery } from "../database.js";
  */
 export async function addUser(firstName, lastName, email, password) {
     return await runQuery(
-    "INSERT INTO Users(firstName, lastName, email, password) VALUES(?, ?, ?, ?);",
-    firstName, lastName, email, password
+        "INSERT INTO Users(firstName, lastName, email, password) VALUES(?, ?, ?, ?);",
+        firstName, lastName, email, password
     );
 }
 

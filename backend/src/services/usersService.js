@@ -1,4 +1,5 @@
 import * as queries from "../../database/queries/usersQueries.js";
+import bcrypt from "bcrypt";
 
 /**
  * Service function to add user.
@@ -10,7 +11,8 @@ import * as queries from "../../database/queries/usersQueries.js";
  */
 export async function addUser(firstName, lastName, email, password) {
     try {
-       const result = await queries.addUser(firstName, lastName, email, password); 
+        const hashed = await bcrypt.hash(password, 10); // use is hash to compare
+        const result = await queries.addUser(firstName, lastName, email, hashed); 
     } catch (err) {
         if (err.code === "SQLITE_CONSTRAINT" && err.message?.includes("Users.email")) {
             const newErr = new Error("User already registered with that email.", { status: 401 });
