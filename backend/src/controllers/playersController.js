@@ -27,11 +27,11 @@ export async function getPlayer(req, res, next) {
 /**
  * Endpoint for adding a player.
  */
-export async function putPlayer(req, res, next) {
+export async function postPlayer(req, res, next) {
     try {
         const { firstName, lastName, age } = req.body;
         const result = await service.addPlayer(firstName, lastName, age);
-        res.status(200);
+        res.status(200).json({ message: "Player added" });
     } catch (err) {
         return next(err);
     }

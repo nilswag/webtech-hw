@@ -9,16 +9,16 @@ import { execQuery, fetchFirst, runQuery } from "../database.js";
  * @returns 
  */
 export async function addUser(firstName, lastName, email, password) {
-    return await execQuery(
-        `INSERT INTO Users(?, ?, ?, ?);`,
+    return await runQuery(
+        "INSERT INTO Users(firstName, lastName, email, password) VALUES(?, ?, ?, ?);",
         firstName, lastName, email, password
     );
 }
 
 /**
  * Function to get specific user.
- * @param {*} id Id of user.
+ * @param {*} email Email of user.
  */
-export async function getUser(id) {
-    return await fetchFirst(`SELECT * FROM Users WHERE id = ?;`, id);
+export async function getUser(email) {
+    return await fetchFirst(`SELECT * FROM Users WHERE email = ?;`, email);
 }

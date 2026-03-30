@@ -14,7 +14,7 @@ export async function getPlayers() {
  * @returns A promise containing the player if found.
  */
 export async function getPlayer(id) {
-    return await fetchAll("SELECT * FROM Players WHERE id = ?;", id);
+    return await fetchAll("SELECT * FROM Players WHERE id == ?;", id);
 }
 
 /**
