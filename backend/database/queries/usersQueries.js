@@ -20,5 +20,5 @@ export async function addUser(firstName, lastName, email, password) {
  * @param {*} id Id of user.
  */
 export async function getUser(id) {
-    return await fetchFirst(`SELECT * FROM Users WHERE id == ?;`, id);
+    return await fetchFirst(`SELECT * FROM Users WHERE id = ?;`, id);
 }
