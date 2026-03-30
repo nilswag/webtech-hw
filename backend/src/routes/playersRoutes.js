@@ -16,6 +16,6 @@ router.post("/add", [
     body("role").isString(),
     body("number").isInt(),
     body("photo").isString()
-], validator, controller.putPlayer);
+], validator, controller.postPlayer);
 
 export default router;

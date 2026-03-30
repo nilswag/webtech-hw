@@ -9,9 +9,9 @@ import { execQuery, fetchFirst, runQuery } from "../database.js";
  * @returns 
  */
 export async function addUser(firstName, lastName, email, password) {
-    return await execQuery(
-        `INSERT INTO Users(?, ?, ?, ?);`,
-        firstName, lastName, email, password
+    return await runQuery(
+    "INSERT INTO Users(firstName, lastName, email, password) VALUES(?, ?, ?, ?);",
+    firstName, lastName, email, password
     );
 }
 

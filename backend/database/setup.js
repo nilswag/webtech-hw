@@ -34,10 +34,9 @@ export async function users() {
     // We will not hash passwords for the sake of simplicity
     await execQuery(`
         CREATE TABLE IF NOT EXISTS Users(
-            id INTEGER PRIMARY KEY,
+            email TEXT PRIMARY KEY,
             firstName TEXT NOT NULL,
             lastName TEXT NOT NULL,
-            email TEXT NOT NULL,
             password TEXT NOT NULL
         );
     `);

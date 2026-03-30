@@ -9,7 +9,16 @@ import * as queries from "../../database/queries/usersQueries.js";
  * @returns 
  */
 export async function addUser(firstName, lastName, email, password) {
-    return await queries.addUser(firstName, lastName, email, password);
+    try {
+       const result = await queries.addUser(firstName, lastName, email, password); 
+    } catch (err) {
+        if (err.code === "SQLITE_CONSTRAINT" && err.message?.includes("Users.email")) {
+            const newErr = new Error("User already registered with that email.", { status: 401 });
+            newErr.status = 401;
+            throw newErr;
+        }
+        throw err;
+    }
 }
 
 /**
