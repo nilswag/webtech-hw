@@ -25,131 +25,83 @@ main {
     scroll-snap-align: center;
 }
 
-.basic-information {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.body--title {
+    margin-top: 3rem;
 }
 
-.introduction {
+.event-countdown {
     width: 90%;
-    padding: 5%;
-    font-size: 1.6rem;
-}
-
-.introduction p a {
-    color: var(--secundary-text-color);
-}
-
-.introduction p a:hover {
-    color: var(--tertiary-text-color);
-    text-decoration: underline;
-}
-
-.boat-specs {
-    width: fit-content;
+    height: fit-content;
+    margin: 2rem 0;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.boat-specs h2 {
+.event-countdown h2 {
+    margin-bottom: 1rem;
     text-align: center;
 }
 
-.boat-specs table {
-    margin-top: 2%;
+.countdown {
+    width: 100%;
+    padding: 1rem;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    background-color: var(--primary-theme-color);
+    color: var(--secundary-text-color);
+}
+
+.event-countdown--units {
+    flex: 1;
+    text-align: center;
+}
+
+.leaderboard {
+    width: 90%;
+    height: fit-content;
+    margin-bottom: 3rem;
+    overflow-x: auto;
+}
+
+.leaderboard table {
+    width: fit-content;
+    min-width: 100%;
+    font-size: 2rem;
+    text-wrap: nowrap;
     border-collapse: collapse;
 }
 
-.boat-specs table thead tr th {
-    border-bottom: 1px solid var(--tertiary-text-color);
-}
-
-.boat-specs table tbody tr th {
-    border-right: 1px solid var(--tertiary-text-color);
-}
-
-.boat-specs table th, .boat-specs table td {
-    padding: .1em .2em;
-}
-
-.boat-specs table tbody th {
-    text-align: right;
-}
-
-.news {
-    width: 90%;
-    margin-top: 5%;
-}
-
-.news h2 {
-    width: 100%;
-    text-align: center;
-}
-
-.news__items {
-    width: 100%;
-    padding-bottom: 1px;
-    margin-bottom: 5%;
-    display: flex;
-    gap: 1rem;
-    overflow-x: scroll;
-    scrollbar-width: thin;
-    scroll-snap-type: x mandatory;
-}
-
-.news__item {
-    flex: 0 0 45%;
-    padding: 1rem;
-    border: 2px solid var(--tertiary-text-color);
-    border-radius: 1rem 0;
-    scroll-snap-align: center;
-}
-
-.news__item h3 {
-    margin: 1rem 0;
-}
-
-.news__item img {
-    width: 100%;
-}
-
-.news__item .date {
-    font-size: .7em;
-}
-
-.news__item .description {
-    padding-top: 1rem;
-}
-
-.news__item a {
+.leaderboard table thead {
+    background-color: var(--primary-theme-color);
     color: var(--secundary-text-color);
 }
 
-.news__item a:hover {
-    text-decoration: underline;
+.leaderboard table tbody {
+    background-color: var(--secundary-theme-color);
+    color: var(----tertiary-text-color);
+}
+
+.leaderboard table td,
+.leaderboard table th {
+    border: 1px solid var(--primary-theme-color);
+    border-left: 0;
+    border-right: 0;
+    padding: .5rem;
+} 
+
+.leaderboard table tbody {
+    text-align: center;
+}
+
+.leaderboard table caption {
+    font-size: 2.6rem;
 }
 
 @media only screen and (min-width: 900px) {
     #image-carousel img {
         width: auto;
         height: 400px;
-    }
-
-    .basic-information {
-        width: 90%;
-        padding: 2rem;
-        flex-direction: row;
-        align-items: flex-start;
-        justify-content: space-evenly;
-    }
-
-    .introduction {
-        padding: 0;
-    }
-
-    .basic-information article {
-        width: 45%;
     }
 }
