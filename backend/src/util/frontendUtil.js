@@ -2,7 +2,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 
 export const __fileName = fileURLToPath(import.meta.url);
-export const __rootDirName = path.join(path.dirname(__fileName), "../../");
+export const __rootDirName = path.join(path.dirname(__fileName), "../../../");
 
 /**
  * Helper to construct paths for static html files.

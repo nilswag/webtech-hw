@@ -4,7 +4,7 @@ import { fetchAll, runQuery } from "../database.js";
  * Function to query all players.
  * @returns A promise containing all players.
  */
-export async function fetchPlayers() {
+export async function getPlayers() {
     return await fetchAll("SELECT * FROM Players;");
 }
 
@@ -13,7 +13,7 @@ export async function fetchPlayers() {
  * @param {*} id The id of the player.
  * @returns A promise containing the player if found.
  */
-export async function fetchPlayer(id) {
+export async function getPlayer(id) {
     return await fetchAll("SELECT * FROM Players WHERE id == ?;", id);
 }
 
