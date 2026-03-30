@@ -17,8 +17,8 @@ export async function addUser(firstName, lastName, email, password) {
 
 /**
  * Function to get specific user.
- * @param {*} id Id of user.
+ * @param {*} email Email of user.
  */
-export async function getUser(id) {
-    return await fetchFirst(`SELECT * FROM Users WHERE id = ?;`, id);
+export async function getUser(email) {
+    return await fetchFirst(`SELECT * FROM Users WHERE email = ?;`, email);
 }

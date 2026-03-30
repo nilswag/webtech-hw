@@ -25,11 +25,11 @@ export async function addUser(firstName, lastName, email, password) {
 
 /**
  * Service function to get user.
- * @param {*} id Id of user.
+ * @param {*} email Email of user.
  * @returns User if found otherwise throws error.
  */
-export async function getUser(id) {
-    const result = await queries.getUser(id);
+export async function getUser(email) {
+    const result = await queries.getUser(email);
     if (result.length == 0) {
         const err = new Error("Unable to find user.");
         err.status = 404;
