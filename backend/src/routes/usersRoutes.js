@@ -12,4 +12,9 @@ router.post("/register", [
     body("password").isStrongPassword(),
 ], validator, controller.register);
 
+router.get("/login", [
+    body("email").isEmail(),
+    body("password").notEmpty()
+], validator, controller.login);
+
 export default router;
