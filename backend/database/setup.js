@@ -10,6 +10,10 @@ import { execQuery, runQuery } from "./database.js";
 //     `);
 // };
 
+export async function init() {
+    await execQuery("PRAGMA foreign_keys = ON;");
+}
+
 /**
  * Function to setup players database table.
  */
@@ -38,6 +42,21 @@ export async function users() {
             firstName TEXT NOT NULL,
             lastName TEXT NOT NULL,
             password TEXT NOT NULL
+        );
+    `);
+}
+
+/**
+ * Function to setup sessions database table.
+ */
+export async function sessions() {
+    await execQuery(`
+        CREATE TABLE IF NOT EXISTS Sessions(
+            id INTEGER PRIMARY KEY,
+            email TEXT NOT NULL,
+            token TEXT NOT NULL,
+            expires TEXT NOT NULL,
+            FOREIGN KEY (email) REFERENCES Users(email) ON DELETE CASCADE
         );
     `);
 }
