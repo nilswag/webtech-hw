@@ -30,8 +30,10 @@ export async function addUser(firstName, lastName, email, password) {
  */
 export async function login(email, password) {
     const user = await getUser(email);
-    console.log(user);
-    
+
+    // TODO: add httpsecure cookie with session
+    // TODO: generate session
+
     const validPassword = await bcrypt.compare(password, user.password);
     if (!validPassword) {
         const err = new Error("Invalid password.");

@@ -20,7 +20,7 @@ export async function login(req, res, next) {
     try {
         const { email, password } = req.body;
         const user = await service.login(email, password);
-        res.status(200).json(user);
+        res.status(200).json({ message: "Sucessfully logged in." });
     } catch (err) {
         return next(err);
     }
