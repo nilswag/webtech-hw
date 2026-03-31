@@ -50,7 +50,7 @@ export async function login(email, password) {
 export async function getUser(email) {
     const result = await queries.getUser(email);
     if (!result) {
-        const err = new Error("Unable to find user.");
+        const err = new Error("No user with that email.");
         err.status = 404;
         throw err;
     }

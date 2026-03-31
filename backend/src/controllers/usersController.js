@@ -19,9 +19,9 @@ export async function register(req, res, next) {
 export async function login(req, res, next) {
     try {
         const { email, password } = req.body;
-        const user = service.login(email, password);
+        const user = await service.login(email, password);
         res.status(200).json(user);
     } catch (err) {
-        next(err);
+        return next(err);
     }
 }
