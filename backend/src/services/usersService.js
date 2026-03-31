@@ -24,13 +24,32 @@ export async function addUser(firstName, lastName, email, password) {
 }
 
 /**
+ * Service function to log in user.
+ * @param {*} email Email address of user.
+ * @param {*} password Password of user.
+ */
+export async function login(email, password) {
+    const user = await getUser(email);
+    console.log(user);
+    
+    const validPassword = await bcrypt.compare(password, user.password);
+    if (!validPassword) {
+        const err = new Error("Invalid password.");
+        err.status = 401;
+        throw err;
+    }
+
+    return user;
+}
+
+/**
  * Service function to get user.
  * @param {*} email Email of user.
  * @returns User if found otherwise throws error.
  */
 export async function getUser(email) {
     const result = await queries.getUser(email);
-    if (result.length == 0) {
+    if (!result) {
         const err = new Error("Unable to find user.");
         err.status = 404;
         throw err;
