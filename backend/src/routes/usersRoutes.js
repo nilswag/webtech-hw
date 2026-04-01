@@ -9,7 +9,12 @@ router.post("/register", [
     body("firstName").isString(),
     body("lastName").isString(),
     body("email").isEmail(),
-    body("password").isStrongPassword(),
+    body("password").notEmpty(),
 ], validator, controller.register);
+
+router.post("/login", [
+    body("email").isEmail(),
+    body("password").notEmpty()
+], validator, controller.login);
 
 export default router;
