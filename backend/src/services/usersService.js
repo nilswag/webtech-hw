@@ -1,6 +1,7 @@
 import * as queries from "../../database/queries/usersQueries.js";
 import bcrypt from "bcrypt";
 import { User } from "../../../shared/models/User.js";
+import { addSession } from "./sessionsService.js";
 
 /**
  * Service helper function to get user.
@@ -54,8 +55,7 @@ export async function login(email, password) {
         throw err;
     }
 
-    // TODO: add httpsecure cookie with session
-    // TODO: generate session
+    const session = await addSession(user);
 
     return user;
 }
