@@ -54,7 +54,7 @@ export async function sessions() {
         CREATE TABLE IF NOT EXISTS Sessions(
             id INTEGER PRIMARY KEY,
             userId INTEGER NOT NULL,
-            token TEXT NOT NULL,
+            token TEXT UNIQUE NOT NULL,
             expires TEXT NOT NULL,
             FOREIGN KEY (userId) REFERENCES Users(id) ON DELETE CASCADE
         );

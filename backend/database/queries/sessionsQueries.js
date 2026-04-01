@@ -13,10 +13,10 @@ export async function addSession(userId, token, expires) {
 }
 
 /**
- * Query to fetch a session using its id.
- * @param {*} id The session id.
+ * Query to fetch a session using userId.
+ * @param {*} id The user id.
  * @returns The session object.
  */
-export async function getSession(id) {
-    return await fetchFirst("SELECT * FROM Sessions WHERE id = ?;", id);
+export async function getSessionByUser(userId) {
+    return await fetchFirst("SELECT * FROM Sessions WHERE userId = ?;", userId);
 }
