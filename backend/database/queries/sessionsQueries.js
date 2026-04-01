@@ -1,5 +1,5 @@
 import bcrypt from "bcrypt";
-import { fetchFirst, runQuery } from "../database.js";
+import { execQuery, fetchFirst, runQuery } from "../database.js";
 
 /**
  * Query to add a session.
@@ -18,4 +18,12 @@ export async function addSession(session) {
  */
 export async function getSessionByUser(userId) {
     return await fetchFirst("SELECT * FROM Sessions WHERE userId = ?;", userId);
+}
+
+/**
+ * Query to remove session of user.
+ * @param {*} userId User id.
+ */
+export async function removeSessionByUser(userId) {
+    return await execQuery("DELETE FROM Sessions WHERE userId = ?;", userId);
 }

@@ -9,12 +9,18 @@ import { Session } from "../models/Session.js";
  * @returns session
  */
 export async function addSession(user) {
+    let session = await queries.getSessionByUser(user);
+    if (session && session.expire <= new Date()) {
+        // session has expired and a new one is required.
+        removeSession(user);
+    }
+
     const token = crypto.randomBytes(64).toString("hex");
     const date = new Date();
     date.setDate(date.getDate() + 7); // expiration of cookie 7 days later
 
     try {
-        const session = new Session(null, user.id, token, date);
+        session = new Session(null, user.id, token, date);
         await queries.addSession(session);
 
         return session;
@@ -26,4 +32,12 @@ export async function addSession(user) {
         }
         throw err;
     }
+}
+
+/**
+ * Removes session.
+ * @param {*} user User of session. 
+ */
+export async function removeSession(user) {
+    await queries.removeSession(user.id);
 }

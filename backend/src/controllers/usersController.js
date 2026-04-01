@@ -23,7 +23,8 @@ export async function login(req, res, next) {
 
         res.status(200)
             .cookie("auth", token, { 
-                expire: 
+                expire: token.expire,
+                httpOnly: true
              })
             .json({ message: "Sucessfully logged in." });
     } catch (err) {
