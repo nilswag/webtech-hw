@@ -44,6 +44,7 @@ export async function addUser(firstName, lastName, email, password) {
  * Service function to log in user.
  * @param {*} email Email address of user.
  * @param {*} password Password of user.
+ * @returns object containing user and session.
  */
 export async function login(email, password) {
     const user = await getUser(email);
@@ -57,5 +58,5 @@ export async function login(email, password) {
 
     const session = await addSession(user);
 
-    return user;
+    return { user, session };
 }

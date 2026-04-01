@@ -1,3 +1,4 @@
+import bcrypt from "bcrypt";
 import { fetchFirst, runQuery } from "../database.js";
 
 /**
@@ -7,7 +8,7 @@ import { fetchFirst, runQuery } from "../database.js";
 export async function addSession(session) {
     return await runQuery(`
         INSERT INTO Sessions(userId, token, expires) VALUES (?, ?, ?);
-    `, session.userId, session.token, session.expires);
+    `, session.userId, await bcrypt.hash(session.token, 10), session.expires);
 }
 
 /**

@@ -6,7 +6,7 @@ import { Session } from "../models/Session.js";
 /**
  * Service function that creates a session.
  * @param {*} user User that session is created for.
- * @returns object containing session and unhashed token.
+ * @returns session
  */
 export async function addSession(user) {
     const token = crypto.randomBytes(64).toString("hex");
@@ -14,12 +14,10 @@ export async function addSession(user) {
     date.setDate(date.getDate() + 7); // expiration of cookie 7 days later
 
     try {
-        const hashedToken = await bcrypt.hash(token, 10);
-
-        const session = new Session(null, user.id, hashedToken, date);
+        const session = new Session(null, user.id, token, date);
         await queries.addSession(session);
 
-        return { session: session, token: token };
+        return session;
     } catch (err) {
         if (err.code === "SQLITE_CONSTRAINT" && err.message?.includes("Sessions.userId")) {
             const newErr = new Error("User already logged in.", { status: 403 });

@@ -1,4 +1,5 @@
 import express from "express";
+import cookieParser from "cookie-parser";
 import path from "path";
 
 import { log, error } from "./middleware/utilityMiddleware.js";
@@ -16,6 +17,7 @@ const app = express();
 const port = process.env.PORT || 8020;
 
 // default middleware
+app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(log);
