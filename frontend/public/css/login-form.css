@@ -1,0 +1,74 @@
+@import "color-themes.css";
+
+h1 {
+    text-align: center;
+    margin: 1rem 0 2rem;
+}
+
+.register, .login {
+    width: 100%;
+    display: flex;
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
+}
+
+.register label, .login label {
+    width: fit-content;
+    flex: 1;
+}
+
+.register input, .login input {
+    padding: .5rem;
+    flex: 1;
+    font-size: 1em;
+    outline: none;
+    box-sizing: border-box;
+    border: 2px solid var(--secundary-theme-color);
+}
+
+.register input:focus, .login input:focus {
+    border-color: var(--primary-theme-color);
+}
+
+.register input:required:invalid, .login input:required:invalid {
+    border: 2px solid red;
+}
+
+.register button, .login button {
+    width: 50%;
+    padding: 1rem;
+    margin: 0 auto;
+    border-radius: 1rem;
+    font-size: 1em;
+    background-color: var(--secundary-theme-color);
+    transition: all 0.2s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.register button:hover, .login button:hover {
+    width: 55%;
+    color: var(--secundary-theme-color);
+    background-color: var(--primary-theme-color);
+}
+
+.login--text, .register--text {
+    font-size: 1.4rem;
+}
+
+.login--text a, .register--text a {
+    font-size: inherit;
+    color: var(--secundary-text-color);
+}
+
+.login--text a:hover, .register--text a:hover {
+    text-decoration: underline;
+}
+
+@media only screen and (min-width: 900px) {
+    .register, .login {
+        width: 60%;
+    }
+
+    .login--text, .register--text {
+        width: 50%;
+    }
+}
