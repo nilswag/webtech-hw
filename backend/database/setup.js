@@ -35,10 +35,10 @@ export async function players() {
  * Function to setup users database table.
  */
 export async function users() {
-    // We will not hash passwords for the sake of simplicity
     await execQuery(`
         CREATE TABLE IF NOT EXISTS Users(
-            email TEXT PRIMARY KEY,
+            id INTEGER PRIMARY KEY,
+            email TEXT UNIQUE NOT NULL,
             firstName TEXT NOT NULL,
             lastName TEXT NOT NULL,
             password TEXT NOT NULL
@@ -53,10 +53,10 @@ export async function sessions() {
     await execQuery(`
         CREATE TABLE IF NOT EXISTS Sessions(
             id INTEGER PRIMARY KEY,
-            email TEXT NOT NULL,
-            token TEXT NOT NULL,
+            userId INTEGER NOT NULL,
+            token TEXT UNIQUE NOT NULL,
             expires TEXT NOT NULL,
-            FOREIGN KEY (email) REFERENCES Users(email) ON DELETE CASCADE
+            FOREIGN KEY (userId) REFERENCES Users(id) ON DELETE CASCADE
         );
     `);
 }

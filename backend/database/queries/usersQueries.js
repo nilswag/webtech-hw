@@ -16,7 +16,7 @@ export async function addUser(user) {
  * Function to get specific user.
  * @param {*} email Email of user.
  */
-export async function getUser(email) {
+export async function getUserByEmail(email) {
     const result = await fetchFirst(`SELECT * FROM Users WHERE email = ?;`, email);
     return result ? User.from(result) : null;
 }

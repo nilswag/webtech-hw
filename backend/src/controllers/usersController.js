@@ -19,8 +19,14 @@ export async function register(req, res, next) {
 export async function login(req, res, next) {
     try {
         const { email, password } = req.body;
-        const user = await service.login(email, password);
-        res.status(200).json({ message: "Sucessfully logged in." });
+        const { user, session } = await service.login(email, password);
+
+        res.status(200)
+            .cookie("auth", session.token, { 
+                expire: session.expires,
+                httpOnly: true
+             })
+            .json({ message: "Sucessfully logged in." });
     } catch (err) {
         return next(err);
     }

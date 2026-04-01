@@ -1,6 +1,7 @@
 import * as queries from "../../database/queries/usersQueries.js";
 import bcrypt from "bcrypt";
 import { User } from "../../../shared/models/User.js";
+import { addSession } from "./sessionsService.js";
 
 /**
  * Service helper function to get user.
@@ -8,7 +9,7 @@ import { User } from "../../../shared/models/User.js";
  * @returns User if found otherwise throws error.
  */
 async function getUser(email) {
-    const result = await queries.getUser(email);
+    const result = await queries.getUserByEmail(email);
     if (!result) {
         const err = new Error("No user with that email.");
         err.status = 404;
@@ -28,7 +29,7 @@ async function getUser(email) {
 export async function addUser(firstName, lastName, email, password) {
     try {
         const hashed = await bcrypt.hash(password, 10); // use is hash to compare
-        const result = await queries.addUser(new User(firstName, lastName, email, hashed)); 
+        const result = await queries.addUser(new User(null, firstName, lastName, email, hashed)); 
     } catch (err) {
         if (err.code === "SQLITE_CONSTRAINT" && err.message?.includes("Users.email")) {
             const newErr = new Error("User already registered with that email.", { status: 401 });
@@ -43,6 +44,7 @@ export async function addUser(firstName, lastName, email, password) {
  * Service function to log in user.
  * @param {*} email Email address of user.
  * @param {*} password Password of user.
+ * @returns object containing user and session.
  */
 export async function login(email, password) {
     const user = await getUser(email);
@@ -54,8 +56,7 @@ export async function login(email, password) {
         throw err;
     }
 
-    // TODO: add httpsecure cookie with session
-    // TODO: generate session
+    const session = await addSession(user);
 
-    return user;
+    return { user, session };
 }
