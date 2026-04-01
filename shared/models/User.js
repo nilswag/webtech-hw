@@ -29,8 +29,14 @@ export class User {
     }
 
     static from(obj) {
-        const { firstName, lastName, email, password } = obj;
-        if (!firstName) throw new Error("Missing firstname parameter.");
+        const { 
+            firstName = null,
+            lastName = null,
+            email = null,
+            password = null
+        } = obj || {};
+        
+        if (!firstName) throw new Error("Missing firstName parameter.");
         if (!lastName) throw new Error("Missing lastName parameter.");
         if (!email) throw new Error("Missing email parameter.");
         if (!password) throw new Error("Missing password parameter.");
