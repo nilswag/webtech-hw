@@ -26,6 +26,7 @@ app.use("/api/statistics", statisticsRoutes);
 app.use("/api/users", usersRoutes);
 
 app.use(express.static(path.join(__rootDirName, "frontend/public")));
+app.use(express.static(path.join(__rootDirName, "shared")));
 app.use("/", frontendRoutes);
 
 // error middleware

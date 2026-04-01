@@ -1,4 +1,3 @@
-import { error } from "../util/logging.js";
 
 /**
  * Function to send request to api.
