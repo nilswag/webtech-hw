@@ -2,14 +2,12 @@ import { fetchFirst, runQuery } from "../database.js";
 
 /**
  * Query to add a session.
- * @param {*} userId User id belonging to session.
- * @param {*} token Session token for user.
- * @param {*} expires Expiration date of token.
+ * @param {*} session Session object.
  */
-export async function addSession(userId, token, expires) {
+export async function addSession(session) {
     return await runQuery(`
         INSERT INTO Sessions(userId, token, expires) VALUES (?, ?, ?);
-    `, userId, token, expires);
+    `, session.userId, session.token, session.expires);
 }
 
 /**
