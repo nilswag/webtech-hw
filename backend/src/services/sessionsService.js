@@ -1,5 +1,4 @@
 import crypto from "crypto";
-import bcrypt from "bcrypt";
 import * as queries from "../../database/queries/sessionsQueries.js";
 import { Session } from "../models/Session.js";
 
@@ -10,7 +9,7 @@ import { Session } from "../models/Session.js";
  */
 export async function addSession(user) {
     let session = await queries.getSessionByUser(user);
-    if (session && session.expire <= new Date()) {
+    if (session && session.expires <= new Date()) {
         // session has expired and a new one is required.
         removeSession(user);
     }

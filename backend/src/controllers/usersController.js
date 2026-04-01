@@ -19,11 +19,11 @@ export async function register(req, res, next) {
 export async function login(req, res, next) {
     try {
         const { email, password } = req.body;
-        const { user, token } = await service.login(email, password);
+        const { user, session } = await service.login(email, password);
 
         res.status(200)
-            .cookie("auth", token, { 
-                expire: token.expire,
+            .cookie("auth", session.token, { 
+                expire: session.expires,
                 httpOnly: true
              })
             .json({ message: "Sucessfully logged in." });

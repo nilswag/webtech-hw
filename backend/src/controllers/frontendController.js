@@ -1,6 +1,7 @@
 import { staticHtml } from "../util/frontendUtil.js"
 
 export async function index(req, res) {
+    console.log(req.cookies.auth);
     res.sendFile(staticHtml("index.html"));
 }
 
