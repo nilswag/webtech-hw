@@ -1,12 +1,12 @@
 
 export class User {
-    #id,
+    #id;
     #firstName;
     #lastName;
     #email;
     #password;
 
-    constructor(id, firstName, lastName, email, password) {
+    constructor(id = null, firstName, lastName, email, password) {
         this.#id = id;
         this.#firstName = firstName;
         this.#lastName = lastName;
@@ -43,7 +43,6 @@ export class User {
             password = null
         } = obj || {};
 
-        if (!id) throw new Error("Missing id parameter.");
         if (!firstName) throw new Error("Missing firstName parameter.");
         if (!lastName) throw new Error("Missing lastName parameter.");
         if (!email) throw new Error("Missing email parameter.");
