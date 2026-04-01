@@ -1,4 +1,4 @@
-import * as logging from "../util/logging.js";
+import * as logging from "../../../shared/util/logging.js";
 import { validationResult } from "express-validator";
 
 /**
