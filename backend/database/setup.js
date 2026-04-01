@@ -53,10 +53,10 @@ export async function sessions() {
     await execQuery(`
         CREATE TABLE IF NOT EXISTS Sessions(
             id INTEGER PRIMARY KEY,
-            email TEXT NOT NULL,
+            userId INTEGER NOT NULL,
             token TEXT NOT NULL,
             expires TEXT NOT NULL,
-            FOREIGN KEY (email) REFERENCES Users(email) ON DELETE CASCADE
+            FOREIGN KEY (userId) REFERENCES Users(id) ON DELETE CASCADE
         );
     `);
 }
