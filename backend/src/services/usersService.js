@@ -9,7 +9,7 @@ import { addSession } from "./sessionsService.js";
  * @returns User if found otherwise throws error.
  */
 async function getUser(email) {
-    const result = await queries.getUser(email);
+    const result = await queries.getUserByEmail(email);
     if (!result) {
         const err = new Error("No user with that email.");
         err.status = 404;
