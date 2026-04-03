@@ -6,6 +6,7 @@ import { log, error } from "./middleware/utilityMiddleware.js";
 import { __rootDirName } from "./util/frontendUtil.js";
 import * as setup from "../database/setup.js";
 import playersRoutes from "./routes/playersRoutes.js";
+import teamsRoutes from "./routes/teamsRoutes.js";
 import statisticsRoutes from "./routes/statisticsRoute.js";
 import frontendRoutes from "./routes/frontendRoutes.js";
 import usersRoutes from "./routes/usersRoutes.js";
@@ -24,6 +25,7 @@ app.use(log);
 
 // custom routes
 app.use("/api/players", playersRoutes);
+app.use("/api/teams", teamsRoutes);
 app.use("/api/statistics", statisticsRoutes);
 app.use("/api/users", usersRoutes);
 
