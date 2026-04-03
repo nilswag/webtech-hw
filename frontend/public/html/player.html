@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en" class="light-mode">
     <head>
-        <meta charset="utf-8">
+        <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="Register page">
-        <title>Register</title>
+        <title></title>
         <link rel="stylesheet" href="../css/reset.css">
         <link rel="stylesheet" href="../css/style.css">
-        <link rel="stylesheet" href="../css/login-form.css">
+        <link rel="stylesheet" href="../css/cards.css">
+        <link rel="stylesheet" href="../css/player.css">
     </head>
     <body>
         <header>
@@ -32,28 +32,10 @@
             </nav>
         </header>
         <main>
-            <h1>Register</h1>
-            <form class="register" action="/api/users/register" method="post">
-                <div class="register__firstname">
-                    <label for="firstName">First name: </label>
-                    <input type="text" name="firstName" id="firstName" required>
-                </div>
-                <div class="register__lastname">
-                    <label for="lastName">Last name: </label>
-                    <input type="text" name="lastName" id="lastName" required>
-                </div>
-                <div class="register__email">
-                    <label for="email">Email: </label>
-                    <input type="email" name="email" id="email" required>
-                </div>
-                <div class="register__password">
-                    <label for="password">Password: </label>
-                    <input type="password" name="password" id="password" required>
-                </div>
-                <button type="submit"><b>Register</b></button>
-            </form>
-            <p class="login--text">Do you already have an account? <i><a href="/login">Log in</a></i>!</p>
+            <h1></h1>
+            <section id="player__info"></section>
+            <a id="team__link"></a>
         </main>
-        <footer></footer>
+        <script type="module" src="../js/player.js"></script>
     </body>
 </html>
