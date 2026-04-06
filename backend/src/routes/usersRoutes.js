@@ -17,4 +17,6 @@ router.post("/login", [
     body("password").notEmpty()
 ], validator, controller.login);
 
+router.get("/logout", controller.logout);
+
 export default router;

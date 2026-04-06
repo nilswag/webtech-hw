@@ -1,4 +1,5 @@
 import crypto from "crypto";
+import bcrypt from "bcrypt";
 import * as queries from "../../database/queries/sessionsQueries.js";
 import { Session } from "../models/Session.js";
 
@@ -38,5 +39,9 @@ export async function addSession(user) {
  * @param {*} user User of session. 
  */
 export async function removeSession(user) {
-    await queries.removeSession(user.id);
+    await queries.removeSessionByUser(user.id);
+}
+
+export async function getSessions() {
+    return await queries.getSessions();
 }
