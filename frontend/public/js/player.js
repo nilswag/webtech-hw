@@ -1,4 +1,5 @@
 import { PlayerCard } from "./cards.js";
+import { getData } from "./util/api.js";
 
 const urlParams = new URLSearchParams(window.location.search);
 const id = urlParams.get("id");
@@ -48,10 +49,10 @@ function loadExtendedInfo(player, team) {
 async function loadPage() {
     const playerInfo = document.getElementById("player__info");
     const teamLink = document.getElementById("team__link");
-    let player = await fetch(`/api/players/${id}`);
+    let player = await getData(`/players/${id}`);
     player = await player.json();
     player = player[0];
-    let team = await fetch(`/api/teams/${player.teamId}`);
+    let team = await getData(`/teams/${player.teamId}`);
     team = await team.json();
     team = team[0];
     console.log(player)

@@ -13,6 +13,6 @@ export async function getData(endpoint) {
         const result = await response.json();
         return result;
     } catch (err){
-        error(err);
+        throw err;
     }
 }

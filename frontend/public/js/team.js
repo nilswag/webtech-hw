@@ -1,4 +1,5 @@
 import { PlayerCard, TeamCard } from "./cards.js";
+import { getData } from "./util/api.js";
 
 const urlParams = new URLSearchParams(window.location.search);
 const id = urlParams.get("id");
@@ -16,8 +17,8 @@ async function loadTeam(team) {
 }
 
 async function loadPage() {
-    let team = await fetch(`/api/teams/${id}`);
-    let players = await fetch(`/api/players/team/${id}`);
+    let team = await getData(`/teams/${id}`);
+    let players = await getData(`/players/team/${id}`);
     team = await team.json();
     team = team[0];
     players = await players.json();

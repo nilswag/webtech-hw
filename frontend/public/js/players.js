@@ -1,8 +1,8 @@
 import { PlayerCard } from "./cards.js";
+import { getData } from "./util/api.js";
 
 async function showPlayers() {
-    let players = await fetch(`/api/players`);
-    players = await players.json();
+    let players = await getData(`/players`);
 
     PlayerCard.createPlayerCards(players);
 }
