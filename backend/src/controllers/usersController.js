@@ -26,6 +26,9 @@ export async function login(req, res, next) {
                 expire: session.expires,
                 httpOnly: true
              })
+            .cookie("loggedIn", true, {
+                expire: session.expires
+            })
             .json({ message: "Sucessfully logged in." });
     } catch (err) {
         return next(err);
