@@ -34,3 +34,7 @@ export async function login(req, res, next) {
         return next(err);
     }
 }
+
+export async function logout(req, res, next) {
+    
+}
