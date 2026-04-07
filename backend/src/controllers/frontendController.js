@@ -29,5 +29,5 @@ export async function login(req, res) {
 }
 
 export async function logout(req, res) {
-    res.redirect("/api/users/logout");
+    res.redirect("api/users/logout");
 }
