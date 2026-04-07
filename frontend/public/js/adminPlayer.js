@@ -65,7 +65,7 @@ function loadExtendedInfo(player, team) {
         }
     })
 
-    console.log(extendedInfo)
+    // console.log(extendedInfo)
     return extendedInfo;
 }
 
@@ -98,7 +98,7 @@ async function loadPage() {
 
     let extendedInfo = loadExtendedInfo(player, team);
 
-    console.log(extendedInfo)
+    // console.log(extendedInfo)
     playerInfo.appendChild(extendedInfo);
 
     const submitBtn = document.createElement("input");

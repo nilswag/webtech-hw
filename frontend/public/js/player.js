@@ -54,7 +54,7 @@ async function loadPage() {
     player = player[0];
     let team = await getData(`/teams/${player.teamId}`);
     team = team[0];
-    console.log(player)
+    // console.log(player)
     // console.log(players)
     
     document.title = `${player.firstName} ${player.lastName}`;
@@ -67,7 +67,7 @@ async function loadPage() {
 
     let extendedInfo = loadExtendedInfo(player, team);
 
-    console.log(extendedInfo)
+    // console.log(extendedInfo)
     playerInfo.appendChild(extendedInfo);
 
     teamLink.innerText = `Go to ${team.name}'s page`;

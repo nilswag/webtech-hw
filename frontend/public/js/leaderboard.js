@@ -1,11 +1,12 @@
+import { getData } from "./util/api";
+
 async function updateLeaderboard() {
     const leaderboard = document.getElementById("leaderboard__body");
     let data;
     let leaderboardInfo = "";
     let rank = 1;
 
-    data = await fetch("/api/statistics/leaderboard");
-    data = await data.json();
+    data = await getData("/api/statistics/leaderboard");
 
     data.forEach(team => {
         const row = `
