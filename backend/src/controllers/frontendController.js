@@ -28,3 +28,20 @@ export async function register(req, res) {
 export async function login(req, res) {
     res.sendFile(staticHtml("login.html"));
 }
+
+
+export async function playerAdmin(req, res) {
+    res.sendFile(staticHtml("player-admin.html"));
+}
+
+export async function playersAdmin(req, res) {
+    res.sendFile(staticHtml("players-admin.html"));
+}
+
+export async function teamAdmin(req, res) {
+    res.sendFile(staticHtml("team-admin.html"));
+}
+
+export async function teamsAdmin(req, res) {
+    res.sendFile(staticHtml("teams-admin.html"));
+}

@@ -56,10 +56,10 @@
 
 @media only screen and (min-width: 900px) {
     .card--player {
-    width: 35%;
-}
+        width: 35%;
+    }
 
-.card--player:hover {
-    width: 35%;
-}
+    .card--player:hover {
+        width: 35%;
+    }
 }

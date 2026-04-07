@@ -34,6 +34,7 @@ function loadExtendedInfo(player, team) {
             pSeperator.innerText = ":";
             pValue.innerText = value;            
         }
+        else return;
 
         container.appendChild(pKey);
         container.appendChild(pSeperator);
@@ -50,10 +51,8 @@ async function loadPage() {
     const playerInfo = document.getElementById("player__info");
     const teamLink = document.getElementById("team__link");
     let player = await getData(`/players/${id}`);
-    player = await player.json();
     player = player[0];
     let team = await getData(`/teams/${player.teamId}`);
-    team = await team.json();
     team = team[0];
     console.log(player)
     // console.log(players)
