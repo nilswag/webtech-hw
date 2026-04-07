@@ -1,7 +1,7 @@
 import * as queries from "../../database/queries/usersQueries.js";
 import bcrypt from "bcrypt";
 import { User } from "../../../shared/models/User.js";
-import { addSession } from "./sessionsService.js";
+import { addSession, removeSession, getSessions } from "./sessionsService.js";
 
 /**
  * Service helper function to get user.
@@ -59,4 +59,10 @@ export async function login(email, password) {
     const session = await addSession(user);
 
     return { user, session };
+}
+
+export async function logout(token) {
+    const sessions = await getSessions();
+    const session = sessions.find(s => bcrypt.compare(token, s.token));
+    await removeSession(session.userId);
 }

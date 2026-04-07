@@ -11,6 +11,7 @@ router.get("/players", controller.players);
 router.get("/players/player", controller.player);
 router.get("/register", controller.register);
 router.get("/login", controller.login);
+router.get("/logout", controller.logout);
 
 router.get("/players/player-admin", controller.playerAdmin);
 router.get("/players-admin", controller.playersAdmin);

@@ -1,7 +1,6 @@
 import { staticHtml } from "../util/frontendUtil.js"
 
 export async function index(req, res) {
-    console.log(req.cookies.auth);
     res.sendFile(staticHtml("index.html"));
 }
 
@@ -29,7 +28,6 @@ export async function login(req, res) {
     res.sendFile(staticHtml("login.html"));
 }
 
-
 export async function playerAdmin(req, res) {
     res.sendFile(staticHtml("player-admin.html"));
 }
@@ -44,4 +42,8 @@ export async function teamAdmin(req, res) {
 
 export async function teamsAdmin(req, res) {
     res.sendFile(staticHtml("teams-admin.html"));
+}
+
+export async function logout(req, res) {
+    res.redirect("/api/users/logout");
 }

@@ -43,7 +43,7 @@ function loadExtendedInfo(player, team) {
         extendedInfo.appendChild(container);
     })
 
-    console.log(extendedInfo)
+    // console.log(extendedInfo)
     return extendedInfo;
 }
 
