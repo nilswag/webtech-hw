@@ -5,6 +5,7 @@
  * @returns Response body (in json).
  */
 export async function getData(endpoint) {
+    // this needs to be changed to either /group20/api or /api depending on local development or not
     const url = "/api" + endpoint;
     try {
         const response = await fetch(url);
