@@ -23,9 +23,11 @@ app.use(express.urlencoded({ extended: true }));
 app.use(log);
 
 // custom routes
-app.use("/api/players", playersRoutes);
-app.use("/api/statistics", statisticsRoutes);
-app.use("/api/users", usersRoutes);
+const root = process.env.ROOT !== undefined ? "/" : "/group20/";
+
+app.use(`${root}api/players`, playersRoutes);
+app.use(`${root}api/statistics`, statisticsRoutes);
+app.use(`${root}api/users`, usersRoutes);
 
 app.use(express.static(path.join(__rootDirName, "frontend/public")));
 app.use(express.static(path.join(__rootDirName, "shared")));
