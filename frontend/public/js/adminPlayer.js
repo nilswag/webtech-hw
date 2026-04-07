@@ -107,7 +107,7 @@ async function loadPage() {
     playerInfo.appendChild(submitBtn);
     
     teamLink.innerText = `Go to ${team.name}'s page`;
-    teamLink.href = `../teams/team?id=${player.teamId}`;
+    teamLink.href = `teams/team?id=${player.teamId}`;
 }
 
 player__info.addEventListener("submit", (event) => {

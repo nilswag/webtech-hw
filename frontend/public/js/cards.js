@@ -46,7 +46,7 @@ export class PlayerCard extends Card {
         let [card, heading, image] = this.createCard();
 
         card.classList.add("card--player");
-        if(this.linkable) card.href = `../players/player?id=${this.id}`;
+        if(this.linkable) card.href = `/group20/players/player?id=${this.id}`;
 
         heading.innerText = `${this.#firstName} ${this.#lastName}`;
         image.alt = `Portrait of ${this.#firstName} ${this.#lastName}`;
@@ -79,7 +79,7 @@ export class TeamCard extends Card {
         let [card, heading, image] = this.createCard();
 
         card.classList.add("card--team");
-        if(this.linkable) card.href = `/teams/team?id=${this.id}`;
+        if(this.linkable) card.href = `teams/team?id=${this.id}`;
 
         heading.innerText = this.#name;
         image.alt = `${this.#name} logo`;
