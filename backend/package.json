@@ -7,7 +7,7 @@
   "type": "module",
   "main": "src/server.js",
   "scripts": {
-    "dev": "node --watch src/server.js",
+    "dev": "ROOT= node --watch src/server.js",
     "start": "npm install && node --watch src/server.js"
   },
   "dependencies": {
