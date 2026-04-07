@@ -4,10 +4,10 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title></title>
-        <link rel="stylesheet" href="../css/reset.css">
-        <link rel="stylesheet" href="../css/style.css">
-        <link rel="stylesheet" href="../css/cards.css">
-        <link rel="stylesheet" href="../css/team.css">
+        <link rel="stylesheet" href="/css/reset.css">
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/cards.css">
+        <link rel="stylesheet" href="/css/team.css">
     </head>
     <body>
         <header>
@@ -27,8 +27,9 @@
             <nav class="header__navigation">
                 <a href="/players">Players</a>
                 <a href="/teams">Teams</a>
-                <a href="/register">Register</a>
-                <a href="/login">Log In</a>
+                <a href="/register" id="header__navigation__register" style="display: none;">Register</a>
+                <a href="/login" id="header__navigation__login" style="display: none;">Log In</a>
+                <a href="/logout" id="header__navigation__logout" style="display: none;">Log Out</a>
             </nav>
         </header>
         <main>
@@ -37,6 +38,7 @@
             <section id="players__list"></section>
         </main>
         
-        <script src="../js/team.js" type="module"></script>
+        <script src="/js/team.js" type="module"></script>
+        <script src="/js/session.js" type="module"></script>
     </body>
 </html>
