@@ -13,9 +13,4 @@ router.get("/register", controller.register);
 router.get("/login", controller.login);
 router.get("/logout", controller.logout);
 
-router.get("/players/player-admin", controller.playerAdmin);
-router.get("/players-admin", controller.playersAdmin);
-router.get("/teams/team-admin", controller.teamAdmin);
-router.get("/teams-admin", controller.teamsAdmin);
-
 export default router;
