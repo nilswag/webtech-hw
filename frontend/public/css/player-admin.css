@@ -1,0 +1,13 @@
+form {
+    font-size: 1.6rem;
+}
+
+input[type = text] {
+    border-bottom: 1px dotted var(--primary-text-color);
+}
+
+input[type = submit] {
+    width: fit-content;
+    padding: 1rem;
+    border-radius: 1rem;
+}

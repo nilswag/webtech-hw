@@ -6,6 +6,7 @@ import { log, error } from "./middleware/utilityMiddleware.js";
 import { __rootDirName } from "./util/frontendUtil.js";
 import * as setup from "../database/setup.js";
 import playersRoutes from "./routes/playersRoutes.js";
+import teamsRoutes from "./routes/teamsRoutes.js";
 import statisticsRoutes from "./routes/statisticsRoute.js";
 import frontendRoutes from "./routes/frontendRoutes.js";
 import usersRoutes from "./routes/usersRoutes.js";
@@ -23,11 +24,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use(log);
 
 // custom routes
-const root = process.env.ROOT !== undefined ? "/" : "/group20/";
-
-app.use(`${root}api/players`, playersRoutes);
-app.use(`${root}api/statistics`, statisticsRoutes);
-app.use(`${root}api/users`, usersRoutes);
+app.use("/api/players", playersRoutes);
+app.use("/api/teams", teamsRoutes);
+app.use("/api/statistics", statisticsRoutes);
+app.use("/api/users", usersRoutes);
 
 app.use(express.static(path.join(__rootDirName, "frontend/public")));
 app.use(express.static(path.join(__rootDirName, "shared")));

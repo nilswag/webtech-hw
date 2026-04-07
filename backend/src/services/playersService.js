@@ -25,6 +25,10 @@ export async function getPlayer(id) {
     return result;
 }
 
+export async function getPlayersOfTeam(id) {
+    return await queries.getPlayersOfTeam(id);
+}
+
 /**
  * Service call to database to add a player.
  * @param {*} firstName First name of player.
@@ -35,6 +39,11 @@ export async function getPlayer(id) {
  * @param {*} photo Path of photo of player.
  * @returns An empty promise.
  */
-export async function addPlayer(firstName, lastName, age, role, number, photo) {
-    return await queries.addPlayer(firstName, lastName, age, role, number, photo);
+export async function addPlayer(firstName, lastName, age, role, number, photo, teamId) {
+    return await queries.addPlayer(firstName, lastName, age, role, number, photo, teamId);
 }
+
+addPlayer("Jan", "Jaap", 12, "Captain", 4, "../media/images/portraits/callum_mckenzie.png", 1)
+addPlayer("Jan", "Jaap", 12, "Captain", 5, "../media/images/portraits/callum_mckenzie.png", 1)
+addPlayer("Jan", "Jaap", 12, "Captain", 6, "../media/images/portraits/callum_mckenzie.png", 2)
+addPlayer("Jan", "Jaap", 12, "Captain", 7, "../media/images/portraits/callum_mckenzie.png", 3)

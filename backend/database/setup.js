@@ -15,9 +15,23 @@ export async function init() {
 }
 
 /**
+ * Function to setup teams database table.
+ */
+export async function teams() {
+    await execQuery(`
+        CREATE TABLE IF NOT EXISTS Teams(
+            id INTEGER PRIMARY KEY,
+            name TEXT, 
+            image TEXT
+        );`
+    )
+}
+
+/**
  * Function to setup players database table.
  */
 export async function players() {
+    // execQuery("DROP TABLE Players")
     await execQuery(`
         CREATE TABLE IF NOT EXISTS Players(
             id INTEGER PRIMARY KEY,
@@ -26,7 +40,8 @@ export async function players() {
             age INTEGER,
             role TEXT,
             number INTEGER,
-            photo TEXT
+            photo TEXT, 
+            teamId INTEGER
         );
     `);
 }

@@ -25,6 +25,18 @@ export async function getPlayer(req, res, next) {
 }
 
 /**
+ * Endpoint for getting players of specific team.
+ */
+export async function getPlayersOfTeam(req, res, next) {
+    try {
+        const result = await service.getPlayersOfTeam(req.params.id);
+        res.status(200).json(result);
+    } catch (error) {
+        return next(error);
+    }
+}
+
+/**
  * Endpoint for adding a player.
  */
 export async function postPlayer(req, res, next) {

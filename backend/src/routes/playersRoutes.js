@@ -9,6 +9,8 @@ router.get("/", controller.getPlayers);
 
 router.get("/:id", controller.getPlayer);
 
+router.get("/team/:id", controller.getPlayersOfTeam);
+
 router.post("/add", [
     body("firstName").isString(),
     body("lastName").isString(),

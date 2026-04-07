@@ -17,6 +17,10 @@ export async function getPlayer(id) {
     return await fetchAll("SELECT * FROM Players WHERE id = ?;", id);
 }
 
+export async function getPlayersOfTeam(id) {
+    return await fetchAll("SELECT * FROM Players WHERE teamId = ?;", id);
+}
+
 /**
  * Query to database to add player.
  * @param {*} firstName First name of player.
@@ -27,6 +31,6 @@ export async function getPlayer(id) {
  * @param {*} photo Path to photo of player.
  * @returns An empty promise.
  */
-export async function addPlayer(firstName, lastName, age, role, number, photo) {
-    return await runQuery("INSERT INTO Players(firstName, lastName, age, role, number, photo) VALUES(?, ?, ?, ?, ?, ?);", firstName, lastName, age, role, number, photo);
+export async function addPlayer(firstName, lastName, age, role, number, photo, teamId) {
+    return await runQuery("INSERT INTO Players(firstName, lastName, age, role, number, photo, teamId) VALUES(?, ?, ?, ?, ?, ?, ?);", firstName, lastName, age, role, number, photo, teamId);
 }

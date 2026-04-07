@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en" class="light-mode">
     <head>
-        <meta charset="utf-8">
+        <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="Login page">
-        <title>Login</title>
-        <link rel="stylesheet" href="css/reset.css">
-        <link rel="stylesheet" href="css/style.css">
-        <link rel="stylesheet" href="css/login-form.css">
+        <title>Players</title>
+        <meta name="description" content="All players of the America's Cup.">
+        <link rel="stylesheet" href="../css/reset.css">
+        <link rel="stylesheet" href="../css/style.css">
+        <link rel="stylesheet" href="../css/cards.css">
     </head>
     <body>
         <header>
@@ -23,7 +23,7 @@
                     </g>
                 </svg>
             </div>
-            <a class="header__title" href=""><strong>America's Cup<br><span>Fan Page</span></strong></a> 
+            <a class="header__title" href="/"><strong>America's Cup<br><span>Fan Page</span></strong></a> 
             <nav class="header__navigation">
                 <a href="/players">Players</a>
                 <a href="/teams">Teams</a>
@@ -32,20 +32,9 @@
             </nav>
         </header>
         <main>
-            <h1>Log In</h1>
-            <form class="login" action="api/users/login" method="post">
-                <div class="login__email">
-                    <label for="email">Email: </label>
-                    <input type="email" name="email" id="email" required>
-                </div>
-                <div class="login__password">
-                    <label for="password">Password: </label>
-                    <input type="password" name="password" id="password" required>
-                </div>
-                <button type="submit">Log in</button>
-            </form>
-            <p class="register--text">Don't have an account yet? <i><a href="register">Register now</a></i>!</p>
+            <h1>America's Cup Players</h1>
+            <section id="players__list"></section>
         </main>
-        <footer></footer>
+        <script src="./js/players.js" type="module"></script>
     </body>
 </html>

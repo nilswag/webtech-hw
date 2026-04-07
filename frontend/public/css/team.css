@@ -1,0 +1,22 @@
+.team__info {
+    width: 100%;
+    height: fit-content;
+}
+
+.card--team {
+    width: 100%;
+}
+
+.card--team:hover {
+    width: 100%;
+}
+
+@media only screen and (min-width: 900px) {
+    .card--team {
+        width: 35%;
+    }
+    
+    .card--team:hover {
+        width: 35%;
+    }
+}
