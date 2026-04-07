@@ -76,10 +76,10 @@ async function loadPage() {
     let playerObj;
     let team;
     if(id === 0) {
-        player = {id: 0, firstName: "??", lastName: "??", age: "??", role: "??", number: "??", photo: "media/images/portraits/empty-image.jpg", teamId: 0};
-        playerObj = new PlayerCard(0, "media/images/portraits/empty-image.jpg", true, "??", "??");
+        player = {id: 0, firstName: "??", lastName: "??", age: "??", role: "??", number: "??", photo: "public/media/images/portraits/empty-image.jpg", teamId: 0};
+        playerObj = new PlayerCard(0, "public/media/images/portraits/empty-image.jpg", true, "??", "??");
 
-        team = {id: 0, name: "??", image: "media/images/portraits/empty-image.jpg"};
+        team = {id: 0, name: "??", image: "public/media/images/portraits/empty-image.jpg"};
     } else {
         player = await getData(`/players/${id}`);
         player = player[0];

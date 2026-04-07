@@ -24,14 +24,16 @@ app.use(express.urlencoded({ extended: true }));
 app.use(log);
 
 // custom routes
-app.use("/api/players", playersRoutes);
-app.use("/api/teams", teamsRoutes);
-app.use("/api/statistics", statisticsRoutes);
-app.use("/api/users", usersRoutes);
+const base_path = process.env.BASE_PATH !== undefined ? "/group20/" : "/";
 
-app.use(express.static(path.join(__rootDirName, "frontend/public")));
-app.use(express.static(path.join(__rootDirName, "shared")));
-app.use("/", frontendRoutes);
+app.use(`${base_path}api/players`, playersRoutes);
+app.use(`${base_path}api/teams`, teamsRoutes);
+app.use(`${base_path}api/statistics`, statisticsRoutes);
+app.use(`${base_path}api/users`, usersRoutes);
+
+app.use(`${base_path}public`, express.static(path.join(__rootDirName, "frontend/public")));
+app.use(`${base_path}shared`, express.static(path.join(__rootDirName, "shared")));
+app.use(`${base_path}`, frontendRoutes);
 
 // error middleware
 app.use(error);

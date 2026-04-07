@@ -5,9 +5,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="Login page">
         <title>Login</title>
-        <link rel="stylesheet" href="css/reset.css">
-        <link rel="stylesheet" href="css/style.css">
-        <link rel="stylesheet" href="css/login-form.css">
+
+        <base href="/group20/">
+
+        <link rel="stylesheet" href="public/css/reset.css">
+        <link rel="stylesheet" href="public/css/style.css">
+        <link rel="stylesheet" href="public/css/login-form.css">
     </head>
     <body>
         <header>
@@ -23,7 +26,7 @@
                     </g>
                 </svg>
             </div>
-            <a class="header__title" href="./"><strong>America's Cup<br><span>Fan Page</span></strong></a> 
+            <a class="header__title" href=""><strong>America's Cup<br><span>Fan Page</span></strong></a> 
             <nav class="header__navigation">
                 <a href="players">Players</a>
                 <a href="teams">Teams</a>
@@ -33,7 +36,7 @@
         </header>
         <main>
             <h1>Log In</h1>
-            <form class="login" action="/api/users/login" method="post">
+            <form class="login" action="api/users/login" method="post">
                 <div class="login__email">
                     <label for="email">Email: </label>
                     <input type="email" name="email" id="email" required>
