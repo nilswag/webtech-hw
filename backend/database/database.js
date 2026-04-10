@@ -1,6 +1,14 @@
 import sqlite3 from "sqlite3";
 
-const db = new sqlite3.Database("database/db.db", sqlite3.OPEN_READWRITE | sqlite3.OPEN_CREATE);
+export const db = await new Promise((resolve, reject) => {
+    const instance = new sqlite3.Database("database/db.db", sqlite3.OPEN_READWRITE | sqlite3.OPEN_CREATE, (err) => {
+        if (err) return reject(err);
+        instance.run("PRAGMA foreign_keys = ON", (err) => {
+            if (err) return reject(err);
+            resolve(instance);
+        });
+    });
+});
 
 /**
  * Execute DML/DDL query/queries without parameters.
@@ -10,7 +18,7 @@ const db = new sqlite3.Database("database/db.db", sqlite3.OPEN_READWRITE | sqlit
 export async function execQuery(sql) {
     return new Promise((resolve, reject) => {
         db.exec(sql, (err) => {
-            if (err) reject(err);
+            if (err) return reject(err);
             resolve();
         })
     }); 
@@ -25,7 +33,7 @@ export async function execQuery(sql) {
 export async function runQuery(sql, ...args) {
     return new Promise((resolve, reject) => {
         db.run(sql, args, (err) => {
-            if (err) reject(err);
+            if (err) return reject(err);
             resolve();
         });
     });
@@ -40,7 +48,7 @@ export async function runQuery(sql, ...args) {
 export async function fetchAll(sql, ...args) {
     return new Promise((resolve, reject) => {
         db.all(sql, args, (err, rows) => {
-            if (err) reject(err);
+            if (err) return reject(err);
             resolve(rows);
         });
     });
@@ -55,7 +63,7 @@ export async function fetchAll(sql, ...args) {
 export async function fetchFirst(sql, ...args) {
     return new Promise((resolve, reject) => {
         db.get(sql, args, (err, rows) => {
-            if (err) reject(err);
+            if (err) return reject(err);
             resolve(rows);
         });
     });

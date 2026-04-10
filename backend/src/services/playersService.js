@@ -72,8 +72,3 @@ export async function updatePlayer(id, firstName, lastName, age, role, number, p
 export async function deletePlayer(id) {
     return await queries.deletePlayer(id);
 }
-
-// addPlayer("Jan", "Jaap", 12, "Captain", 4, "public/media/images/portraits/callum_mckenzie.png", 1)
-// addPlayer("Klaas", "Vaak", 12, "Captain", 5, "public/media/images/portraits/callum_mckenzie.png", 1)
-// addPlayer("Hans", "Klok", 12, "Captain", 6, "public/media/images/portraits/callum_mckenzie.png", 2)
-// addPlayer("Frans", "Buis", 12, "Captain", 7, "public/media/images/portraits/callum_mckenzie.png", 3)

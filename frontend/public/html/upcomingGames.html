@@ -4,15 +4,12 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Home</title>
-
-        <base href="/group20/">
-
         <link rel="stylesheet" href="public/css/reset.css">
         <link rel="stylesheet" href="public/css/style.css">
         <link rel="stylesheet" href="public/css/index.css">
 
         <script defer src="public/js/countdown.js" type="module"></script>
-        <script defer src="public/js/leaderboard.js" type="module"></script>  
+        <script defer src="public/js/upcomingGames.js" type="module"></script>
         <script defer src="public/js/session.js" type="module"></script>
     </head>
     <body>
@@ -37,17 +34,16 @@
                 <a href="register" id="header__navigation__register" style="display: none;">Register</a>
                 <a href="login" id="header__navigation__login" style="display: none;">Log In</a>
                 <a href="logout" id="header__navigation__logout" style="display: none;">Log Out</a>
-                <a href="profile" id="header__navigation__profile">Profile</a>
             </nav>
         </header>
         <main>
-            <div id="image-carousel">
+            <!-- <div id="image-carousel">
                 <img src="https://emirates-team-new-zealand.americascup.com/images/m5534_crop169014_1024x576_proportional_1687747577549A.jpg" alt="Picture of Emirates Team New Zealand">
                 <img src="https://emirates-team-new-zealand.americascup.com/images/m7465_crop169004_1024x576_173223360847B4.jpg" alt="Picture of Emirates Team New Zealand">
                 <img src="https://www.slam.com/cdn/shop/files/Frame_213.png" alt="Picture of Emirates Team New Zealand">
                 <img src="https://content.presspage.com/uploads/2431/3554eaad-0c02-40ca-8935-67bf57dc47d6/1920_251120_etnz_js0592.jpg?10000" alt="Picture of Emirates Team New Zealand">
                 <img src="https://i.ytimg.com/vi/OW0fkW7HLxE/maxresdefault.jpg" alt="Picture of Emirates Team New Zealand">
-            </div>
+            </div> -->
             <h1 class="body--title">The America's Cup</h1>
             <section class="event-countdown">
                 <h2>Coming Event<br><span id="event-countdown--name"></span></h2>
@@ -74,16 +70,29 @@
                 <table>
                     <thead>
                         <tr>
-                            <th>RANK</th>
-                            <th><button id="leaderboard-header__team">TEAM</button></th>
-                            <th><button id="leaderboard-header__wins">WINS</button></th>
-                            <th><button id="leaderboard-header__losses">LOSSES</button></th>
-                            <th><button id="leaderboard-header__total-points" >TOTAL POINTS</button></th>
-                            <th>WINS-LOSS DELTA</th>
+                            <th>DATE</th>
+                            <th>VENUE</th>
+                            <th>DEFENDER</th>
+                            <th>CHALLENGER</th>
                         </tr>
                     </thead>
-                    <tbody id="leaderboard__body"></tbody>
-                    <caption><strong>Leaderboard</strong></caption>
+                    <tbody id="upcoming-games__body"></tbody>
+                    <caption><strong>Upcoming Games</strong></caption>
+                </table>
+            </section>
+            <section class="leaderboard">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>DATE</th>
+                            <th>VENUE</th>
+                            <th>DEFENDER</th>
+                            <th>SCORE</th>
+                            <th>CHALLENGER</th>
+                        </tr>
+                    </thead>
+                    <tbody id="passed-games__body"></tbody>
+                    <caption><strong>Passed Games</strong></caption>
                 </table>
             </section>
         </main>

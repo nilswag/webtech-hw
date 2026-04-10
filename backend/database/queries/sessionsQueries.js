@@ -32,7 +32,7 @@ export async function getSessionByUser(user) {
  * @param {*} userId User id.
  */
 export async function removeSessionByUser(userId) {
-    return await execQuery("DELETE FROM Sessions WHERE userId = ?;", userId);
+    return await runQuery("DELETE FROM Sessions WHERE userId = ?;", userId);
 }
 
 export async function getSessions() {

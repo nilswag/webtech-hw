@@ -46,3 +46,24 @@ export async function logout(req, res, next) {
         return next(err);
     }
 }
+
+export async function updateInformation(req, res, next) {
+    try {
+        const { firstName, lastName, email, password, favoriteTeam } = req.body;
+        if (!req.cookies.loggedIn) throw new Error("Not logged in.", { status: 406 });
+        
+        await service.updateInformation(req.cookies.auth, firstName, lastName, email, password, favoriteTeam);
+        res.status(200).json({ message: "Successfully updated information." });
+    } catch (err) {
+        return next(err);
+    }
+}
+
+export async function getUser(req, res, next) {
+    try {
+        const userData = await service.getUser(req.cookies.auth);
+        res.status(200).json(userData);
+    } catch (err) {
+        return next(err);
+    }
+}

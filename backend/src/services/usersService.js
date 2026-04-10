@@ -8,7 +8,7 @@ import { addSession, removeSession, getSessions } from "./sessionsService.js";
  * @param {*} email Email of user.
  * @returns User if found otherwise throws error.
  */
-async function getUser(email) {
+async function getUserByEmail(email) {
     const result = await queries.getUserByEmail(email);
     if (!result) {
         const err = new Error("No user with that email.");
@@ -47,9 +47,9 @@ export async function addUser(firstName, lastName, email, password) {
  * @returns object containing user and session.
  */
 export async function login(email, password) {
-    const user = await getUser(email);
+    const user = await getUserByEmail(email);
 
-    const validPassword = await bcrypt.compare(password, user.password);
+    const validPassword = bcrypt.compare(password, user.password);
     if (!validPassword) {
         const err = new Error("Invalid password.");
         err.status = 401;
@@ -64,5 +64,26 @@ export async function login(email, password) {
 export async function logout(token) {
     const sessions = await getSessions();
     const session = sessions.find(s => bcrypt.compare(token, s.token));
-    await removeSession(session.userId);
+    await removeSession(await queries.getUser(session.userId));
+}
+
+export async function updateInformation(token, firstName, lastName, email, password, favoriteTeam) {
+    const sessions = await getSessions();
+    const session = sessions.find(s => bcrypt.compare(token, s.token));
+    const id = session.userId;
+
+    if (firstName) await queries.updateUserFirstName(firstName, id);
+    if (lastName) await queries.updateUserLastName(lastName, id);
+    if (email) await queries.updateUserEmail(email, id);
+    if (password) await queries.updateUserPassword(await bcrypt.hash(password, 10), id);
+    if (favoriteTeam) await queries.updateUserFavoriteTeam(favoriteTeam, id);
+}
+
+export async function getUser(token) {
+    if (!token) throw new Error("Not logged in.", { status: 403 });
+    const sessions = await getSessions();
+    const session = sessions.find(s => bcrypt.compare(token, s.token));
+    if (!session) throw new Error("User not found.", { status: 403 });
+    const result = await queries.getUser(session.userId);
+    return { firstName: result.firstName, lastName: result.lastName, email: result.email, favoriteTeam: result.favoriteTeam }
 }
