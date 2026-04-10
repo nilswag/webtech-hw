@@ -10,6 +10,7 @@ router.use(auth);
 router.get("/", controller.index);
 router.get("/teams", controller.teams);
 router.get("/teams/team", controller.team);
+router.get("/upcoming-games", controller.upcomingGames);
 router.get("/players", controller.players);
 router.get("/players/player", controller.player);
 router.get("/register", controller.register);

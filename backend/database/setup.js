@@ -18,9 +18,12 @@ export async function teams() {
         CREATE TABLE IF NOT EXISTS Teams(
             id INTEGER PRIMARY KEY,
             name TEXT, 
-            image TEXT
+            image TEXT,
+            wins INTEGER,
+            losses INTEGER,
+            totalPoints INTEGER
         );`
-    )
+    );
 }
 
 /**
@@ -54,6 +57,24 @@ export async function users() {
             lastName TEXT NOT NULL,
             password TEXT NOT NULL,
             favoriteTeam TEXT
+        );
+    `);
+}
+
+/**
+ * Function to setup users games table.
+ */
+export async function games() {
+    //date is UNIX-TIME
+    // await execQuery('DROP TABLE Games;');
+    await execQuery(`
+        CREATE TABLE IF NOT EXISTS Games(
+            date BIGINT PRIMARY KEY NOT NULL,
+            venue TEXT,
+            defender TEXT,
+            scoreDefender INTEGER,
+            challenger TEXT,
+            scoreChallenger INTEGER
         );
     `);
 }
