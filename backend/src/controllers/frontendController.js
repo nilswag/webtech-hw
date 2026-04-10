@@ -5,19 +5,19 @@ export async function index(req, res) {
 }
 
 export async function teams(req, res) {
-    res.sendFile(staticHtml("teams.html"));
+    res.sendFile(staticHtml(req.isAdmin ? "teams-admin.html" : "teams.html"));
 }
 
 export async function team(req, res) {
-    res.sendFile(staticHtml("team.html"));
+    res.sendFile(staticHtml(req.isAdmin ? "team-admin.html" : "team.html"));
 }
 
 export async function players(req, res) {
-    res.sendFile(staticHtml("players.html"));
+    res.sendFile(staticHtml(req.isAdmin ? "players-admin.html" : "players.html"));
 }
 
 export async function player(req, res) {
-    res.sendFile(staticHtml("player.html"));
+    res.sendFile(staticHtml(req.isAdmin ? "player-admin.html" : "player.html"));
 }
 
 export async function register(req, res) {
