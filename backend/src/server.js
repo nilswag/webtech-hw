@@ -17,6 +17,7 @@ await setup.players();
 await setup.users();
 await setup.sessions();
 await setup.admins();
+await setup.games();
 
 const app = express();
 const port = process.env.PORT || 8020;

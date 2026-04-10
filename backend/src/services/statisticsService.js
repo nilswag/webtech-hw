@@ -19,8 +19,3 @@ export async function getUpcomingGames(){
 export async function getPassedGames(){
     return await gameQueries.getPassedGames();
 }
-
-
-
-gameQueries.addGame(Date.now() / 1000 + 60, "Rome", "as", 0, "ole", 0);
-gameQueries.addGame(Date.now() / 1000 + 3600, "Rome", "as", 0, "ole", 0);

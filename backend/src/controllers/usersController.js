@@ -52,8 +52,17 @@ export async function updateInformation(req, res, next) {
         const { firstName, lastName, email, password, favoriteTeam } = req.body;
         if (!req.cookies.loggedIn) throw new Error("Not logged in.", { status: 406 });
         
-        service.updateInformation(req.cookies.auth, firstName, lastName, email, password, favoriteTeam);
+        await service.updateInformation(req.cookies.auth, firstName, lastName, email, password, favoriteTeam);
         res.status(200).json({ message: "Successfully updated information." });
+    } catch (err) {
+        return next(err);
+    }
+}
+
+export async function getUser(req, res, next) {
+    try {
+        const userData = service.getUser(req.cookies.auth, req.params.id);
+        res.status(200).json(userData);
     } catch (err) {
         return next(err);
     }
