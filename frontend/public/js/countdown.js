@@ -3,7 +3,7 @@ import { getData } from "./util/api.js";
 let nextGame = null;
 
 async function fetchNextGame() {
-    nextGame = await getData("/statistics/nextGame");
+    nextGame = (await getData("/statistics/nextGame")).result;
 }
 
 async function updateCountdown() {

@@ -30,7 +30,7 @@ async function updateLeaderboard() {
     let leaderboardInfo = "";
     let rank = 1;
 
-    data = await getData(`/statistics/leaderboard/${orderBy}.${sortDir}`);
+    data = (await getData(`/statistics/leaderboard/${orderBy}.${sortDir}`)).result;
 
     data.forEach(team => {
         const row = `

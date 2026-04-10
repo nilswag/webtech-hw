@@ -8,8 +8,8 @@ async function updateGames() {
     let upcomingGamesInfo = "";
     let passedGamesInfo = "";
 
-    upcomingGamesData = await getData("/statistics/upcoming-games");
-    passedGamesData = await getData("/statistics/passed-games");
+    upcomingGamesData = (await getData("/statistics/upcoming-games")).result;
+    passedGamesData = (await getData("/statistics/passed-games")).result;
     // data = await data.json();
 
     upcomingGamesData.forEach(game => {

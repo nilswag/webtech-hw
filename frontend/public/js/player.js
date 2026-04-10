@@ -50,9 +50,9 @@ function loadExtendedInfo(player, team) {
 async function loadPage() {
     const playerInfo = document.getElementById("player__info");
     const teamLink = document.getElementById("team__link");
-    let player = await getData(`/players/${id}`);
+    let player = (await getData(`/players/${id}`)).result;
     player = player[0];
-    let team = await getData(`/teams/${player.teamId}`);
+    let team = (await getData(`/teams/${player.teamId}`)).result;
     team = team[0];
     // console.log(player)
     // console.log(players)

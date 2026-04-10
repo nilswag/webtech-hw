@@ -17,8 +17,8 @@ async function loadTeam(team) {
 }
 
 async function loadPage() {
-    let team = await getData(`/teams/${id}`);
-    let players = await getData(`/players/team/${id}`);
+    let team = (await getData(`/teams/${id}`)).result;
+    let players = (await getData(`/players/team/${id}`)).result;
     team = team[0];
     // console.log(players)
     

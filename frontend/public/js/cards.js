@@ -58,7 +58,7 @@ export class PlayerCard extends Card {
 
     static async createPlayerCards(players) {
         const playersList = document.getElementById("players__list");
-        let userData = await getData("/users/fetch");
+        let userData = (await getData("/users/fetch")).result;
         let favoriteTeam = userData.favoriteTeam;
         console.log(favoriteTeam)
     
@@ -95,7 +95,7 @@ export class TeamCard extends Card {
 
     static async createTeamCards(teams) {
         const teamsList = document.getElementById("teams__list");
-        let userData = await getData("/users/fetch");
+        let userData = (await getData("/users/fetch")).result;
         let favoriteTeam = userData.favoriteTeam;
         
         teams.forEach(team => {

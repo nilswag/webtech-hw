@@ -103,11 +103,11 @@ async function loadPage() {
 
         team = {id: 0, name: "??", image: "public/media/images/portraits/empty-image.jpg"};
     } else {
-        player = await getData(`/players/${id}`);
+        player = (await getData(`/players/${id}`)).result;
         player = player[0];
         playerObj = new PlayerCard(id, player.photo, false, player.firstName, player.lastName);
 
-        team = await getData(`/teams/${player.teamId}`);
+        team = (await getData(`/teams/${player.teamId}`)).result;
         team = team[0];
     }
     
