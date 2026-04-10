@@ -8,7 +8,6 @@ export async function getData(endpoint) {
     const url = "/group20/api" + endpoint;
     try {
         const response = await fetch(url);
-        if (!response.ok) throw new Error(`Response status: ${response.status}`);
 
         const result = await response.json();
         return { result: result, status: response.status };
@@ -27,7 +26,6 @@ export async function postData(endpoint, body) {
             },
             body: JSON.stringify(body)
         });
-        if (!response.ok) throw new Error(`Response status: ${response.status}`);
 
         const result = await response.json();
         return { result: result, status: response.status };
@@ -41,7 +39,6 @@ export async function deleteData(endpoint) {
     const url = "/group20/api" + endpoint;
     try {
         const response = await fetch(url, {method: "DELETE"});
-        if(!response.ok) throw new Error(`Response status: ${response.status}`);
 
         return { result: await response.json(), status: response.status };
     } catch(err) {

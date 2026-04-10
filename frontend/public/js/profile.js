@@ -18,7 +18,7 @@ const passwordRepeat = document.querySelector("#password-repeat");
 form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
-    if (password.value !== passwordRepeat.value) {
+    if (form.password.value !== form.passwordRepeat.value) {
         return alert("Passwords are not equal.");
     }
 

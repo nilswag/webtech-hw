@@ -28,6 +28,7 @@ async function getUserByEmail(email) {
  */
 export async function addUser(firstName, lastName, email, password) {
     try {
+        if (await getUserByEmail(email) !== null) throw new Error("There already exists a user with that email.", { status: 400 });
         const hashed = await bcrypt.hash(password, 10); // use is hash to compare
         const result = await queries.addUser(new User(null, firstName, lastName, email, hashed)); 
     } catch (err) {
