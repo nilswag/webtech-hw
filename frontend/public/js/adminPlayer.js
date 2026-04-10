@@ -1,6 +1,7 @@
 import { PlayerCard } from "./cards.js";
 import { getData } from "./util/api.js";
 import { deleteData } from "./util/api.js";
+import { handleResponse } from "./util/response-handler.js";
 
 const urlParams = new URLSearchParams(window.location.search);
 const id = Number(urlParams.get("id"));
@@ -14,6 +15,7 @@ deleteBtn.addEventListener("click", async () => {
         try {
             await deleteData(`/players/delete/${id}`);
             document.referrer ? window.location.href = document.referrer : window.location.href = "/group20/players";
+            handleResponse(response);
         } catch (error) {
             throw error;
         }
@@ -109,11 +111,11 @@ async function loadPage() {
 
         team = {id: 0, name: "??", image: "public/media/images/portraits/empty-image.jpg"};
     } else {
-        player = await getData(`/players/${id}`);
+        player = (await getData(`/players/${id}`)).result;
         player = player[0];
         playerObj = new PlayerCard(id, player.photo, false, player.firstName, player.lastName);
 
-        team = await getData(`/teams/${player.teamId}`);
+        team = (await getData(`/teams/${player.teamId}`)).result;
         team = team[0];
     }
     

@@ -13,6 +13,8 @@
         <link rel="stylesheet" href="public/css/login-form.css">
 
         <script defer src="public/js/session.js" type="module"></script>
+        <script defer src="public/js/register.js" type="module"></script>
+        <script defer src="public/js/logout.js" type="module"></script>
     </head>
     <body>
         <header>
@@ -41,8 +43,7 @@
         </header>
         <main>
             <h1>Register</h1>
-            <form class="register" action="api/users/register" method="post">
-                <div class="register__firstname">
+            <form class="register">
                     <label for="firstName">First name: </label>
                     <input type="text" name="firstName" id="firstName" required>
                 </div>
@@ -57,6 +58,10 @@
                 <div class="register__password">
                     <label for="password">Password: </label>
                     <input type="password" name="password" id="password" required>
+                </div>
+                <div class="update__password--repeat">
+                    <label for="password-repeat">Repeat password: </label>
+                    <input type="password" name="passwordRepeat" id="password-repeat">
                 </div>
                 <button type="submit"><b>Register</b></button>
             </form>

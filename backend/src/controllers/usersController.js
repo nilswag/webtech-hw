@@ -7,7 +7,7 @@ export async function register(req, res, next) {
     try {
         const { firstName, lastName, email, password } = req.body;
         const result = await service.addUser(firstName, lastName, email, password);
-        res.status(200).json({ message: "User added" });
+        res.status(200).json({ message: "Successfully registered." });
     } catch(err) {
         return next(err);
     }
@@ -39,9 +39,9 @@ export async function logout(req, res, next) {
     try {
         let loggedIn = req.cookies.loggedIn;
         if (!loggedIn) throw new Error("Not logged in.", { status: 405 });
-        await service.logout(req.cookies.auth);
         res.clearCookie("loggedIn");
-        res.json({ message: "Successfully logged out." });
+        await service.logout(req.cookies.auth);
+        res.status(200).json({ message: "Successfully logged out." });
     } catch (err) {
         return next(err);
     }
