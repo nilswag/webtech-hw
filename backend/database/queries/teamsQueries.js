@@ -12,6 +12,6 @@ export async function getTeam(id) {
     return await fetchAll("SELECT * FROM Teams WHERE id = ?", id);
 }
 
-export async function addTeam(name, image, wins = 0, losses = 0, totalPoints = 0) {
+export async function addTeam(name, image, wins, losses, totalPoints) {
     return await runQuery("INSERT INTO Teams(name, image, wins, losses, totalPoints) VALUES(?, ?, ?, ?, ?)", name, image, wins, losses, totalPoints);
 }
