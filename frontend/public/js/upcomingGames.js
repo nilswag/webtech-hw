@@ -5,40 +5,43 @@ async function updateGames() {
     const passedGames = document.getElementById("passed-games__body");
     let upcomingGamesData;
     let passedGamesData;
-    let upcomingGamesInfo = "";
-    let passedGamesInfo = "";
 
     upcomingGamesData = (await getData("/statistics/upcoming-games")).result;
     passedGamesData = (await getData("/statistics/passed-games")).result;
     // data = await data.json();
 
     upcomingGamesData.forEach(game => {
-        const upcomingGamesRow = `
-            <tr>
-                <td>${new Date(game.date * 1000).toUTCString()}</td>
-                <td>${game.venue}</td>
-                <td>${game.defender}</td>
-                <td>${game.challenger}</td>
-            </tr>
-        `;
-        upcomingGamesInfo += upcomingGamesRow;
+        const tableRow = document.createElement("tr");
+        const data = [
+            new Date(game.date * 1000).toUTCString(),
+            game.venue,
+            game.defender,
+            game.challenger 
+        ];
+        data.forEach(el => {
+            const td = document.createElement("td");
+            td.innerText = `${el}`;
+            tableRow.appendChild(td);
+        })
+
+        upcomingGames.appendChild(tableRow);
     });
 
     passedGamesData.forEach(game =>{
-         const passedGamesRow = `
-            <tr>
-                <td>${new Date(game.date * 1000).toUTCString()}</td>
-                <td>${game.venue}</td>
-                <td>${game.defender}</td>
-                <td>${game.scoreDefender} - ${game.scoreChallenger}</td>
-                <td>${game.challenger}</td>
-            </tr>
-        `;
-        passedGamesInfo += passedGamesRow;
+        const tableRow = document.createElement("tr");
+        const data = [
+            new Date(game.date * 1000).toUTCString(),
+            game.venue,
+            game.defender,
+            game.scoreDefender - game.scoreChallenger,
+            game.challenger  
+        ];
+        data.forEach(el => {
+            const td = document.createElement("td");
+            td.innerText = `${el}`;
+            tableRow.appendChild(td);
+        })
     })
-
-    upcomingGames.innerHTML = upcomingGamesInfo;
-    passedGames.innerHTML = passedGamesInfo;
 };
 
 updateGames();
