@@ -39,69 +39,69 @@ webtech-hw-1/
 
 backend/src/server.js — Creates the Express app, registers middleware, mounts all routes, initializes DB tables on startup, listens on port 8020.
 backend/package.json — Dependencies: express, sqlite3, bcrypt, cookie-parser, express-validator.
-src/routes/frontendRoutes.js — Serves HTML pages
-src/routes/playersRoutes.js — /api/players endpoints
-src/routes/teamsRoutes.js — /api/teams endpoints
-src/routes/usersRoutes.js — /api/users (auth: register, login, profile)
-src/routes/statisticsRoute.js — /api/statistics (leaderboard/stats)
-src/controllers/frontendController.js — Sends HTML files
-src/controllers/playersController.js — CRUD for players
-src/controllers/teamsController.js — CRUD for teams
-src/controllers/usersController.js — Register, login, logout, profile, favorites
-src/controllers/statisticsController.js — Leaderboard and team statistics
-src/services/playersService.js — Get/create/update/delete players
-src/services/teamsServices.js — Get/create/update/delete teams
-src/services/usersService.js — Register, login (bcrypt), profile, favorites
-src/services/authService.js — Token-based session validation
-src/services/sessionsService.js — Create/delete/validate sessions
-src/services/statisticsService.js — Query aggregated stats
-src/middleware/authMiddleware.js — Checks session cookie, protects routes
-src/middleware/utilityMiddleware.js — Request logging and error handling
-src/util/frontendUtil.js — Resolves __rootDirName for static file serving
-src/util/logging.js — Logging helper
-src/models/Session.js — Session data model
-database/database.js — SQLite3 connection + 4 helper functions: execQuery, runQuery, fetchAll, fetchFirst
-database/setup.js — CREATE TABLE IF NOT EXISTS for all 6 tables
-database/queries/playersQueries.js — SQL for player CRUD
-database/queries/teamsQueries.js — SQL for team CRUD
-database/queries/usersQueries.js — SQL for user CRUD
-database/queries/sessionsQueries.js — SQL for session management
-database/queries/adminsQueries.js — SQL for admin lookup
-database/queries/gamesQueries.js — SQL for upcoming games
-database/db.db — The actual SQLite database file
+backend/src/routes/frontendRoutes.js — Serves HTML pages
+backend/src/routes/playersRoutes.js — /api/players endpoints
+backend/src/routes/teamsRoutes.js — /api/teams endpoints
+backend/src/routes/usersRoutes.js — /api/users (auth: register, login, profile)
+backend/src/routes/statisticsRoute.js — /api/statistics (leaderboard/stats)
+backend/src/controllers/frontendController.js — Sends HTML files
+backend/src/controllers/playersController.js — CRUD for players
+backend/src/controllers/teamsController.js — CRUD for teams
+backend/src/controllers/usersController.js — Register, login, logout, profile, favorites
+backend/src/controllers/statisticsController.js — Leaderboard and team statistics
+backend/src/services/playersService.js — Get/create/update/delete players
+backend/src/services/teamsServices.js — Get/create/update/delete teams
+backend/src/services/usersService.js — Register, login (bcrypt), profile, favorites
+backend/src/services/authService.js — Token-based session validation
+backend/src/services/sessionsService.js — Create/delete/validate sessions
+backend/src/services/statisticsService.js — Query aggregated stats
+backend/src/middleware/authMiddleware.js — Checks session cookie, protects routes
+backend/src/middleware/utilityMiddleware.js — Request logging and error handling
+backend/src/util/frontendUtil.js — Resolves __rootDirName for static file serving
+backend/src/util/logging.js — Logging helper
+backend/src/models/Session.js — Session data model
+backend/database/database.js — SQLite3 connection + 4 helper functions: execQuery, runQuery, fetchAll, fetchFirst
+backend/database/setup.js — CREATE TABLE IF NOT EXISTS for all 6 tables
+backend/database/queries/playersQueries.js — SQL for player CRUD
+backend/database/queries/teamsQueries.js — SQL for team CRUD
+backend/database/queries/usersQueries.js — SQL for user CRUD
+backend/database/queries/sessionsQueries.js — SQL for session management
+backend/database/queries/adminsQueries.js — SQL for admin lookup
+backend/database/queries/gamesQueries.js — SQL for upcoming games
+backend/database/db.db — The actual SQLite database file
 shared/models/User.js — User model shared between frontend and backend
 shared/package.json - To fix import errors of shared models
-index.html — Home/landing page
-login.html / register.html — Auth pages
-profile.html — User profile with favorite team
-players.html / player.html — Browse players, single player view
-players-admin.html / player-admin.html — Admin: list/edit players
-teams.html / team.html — Browse teams, single team view
-teams-admin.html / team-admin.html — Admin: list/edit teams
-upcomingGames.html — Upcoming games with countdown timer
-js/util/api.js — Shared fetch wrapper for API calls
-js/util/response-handler.js — Handles API response errors
-js/session.js — Checks login state, shows/hides nav elements
-js/login.js / js/logout.js / js/register.js — Auth forms
-js/profile.js — Loads and updates user profile/favorites
-js/players.js / js/player.js — Fetch and render player data
-js/players-admin.js / js/adminPlayer.js — Admin player management
-js/teams.js / js/team.js — Fetch and render team data
-js/teams-admin.js / js/team-admin.js — Admin team management
-js/cards.js — Renders player/team card components
-js/leaderboard.js — Renders the statistics leaderboard
-js/countdown.js — Countdown timer for upcoming games
-js/upcomingGames.js — Fetches and renders upcoming games
-reset.css — CSS reset
-color-themes.css — Color variables/themes
-style.css — Main global styles
-index.css — Home page styles
-login-form.css — Login/register form styles
-player.css / player-admin.css — Player page styles
-profile.css — Profile page styles
-team.css — Team page styles
-cards.css — Card component styles
-table-of-contents.css — TOC/sidebar styles
+frontend/public/html/index.html — Home/landing page
+frontend/public/html/login.html / register.html — Auth pages
+frontend/public/html/profile.html — User profile with favorite team
+frontend/public/html/players.html / player.html — Browse players, single player view
+frontend/public/html/players-admin.html / player-admin.html — Admin: list/edit players
+frontend/public/html/teams.html / team.html — Browse teams, single team view
+frontend/public/html/teams-admin.html / team-admin.html — Admin: list/edit teams
+frontend/public/html/upcomingGames.html — Upcoming games with countdown timer
+frontend/public/js/util/api.js — Shared fetch wrapper for API calls
+frontend/public/js/util/response-handler.js — Handles API response errors
+frontend/public/js/session.js — Checks login state, shows/hides nav elements
+frontend/public/js/login.js / js/logout.js / js/register.js — Auth forms
+frontend/public/js/profile.js — Loads and updates user profile/favorites
+frontend/public/js/players.js / js/player.js — Fetch and render player data
+frontend/public/js/players-admin.js / js/adminPlayer.js — Admin player management
+frontend/public/js/teams.js / js/team.js — Fetch and render team data
+frontend/public/js/teams-admin.js / js/team-admin.js — Admin team management
+frontend/public/js/cards.js — Renders player/team card components
+frontend/public/js/leaderboard.js — Renders the statistics leaderboard
+frontend/public/js/countdown.js — Countdown timer for upcoming games
+frontend/public/js/upcomingGames.js — Fetches and renders upcoming games
+frontend/public/css/reset.css — CSS reset
+frontend/public/css/color-themes.css — Color variables/themes
+frontend/public/css/style.css — Main global styles
+frontend/public/css/index.css — Home page styles
+frontend/public/css/login-form.css — Login/register form styles
+frontend/public/css/player.css / player-admin.css — Player page styles
+frontend/public/css/profile.css — Profile page styles
+frontend/public/css/team.css — Team page styles
+frontend/public/css/cards.css — Card component styles
+frontend/public/css/table-of-contents.css — TOC/sidebar styles
 
 ==========================================================================================================================================================================
 
