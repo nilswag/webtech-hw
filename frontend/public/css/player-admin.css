@@ -6,8 +6,16 @@ input[type = text] {
     border-bottom: 1px dotted var(--primary-text-color);
 }
 
-input[type = submit] {
+.button__edit {
     width: fit-content;
     padding: 1rem;
+    background-color: var(--secundary-theme-color);
+    color: var(--tertiary-text-color);
     border-radius: 1rem;
+    border: 1px solid var(--primary-theme-color);
+}
+
+.button__edit:hover {
+    background-color: var(--primary-theme-color);
+    color: var(--secundary-text-color);
 }

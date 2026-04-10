@@ -16,3 +16,17 @@ export async function getData(endpoint) {
         throw err;
     }
 }
+
+export async function deleteData(endpoint) {
+    const url = "/group20/api" + endpoint;
+    try {
+        const response = await fetch(url, {method: "DELETE"});
+        if(!response.ok) throw new Error(`Response status: ${response.status}`);
+
+        console.log("Hello")
+        return await response.json();
+    } catch(err) {
+        console.log("hey")
+        throw err;
+    }
+}

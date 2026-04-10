@@ -1,4 +1,5 @@
 import * as service from "../services/playersService.js";
+import { team } from "./frontendController.js";
 
 /**
  * Endpoint for getting all players.
@@ -37,14 +38,32 @@ export async function getPlayersOfTeam(req, res, next) {
 }
 
 /**
- * Endpoint for adding a player.
+ * Endpoint for adding/updating a player.
  */
 export async function postPlayer(req, res, next) {
     try {
-        const { firstName, lastName, age } = req.body;
-        const result = await service.addPlayer(firstName, lastName, age);
-        res.status(200).json({ message: "Player added" });
+        const { firstName, lastName, age, role, number, photo, teamId } = req.body;
+        if(req.params.id>0) {
+            console.log(req.params.id)
+            const result = await service.updatePlayer(req.params.id, firstName, lastName, age, role, number, photo, teamId);
+            res.status(200).json({ message: "Player updated" })
+        } else if(req.params.id==0) {
+            const result = await service.addPlayer(firstName, lastName, age, role, number, photo, teamId);
+            res.status(200).json({ message: "Player added" });
+        }
     } catch (err) {
         return next(err);
+    }
+}
+
+/**
+ * Endpoint for deleting a player.
+ */
+export async function deletePlayer(req, res, next) {
+    try {
+        const result = await service.deletePlayer(req.params.id);
+        res.status(200).json({ message: "Player deleted" });
+    } catch (error) {
+        return next(error);
     }
 }
