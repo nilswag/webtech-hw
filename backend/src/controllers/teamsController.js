@@ -30,7 +30,7 @@ export async function postTeam(req, res, next) {
 
 export async function deleteTeam(req, res, next) {
     try {
-
+        service.deleteTeam(req.params.id);
     } catch (err) {
         return next(err);
     }
