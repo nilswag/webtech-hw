@@ -2,8 +2,19 @@ import { getData } from "./util/api.js";
 
 const form = document.querySelector("form.personal-info__update");
 const teams = await getData("/teams");
+const user = await getData("/users/fetch");
 
 const dropdown = document.querySelector("select.update__favorite-team");
+const firstName = document.querySelector(".update__firstName input");
+const lastName = document.querySelector(".update__lastName input");
+const email = document.querySelector(".update__email input");
+
+if (user) {
+    dropdown.value = user.favoriteTeam || "Select your favorite team";
+    firstName.value = user.firstName || "";
+    lastName.value = user.lastName || "";
+    email.value = user.email || "";
+}
 
 const password = document.querySelector("#password");
 const passwordRepeat = document.querySelector("#password-repeat");
