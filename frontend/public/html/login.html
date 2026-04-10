@@ -13,6 +13,7 @@
         <link rel="stylesheet" href="public/css/login-form.css">
 
         <script defer src="public/js/session.js" type="module"></script>
+        <script defer src="public/js/login.js" type="module"></script>
     </head>
     <body>
         <header>
@@ -41,7 +42,7 @@
         </header>
         <main>
             <h1>Log In</h1>
-            <form class="main__login" action="api/users/login" method="post">
+            <form class="main__login">
                 <div class="login__email">
                     <label for="email">Email: </label>
                     <input type="email" name="email" id="email" required>
