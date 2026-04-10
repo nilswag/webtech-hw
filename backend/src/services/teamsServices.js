@@ -16,7 +16,7 @@ export async function getTeam(id) {
     return result;
 }
 
-export async function addTeam(name, image) {
+export async function addTeam(name, image, wins, losses, totalPoints) {
     // console.log("Add team ", name);
-    return await queries.addTeam(name, image);
+    return await queries.addTeam(name, image, wins, losses, totalPoints);
 }
