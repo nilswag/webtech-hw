@@ -15,5 +15,6 @@ router.get("/players/player", controller.player);
 router.get("/register", controller.register);
 router.get("/login", controller.login);
 router.get("/logout", controller.logout);
+router.get("/profile", controller.profile);
 
 export default router;
