@@ -27,3 +27,19 @@ export async function postTeam(req, res, next) {
         return next(error);
     }
 }
+
+export async function deleteTeam(req, res, next) {
+    try {
+        
+    } catch (err) {
+        return next(err);
+    }
+}
+
+export async function updateTeam(req, res, next) {
+    try {
+
+    } catch (err) {
+        return next(err);
+    }
+}
