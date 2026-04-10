@@ -42,8 +42,3 @@ export async function getPlayersOfTeam(id) {
 export async function addPlayer(firstName, lastName, age, role, number, photo, teamId) {
     return await queries.addPlayer(firstName, lastName, age, role, number, photo, teamId);
 }
-
-addPlayer("Jan", "Jaap", 12, "Captain", 4, "../media/images/portraits/callum_mckenzie.png", 1)
-addPlayer("Jan", "Jaap", 12, "Captain", 5, "../media/images/portraits/callum_mckenzie.png", 1)
-addPlayer("Jan", "Jaap", 12, "Captain", 6, "../media/images/portraits/callum_mckenzie.png", 2)
-addPlayer("Jan", "Jaap", 12, "Captain", 7, "../media/images/portraits/callum_mckenzie.png", 3)

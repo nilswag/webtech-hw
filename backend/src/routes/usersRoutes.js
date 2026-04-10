@@ -19,4 +19,6 @@ router.post("/login", [
 
 router.get("/logout", controller.logout);
 
+router.post("/update-information", controller.updateInformation);
+
 export default router;

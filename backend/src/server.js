@@ -11,8 +11,12 @@ import statisticsRoutes from "./routes/statisticsRoute.js";
 import frontendRoutes from "./routes/frontendRoutes.js";
 import usersRoutes from "./routes/usersRoutes.js";
 
-// Loops through all setup functions for the database tables.
-for (let setupFunc of Object.values(setup)) await setupFunc();
+// initialize all database tables
+await setup.teams();
+await setup.players();
+await setup.users();
+await setup.sessions();
+await setup.admins();
 
 const app = express();
 const port = process.env.PORT || 8020;

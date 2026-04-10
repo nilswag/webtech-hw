@@ -64,5 +64,17 @@ export async function login(email, password) {
 export async function logout(token) {
     const sessions = await getSessions();
     const session = sessions.find(s => bcrypt.compare(token, s.token));
-    await removeSession(session.userId);
+    await removeSession(await queries.getUser(session.userId));
+}
+
+export async function updateInformation(token, firstName, lastName, email, password, favoriteTeam) {
+    const sessions = await getSessions();
+    const session = sessions.find(s => bcrypt.compare(token, s.token));
+    const id = session.userId;
+
+    if (firstName) await queries.updateUserFirstName(firstName, id);
+    if (lastName) await queries.updateUserLastName(lastName, id);
+    if (email) await queries.updateUserEmail(email, id);
+    if (password) await queries.updateUserPassword(await bcrypt.hash(password, 10), id);
+    if (favoriteTeam) await queries.updateUserFavoriteTeam(favoriteTeam, id);
 }
