@@ -1,33 +1,40 @@
 import { getData } from "./util/api.js";
+import { postData } from "./util/api.js";
+import { handleResponse } from "./util/response-handler.js";
 
 const form = document.querySelector("form.personal-info__update");
-const teams = await getData("/teams");
-const user = await getData("/users/fetch");
-
-const dropdown = document.querySelector("select.update__favorite-team");
-const firstName = document.querySelector(".update__firstName input");
-const lastName = document.querySelector(".update__lastName input");
-const email = document.querySelector(".update__email input");
+const teams = (await getData("/teams")).result;
+const user = (await getData("/users/fetch")).result;
 
 if (user) {
-    firstName.value = user.firstName || "";
-    lastName.value = user.lastName || "";
-    email.value = user.email || "";
+    form.firstName.value = user.firstName || "";
+    form.lastName.value = user.lastName || "";
+    form.email.value = user.email || "";
 }
 
 const password = document.querySelector("#password");
 const passwordRepeat = document.querySelector("#password-repeat");
 
-form.addEventListener("submit", (e) => {
+form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
     if (password.value !== passwordRepeat.value) {
-        alert("Passwords are not equal.");
-        return e.preventDefault();
+        return alert("Passwords are not equal.");
     }
+
+    const response = await postData("/users/update-information", {
+        favoriteTeam: form.favoriteTeam.value,
+        firstName: form.firstName.value,
+        lastName: form.lastName.value,
+        email: form.email.value,
+        password: form.password.value
+    });
+    handleResponse(response);
 });
 
 teams.forEach(t => {
     const option = document.createElement("option");
     option.innerText = t.name ? t.name : "N/A";
     option.value = t.name ? t.name : "N/A";
-    dropdown.appendChild(option);
+    form.favoriteTeam.appendChild(option);
 });

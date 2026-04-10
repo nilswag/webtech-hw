@@ -1,6 +1,7 @@
 import { PlayerCard } from "./cards.js";
 import { getData } from "./util/api.js";
 import { deleteData } from "./util/api.js";
+import { handleResponse } from "./util/response-handler.js";
 
 const urlParams = new URLSearchParams(window.location.search);
 const id = Number(urlParams.get("id"));
@@ -12,9 +13,9 @@ deleteBtn.addEventListener("click", async () => {
 
     if(confirmation) {
         try {
-            await deleteData(`/players/delete/${id}`);
-            console.log(document.referrer)
+            const response = await deleteData(`/players/delete/${id}`);
             document.referrer ? window.location.href = document.referrer : window.location.href = "/group20/players";
+            handleResponse(response);
         } catch (error) {
             throw error;
         }
