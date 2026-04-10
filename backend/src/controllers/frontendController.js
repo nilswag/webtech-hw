@@ -31,3 +31,7 @@ export async function login(req, res) {
 export async function logout(req, res) {
     res.redirect("api/users/logout");
 }
+
+export async function profile(req, res) {
+    res.sendFile(staticHtml("profile.html"));
+}

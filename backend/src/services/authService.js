@@ -7,6 +7,8 @@ export async function isAdmin(token) {
 
     const sessions = await getSessions();
     const session = sessions.find(s => bcrypt.compare(token, s.token));
+    if (!session) return false;
+    
     const result = await queries.getAdmin(session.userId); 
     return result ? true : false;
 }

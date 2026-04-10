@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" class="light-mode">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Profile page">
+        <title>Profile</title>
+
+        <base href="/group20/">
+
+        <link rel="stylesheet" href="public/css/reset.css">
+        <link rel="stylesheet" href="public/css/style.css">
+
+        <script defer src="public/js/session.js" type="module"></script>
+        <script defer src="public/js/profile.js" type="module"></script>
+    </head>
+    <body>
+        <header>
+            <a class="header__title" href=""><strong>America's Cup<br><span>Fan Page</span></strong></a> 
+            <nav class="header__navigation">
+                <a href="players">Players</a>
+                <a href="teams">Teams</a>
+                <a href="register" id="header__navigation__register" style="display: none;">Register</a>
+                <a href="login" id="header__navigation__login" style="display: none;">Log In</a>
+                <a href="logout" id="header__navigation__logout" style="display: none;">Log Out</a>
+                <a href="profile" id="header__navigation__profile">Profile</a>
+            </nav>
+        </header>
+        <main>
+            <section class="main__personal-info">
+                <form class="personal-info__update" action="api/users/update-information" method="post">
+                    <select class="update__favorite-team">
+                        <option selected>Select a favorite team</option>
+                    </select>
+                    <div class="update__firstName">
+                        <label for="firstName">First name: </label>
+                        <input type="text" name="firstName" id="firstName">
+                    </div>
+                    <div class="update__lastname">
+                        <label for="lastName">Last name: </label>
+                        <input type="text" name="lastName" id="lastName">
+                    </div>
+                    <div class="update__email">
+                        <label for="email">Email: </label>
+                        <input type="email" name="email" id="email">
+                    </div>
+                    <div class="update__password">
+                        <label for="password">Password: </label>
+                        <input type="password" name="password" id="password">
+                        <label for="password-repeat">Repeat password: </label>
+                        <input type="password" name="password-repeat" id="password-repeat">
+                    </div>
+                    <button type="submit"><b>Update Information</b></button>
+                </form>
+            </section>
+        </main>
+        <footer></footer>
+    </body>
+</html>
