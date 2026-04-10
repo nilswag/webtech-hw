@@ -46,3 +46,13 @@ export async function logout(req, res, next) {
         return next(err);
     }
 }
+
+export async function updateInformation(req, res, next) {
+    try {
+        const { firstName, lastName, email, password, favoriteTeam } = req.body;
+        service.updateInformation(firstName, lastName, email, password, favoriteTeam);
+        res.status(200).json({ message: "Successfully updated information." });
+    } catch (err) {
+        return next(err);
+    }
+}

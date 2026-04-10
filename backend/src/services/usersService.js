@@ -67,3 +67,11 @@ export async function logout(token) {
     if (!session) return;
     await removeSession(session.userId);
 }
+
+export async function updateInformation(firstName, lastName, email, password, favoriteTeam) {
+    if (firstName) await queries.updateUserFirstName(firstName);
+    if (lastName) await queries.updateUserLastName(lastName);
+    if (email) await queries.updateUserEmail(email);
+    if (password) await queries.updateUserPassword(await bcrypt.hash(password, 10));
+    if (favoriteTeam) await queries.updateUserFavoriteTeam(favoriteTeam);
+}
