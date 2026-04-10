@@ -5,19 +5,19 @@ export async function index(req, res) {
 }
 
 export async function teams(req, res) {
-    res.sendFile(staticHtml("teams.html"));
+    res.sendFile(staticHtml("teams-admin.html"));
 }
 
 export async function team(req, res) {
-    res.sendFile(staticHtml("team.html"));
+    res.sendFile(staticHtml("team-admin.html"));
 }
 
 export async function players(req, res) {
-    res.sendFile(staticHtml("players.html"));
+    res.sendFile(staticHtml("players-admin.html"));
 }
 
 export async function player(req, res) {
-    res.sendFile(staticHtml("player.html"));
+    res.sendFile(staticHtml("player-admin.html"));
 }
 
 export async function register(req, res) {

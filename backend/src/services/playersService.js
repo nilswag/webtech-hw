@@ -25,6 +25,11 @@ export async function getPlayer(id) {
     return result;
 }
 
+/**
+ * Service call to database to fetch all players of a specific team.
+ * @param {*} id The team to be fetched.
+ * @returns A promise containing the resulting player or an error.
+ */
 export async function getPlayersOfTeam(id) {
     return await queries.getPlayersOfTeam(id);
 }
@@ -43,7 +48,32 @@ export async function addPlayer(firstName, lastName, age, role, number, photo, t
     return await queries.addPlayer(firstName, lastName, age, role, number, photo, teamId);
 }
 
-addPlayer("Jan", "Jaap", 12, "Captain", 4, "../media/images/portraits/callum_mckenzie.png", 1)
-addPlayer("Jan", "Jaap", 12, "Captain", 5, "../media/images/portraits/callum_mckenzie.png", 1)
-addPlayer("Jan", "Jaap", 12, "Captain", 6, "../media/images/portraits/callum_mckenzie.png", 2)
-addPlayer("Jan", "Jaap", 12, "Captain", 7, "../media/images/portraits/callum_mckenzie.png", 3)
+/**
+ * Service call to database to update a player.
+ * @param {*} id Id of player.
+ * @param {*} firstName First name of player.
+ * @param {*} lastName Last name of player.
+ * @param {*} age Age of player.
+ * @param {*} role Role of player.
+ * @param {*} number Number of player.
+ * @param {*} photo Path of photo of player.
+ * @param {*} teamId Id of team of player.
+ * @returns An empty promise.
+ */
+export async function updatePlayer(id, firstName, lastName, age, role, number, photo, teamId) {
+    return await queries.updatePlayer(id, firstName, lastName, age, role, number, photo, teamId);
+}
+
+/**
+ * Service call to database to delete a specific player.
+ * @param {*} id The player to be deleted.
+ * @returns A promise containing the resulting player or an error.
+ */
+export async function deletePlayer(id) {
+    return await queries.deletePlayer(id);
+}
+
+// addPlayer("Jan", "Jaap", 12, "Captain", 4, "public/media/images/portraits/callum_mckenzie.png", 1)
+// addPlayer("Klaas", "Vaak", 12, "Captain", 5, "public/media/images/portraits/callum_mckenzie.png", 1)
+// addPlayer("Hans", "Klok", 12, "Captain", 6, "public/media/images/portraits/callum_mckenzie.png", 2)
+// addPlayer("Frans", "Buis", 12, "Captain", 7, "public/media/images/portraits/callum_mckenzie.png", 3)

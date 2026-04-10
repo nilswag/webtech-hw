@@ -1,8 +1,30 @@
 import { PlayerCard } from "./cards.js";
 import { getData } from "./util/api.js";
+import { deleteData } from "./util/api.js";
 
 const urlParams = new URLSearchParams(window.location.search);
 const id = Number(urlParams.get("id"));
+const playerInfo = document.getElementById("player__info");
+const deleteBtn = document.getElementById("remove__player");
+
+deleteBtn.addEventListener("click", async () => {
+    const confirmation = window.confirm(`Are you sure you want to delete player with ID ${id}?`);
+
+    if(confirmation) {
+        try {
+            await deleteData(`/players/delete/${id}`);
+            console.log(document.referrer)
+            document.referrer ? window.location.href = document.referrer : window.location.href = "/group20/players";
+        } catch (error) {
+            throw error;
+        }
+    }
+})
+
+playerInfo.addEventListener("submit", async (event) => {
+    const data = Object.fromEntries((new FormData(event.target)).entries());
+    await fetch(`/group20/api/players/add/${id}`, {method: "POST", headers: {"content-type": "application/json"}, body: JSON.stringify(data)});
+})
 
 function loadExtendedInfo(player, team) {
     const extendedInfo = document.createElement("article");
@@ -70,13 +92,12 @@ function loadExtendedInfo(player, team) {
 }
 
 async function loadPage() {
-    const playerInfo = document.getElementById("player__info");
     const teamLink = document.getElementById("team__link");
     let player;
     let playerObj;
     let team;
     if(id === 0) {
-        player = {id: 0, firstName: "??", lastName: "??", age: "??", role: "??", number: "??", photo: "public/media/images/portraits/empty-image.jpg", teamId: 0};
+        player = {id: 0, firstName: "", lastName: "", age: "", role: "", number: "", photo: "public/media/images/portraits/empty-image.jpg", teamId: 0};
         playerObj = new PlayerCard(0, "public/media/images/portraits/empty-image.jpg", true, "??", "??");
 
         team = {id: 0, name: "??", image: "public/media/images/portraits/empty-image.jpg"};
@@ -103,7 +124,8 @@ async function loadPage() {
 
     const submitBtn = document.createElement("input");
     submitBtn.setAttribute("type", "submit");
-    submitBtn.setAttribute("value", "Save");
+    submitBtn.setAttribute("value", "Save player");
+    submitBtn.classList.add("button__edit");
     playerInfo.appendChild(submitBtn);
     
     teamLink.innerText = `Go to ${team.name}'s page`;
