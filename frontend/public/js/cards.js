@@ -25,6 +25,16 @@ class Card {
         return [card, heading, logo];
     }
 
+    static checkLoggedIn() {
+        const cookies = document.cookie.split('; ');
+        console.log(cookies)
+        cookies.forEach(cookie => {
+            let [key, value] = cookie.split('=');
+            if (key === "loggedIn") return value;
+        });
+        return null;
+    }
+
     get id() {
         return this.#id;   
     }
@@ -58,8 +68,16 @@ export class PlayerCard extends Card {
 
     static async createPlayerCards(players) {
         const playersList = document.getElementById("players__list");
-        let userData = await getData("/users/fetch");
-        let favoriteTeam = userData.favoriteTeam;
+        let userData = null;
+        let favoriteTeam = null;
+        if(this.checkLoggedIn()) {
+            try {
+                userData = await getData("/users/fetch");
+                favoriteTeam = userData.favoriteTeam;
+            } catch (error) {
+                throw error;
+            }
+        }
         console.log(favoriteTeam)
     
         players.forEach(player => {
@@ -95,8 +113,16 @@ export class TeamCard extends Card {
 
     static async createTeamCards(teams) {
         const teamsList = document.getElementById("teams__list");
-        let userData = await getData("/users/fetch");
-        let favoriteTeam = userData.favoriteTeam;
+        let userData = null;
+        let favoriteTeam = null;
+        if(this.checkLoggedIn()) {
+            try {
+                userData = await getData("/users/fetch");
+                favoriteTeam = userData.favoriteTeam;
+            } catch (error) {
+                throw error;
+            }
+        }
         
         teams.forEach(team => {
         let teamObj = new TeamCard(team.id, team.image, true, team.name);

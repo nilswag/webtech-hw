@@ -17,14 +17,13 @@ export async function getTeam(id) {
     return result;
 }
 
-export async function addTeam(name, image, wins, losses, totalPoints) {
+export async function addTeam(name, image) {
     // console.log("Add team ", name);
-    return await queries.addTeam(name, image, wins, losses, totalPoints);
+    return await queries.addTeam(name, image);
 }
 
 export async function updateTeam(id, name, image) {
-    if (name) await queries.updateTeamName(id, name);
-    if (image) await queries.updateTeamImage(id, image);
+    return await queries.updateTeam(id, name, image);
 }
 
 export async function deleteTeam(id) {
