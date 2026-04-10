@@ -10,7 +10,6 @@ const lastName = document.querySelector(".update__lastName input");
 const email = document.querySelector(".update__email input");
 
 if (user) {
-    dropdown.value = user.favoriteTeam || "Select your favorite team";
     firstName.value = user.firstName || "";
     lastName.value = user.lastName || "";
     email.value = user.email || "";
