@@ -1,8 +1,11 @@
 import express from "express";
 
 import * as controller from "../controllers/frontendController.js";
+import { auth } from "../middleware/authMiddleware.js";
 
 const router = express.Router();
+
+router.use(auth);
 
 router.get("/", controller.index);
 router.get("/teams", controller.teams);
