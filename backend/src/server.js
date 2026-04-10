@@ -12,7 +12,6 @@ import frontendRoutes from "./routes/frontendRoutes.js";
 import usersRoutes from "./routes/usersRoutes.js";
 
 // initialize all database tables
-await setup.init();
 await setup.teams();
 await setup.players();
 await setup.users();

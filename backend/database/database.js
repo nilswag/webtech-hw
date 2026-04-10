@@ -1,6 +1,15 @@
 import sqlite3 from "sqlite3";
 
-export const db = new sqlite3.Database("database/db.db", sqlite3.OPEN_READWRITE | sqlite3.OPEN_CREATE);
+export const db = await new Promise((resolve, reject) => {
+    const instance = new sqlite3.Database("database/db.db", sqlite3.OPEN_READWRITE | sqlite3.OPEN_CREATE, (err) => {
+        if (err) return reject(err);
+        instance.run("PRAGMA foreign_keys = ON", (err) => {
+            if (err) return reject(err);
+            console.log("Foreign keys enabled");
+            resolve(instance);
+        });
+    });
+});
 
 /**
  * Execute DML/DDL query/queries without parameters.

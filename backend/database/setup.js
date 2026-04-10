@@ -10,10 +10,6 @@ import { execQuery, runQuery } from "./database.js";
 //     `);
 // };
 
-export async function init() {
-    await runQuery("PRAGMA foreign_keys = ON;");
-}
-
 /**
  * Function to setup teams database table.
  */
