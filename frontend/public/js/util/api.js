@@ -17,6 +17,26 @@ export async function getData(endpoint) {
     }
 }
 
+export async function postData(endpoint, body) {
+    const url = "/group20/api" + endpoint;
+    try {
+        const response = await fetch(url, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(body)
+        });
+        if (!response.ok) throw new Error(`Response status: ${response.status}`);
+
+        const result = await response.json();
+        return { result: result, status: response.status };
+    } catch (err){
+        throw err;
+    }
+}
+
+
 export async function deleteData(endpoint) {
     const url = "/group20/api" + endpoint;
     try {
