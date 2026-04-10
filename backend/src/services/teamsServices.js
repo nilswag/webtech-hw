@@ -1,4 +1,5 @@
 import * as queries from "../../database/queries/teamsQueries.js";
+import { addPlayer } from "./playersService.js";
 
 export async function getTeams() {
     return await queries.getTeams();
@@ -19,4 +20,14 @@ export async function getTeam(id) {
 export async function addTeam(name, image, wins, losses, totalPoints) {
     // console.log("Add team ", name);
     return await queries.addTeam(name, image, wins, losses, totalPoints);
+}
+
+// for (let index = 0; index < 10; index++) {
+//     await addTeam("Team" + index, "/group20/public/media/images/portraits/maia_bennett.png", 3*index, index, 1234*index);
+    
+// }
+
+for (let index = 0; index < 20; index++) {
+    await addPlayer("Karel", index + "e", index + 20, "Captain", index, "/group20/public/media/images/portraits/anya_petrova.png", Math.ceil(index/3)+1)
+    
 }
