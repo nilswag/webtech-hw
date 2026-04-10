@@ -75,3 +75,12 @@ export async function sessions() {
         );
     `);
 }
+
+export async function admins() {
+    await execQuery(`
+        CREATE TABLE IF NOT EXISTS Admins(
+            userId INTEGER UNIQUE NOT NULL,
+            FOREIGN KEY (userId) REFERENCES Users(id) ON DELETE CASCADE
+        );
+    `);
+}
