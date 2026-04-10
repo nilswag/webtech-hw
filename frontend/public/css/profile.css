@@ -1,0 +1,26 @@
+.personal-info__update {
+    font-size: 1.6rem;
+}
+
+.personal-info__update label {
+    width: 10px;
+}
+
+.personal-info__update input, .personal-info__update select {
+    font-size: inherit;
+    padding: .6rem;
+}
+
+.personal-info__update button {
+    flex: 1;
+    font-size: inherit;
+    padding: 1rem;
+    background-color: var(--secundary-theme-color);
+    color: var(--tertiary-text-color);
+}
+
+.personal-info__update .update__password {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
