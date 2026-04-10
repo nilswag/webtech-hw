@@ -12,6 +12,10 @@ export async function team(req, res) {
     res.sendFile(staticHtml("team.html"));
 }
 
+export async function upcomingGames(req, res) {
+    res.sendFile(staticHtml("upcomingGames.html"))
+}
+
 export async function players(req, res) {
     res.sendFile(staticHtml("players.html"));
 }

@@ -7,4 +7,8 @@ router.get("/leaderboard/", controller.getLeaderboard);
 
 router.get("/nextGame/", controller.getNextGame);
 
+router.get("/upcoming-games/", controller.getUpcomingGames);
+
+router.get("/passed-games/", controller.getPassedGames);
+
 export default router;

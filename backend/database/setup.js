@@ -14,17 +14,25 @@ export async function init() {
     await execQuery("PRAGMA foreign_keys = ON;");
 }
 
+// export async function test(){
+//     await execQuery('DROP TABLE Teams;');
+// }
+
 /**
  * Function to setup teams database table.
  */
 export async function teams() {
+    // await execQuery('DROP TABLE Teams;');
     await execQuery(`
         CREATE TABLE IF NOT EXISTS Teams(
             id INTEGER PRIMARY KEY,
             name TEXT, 
-            image TEXT
+            image TEXT,
+            wins INTEGER,
+            losses INTEGER,
+            totalPoints INTEGER
         );`
-    )
+    );
 }
 
 /**
@@ -57,6 +65,24 @@ export async function users() {
             firstName TEXT NOT NULL,
             lastName TEXT NOT NULL,
             password TEXT NOT NULL
+        );
+    `);
+}
+
+/**
+ * Function to setup users games table.
+ */
+export async function games() {
+    //date is UNIX-TIME
+    // await execQuery('DROP TABLE Games;');
+    await execQuery(`
+        CREATE TABLE IF NOT EXISTS Games(
+            date BIGINT PRIMARY KEY NOT NULL,
+            venue TEXT,
+            defender TEXT,
+            scoreDefender INTEGER,
+            challenger TEXT,
+            scoreChallenger INTEGER
         );
     `);
 }

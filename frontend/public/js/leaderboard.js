@@ -15,6 +15,7 @@ async function updateLeaderboard() {
                 <td>${team.name}</td>
                 <td>${team.wins}</td>
                 <td>${team.losses}</td>
+                <td>${team.totalPoints}</td>
                 <td>${team.wins - team.losses}</td>
             </tr>
         `;
