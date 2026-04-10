@@ -27,3 +27,20 @@ export async function postTeam(req, res, next) {
         return next(error);
     }
 }
+
+export async function deleteTeam(req, res, next) {
+    try {
+        service.deleteTeam(req.params.id);
+    } catch (err) {
+        return next(err);
+    }
+}
+
+export async function updateTeam(req, res, next) {
+    try {
+        const { name, image } = req.body;
+        service.updateTeam(req.params.id, name, image);
+    } catch (err) {
+        return next(err);
+    }
+}

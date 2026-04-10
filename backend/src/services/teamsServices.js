@@ -22,12 +22,20 @@ export async function addTeam(name, image, wins, losses, totalPoints) {
     return await queries.addTeam(name, image, wins, losses, totalPoints);
 }
 
+export async function updateTeam(id, name, image) {
+    if (name) await queries.updateTeamName(id, name);
+    if (image) await queries.updateTeamImage(id, image);
+}
+
+export async function deleteTeam(id) {
+    return await queries.deleteTeam(id);
+}
+
 // for (let index = 0; index < 10; index++) {
 //     await addTeam("Team" + index, "/group20/public/media/images/portraits/maia_bennett.png", 3*index, index, 1234*index);
     
 // }
 
-for (let index = 0; index < 20; index++) {
-    await addPlayer("Karel", index + "e", index + 20, "Captain", index, "/group20/public/media/images/portraits/anya_petrova.png", Math.ceil(index/3)+1)
-    
-}
+// for (let index = 0; index < 20; index++) {
+//     await addPlayer("Karel", index + "e", index + 20, "Captain", index, "/group20/public/media/images/portraits/anya_petrova.png", Math.ceil(index/3)+1)
+// }
