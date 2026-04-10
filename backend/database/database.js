@@ -5,7 +5,6 @@ export const db = await new Promise((resolve, reject) => {
         if (err) return reject(err);
         instance.run("PRAGMA foreign_keys = ON", (err) => {
             if (err) return reject(err);
-            console.log("Foreign keys enabled");
             resolve(instance);
         });
     });
