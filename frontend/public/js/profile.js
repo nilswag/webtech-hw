@@ -6,7 +6,17 @@ const form = document.querySelector("form.personal-info__update");
 const teams = (await getData("/teams")).result;
 const user = (await getData("/users/fetch")).result;
 
+teams.forEach(t => {
+    const option = document.createElement("option");
+    option.innerText = t.name ? t.name : "N/A";
+    option.value = t.name ? t.name : "N/A";
+    form.favoriteTeam.appendChild(option);
+});
+
 if (user) {
+    if (user.favoriteTeam) {
+        form.favoriteTeam.value = user.favoriteTeam;
+    }
     form.firstName.value = user.firstName || "";
     form.lastName.value = user.lastName || "";
     form.email.value = user.email || "";
@@ -30,11 +40,4 @@ form.addEventListener("submit", async (e) => {
         password: form.password.value
     });
     handleResponse(response);
-});
-
-teams.forEach(t => {
-    const option = document.createElement("option");
-    option.innerText = t.name ? t.name : "N/A";
-    option.value = t.name ? t.name : "N/A";
-    form.favoriteTeam.appendChild(option);
 });
