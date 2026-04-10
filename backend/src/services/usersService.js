@@ -79,11 +79,11 @@ export async function updateInformation(token, firstName, lastName, email, passw
     if (favoriteTeam) await queries.updateUserFavoriteTeam(favoriteTeam, id);
 }
 
-export async function getUser(token, id) {
-    if (!token || !id) throw new Error("Not logged in.", { status: 403 });
+export async function getUser(token) {
+    if (!token) throw new Error("Not logged in.", { status: 403 });
     const sessions = await getSessions();
     const session = sessions.find(s => bcrypt.compare(token, s.token));
-    if (!session || id != session.userId) throw new Error("User not found.", { status: 403 });
+    if (!session) throw new Error("User not found.", { status: 403 });
     const result = await queries.getUser(session.userId);
     return { firstName: result.firstName, lastName: result.lastName, email: result.email, favoriteTeam: result.favoriteTeam }
 }
