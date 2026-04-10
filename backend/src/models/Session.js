@@ -35,7 +35,7 @@ export class Session {
             token = null,
             expires = null,
         } = obj || {};
-
+        
         if (!userId) throw new Error("Missing userId parameter.");
         if (!token) throw new Error("Missing token parameter.");
         if (!expires) throw new Error("Missing expires parameter.");
