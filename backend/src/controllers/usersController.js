@@ -41,7 +41,7 @@ export async function logout(req, res, next) {
         if (!loggedIn) throw new Error("Not logged in.", { status: 405 });
         await service.logout(req.cookies.auth);
         res.clearCookie("loggedIn");
-        res.json({ message: "Successfully logged out." });
+        res.status(200).json({ message: "Successfully logged out." });
     } catch (err) {
         return next(err);
     }
