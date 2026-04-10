@@ -9,6 +9,10 @@ router.get("/", controller.getTeams);
 
 router.get("/:id", controller.getTeam);
 
+router.put("/:id", controller.updateTeam);
+
+router.delete("/:id", controller.deleteTeam);
+
 router.post("/add", [
     body("name").isString()
 ], validator, controller.postTeam);
