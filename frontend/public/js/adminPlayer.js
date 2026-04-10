@@ -13,7 +13,7 @@ deleteBtn.addEventListener("click", async () => {
 
     if(confirmation) {
         try {
-            const response = await deleteData(`/players/delete/${id}`);
+            await deleteData(`/players/delete/${id}`);
             document.referrer ? window.location.href = document.referrer : window.location.href = "/group20/players";
             handleResponse(response);
         } catch (error) {
@@ -23,8 +23,17 @@ deleteBtn.addEventListener("click", async () => {
 })
 
 playerInfo.addEventListener("submit", async (event) => {
-    const data = Object.fromEntries((new FormData(event.target)).entries());
-    await fetch(`/group20/api/players/add/${id}`, {method: "POST", headers: {"content-type": "application/json"}, body: JSON.stringify(data)});
+    event.preventDefault();
+    const confirmation = window.confirm(`Are you sure you want to edit player with ID ${id}?`);
+
+    if(confirmation) {
+        try {
+            const data = Object.fromEntries((new FormData(event.target)).entries());
+            await fetch(`/group20/api/players/add/${id}`, {method: "POST", headers: {"content-type": "application/json"}, body: JSON.stringify(data)});  
+        } catch (error) {
+            throw error;
+        }
+    }
 })
 
 function loadExtendedInfo(player, team) {
@@ -88,7 +97,6 @@ function loadExtendedInfo(player, team) {
         }
     })
 
-    // console.log(extendedInfo)
     return extendedInfo;
 }
 
@@ -132,11 +140,5 @@ async function loadPage() {
     teamLink.innerText = `Go to ${team.name}'s page`;
     teamLink.href = `teams/team?id=${player.teamId}`;
 }
-
-player__info.addEventListener("submit", (event) => {
-    event.preventDefault();
-    let data = new FormData(event.target);
-    data = Object.fromEntries(data.entries());
-})
 
 loadPage()

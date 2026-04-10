@@ -9,12 +9,11 @@ router.get("/", controller.getTeams);
 
 router.get("/:id", controller.getTeam);
 
-router.put("/:id", controller.updateTeam);
-
-router.delete("/:id", controller.deleteTeam);
-
-router.post("/add", [
-    body("name").isString()
+router.post("/add/:id", [
+    body("name").isString(),
+    body("image").isString()
 ], validator, controller.postTeam);
+
+router.delete("/delete/:id", controller.deleteTeam);
 
 export default router;
