@@ -25,22 +25,22 @@ export async function getUserByEmail(email) {
     return result ? User.from(result) : null;
 }
 
-export async function updateUserFirstName(firstName) {
-    return await runQuery("UPDATE Users SET firstName = (?);", firstName);
+export async function updateUserFirstName(firstName, id) {
+    return await runQuery("UPDATE Users SET firstName = (?) WHERE id = (?)", firstName, id);
 }
 
-export async function updateUserLastName(lastName) {
-    return await runQuery("UPDATE Users SET lastName = (?);", lastName);
+export async function updateUserLastName(lastName, id) {
+    return await runQuery("UPDATE Users SET lastName = (?) WHERE id = (?)", lastName, id);
 }
 
-export async function updateUserEmail(email) {
-    return await runQuery("UPDATE Users SET email = (?);", email);
+export async function updateUserEmail(email, id) {
+    return await runQuery("UPDATE Users SET email = (?) WHERE id = (?)", email, id);
 }
 
-export async function updateUserPassword(password) {
-    return await runQuery("UPDATE Users SET password = (?);", password);
+export async function updateUserPassword(password, id) {
+    return await runQuery("UPDATE Users SET password = (?) WHERE id = (?)", password, id);
 }
 
-export async function updateUserFavoriteTeam(favoriteTeam) {
-    return await runQuery("UPDATE Users SET favoriteTeam = (?);", favoriteTeam);
+export async function updateUserFavoriteTeam(favoriteTeam, id) {
+    return await runQuery("UPDATE Users SET favoriteTeam = (?) WHERE id = (?)", favoriteTeam, id);
 }
