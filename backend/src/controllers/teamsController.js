@@ -30,7 +30,7 @@ export async function postTeam(req, res, next) {
 
 export async function deleteTeam(req, res, next) {
     try {
-        
+
     } catch (err) {
         return next(err);
     }
@@ -38,7 +38,8 @@ export async function deleteTeam(req, res, next) {
 
 export async function updateTeam(req, res, next) {
     try {
-
+        const { name, image } = req.body;
+        service.updateTeam(req.params.id, name, image);
     } catch (err) {
         return next(err);
     }
