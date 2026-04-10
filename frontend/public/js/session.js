@@ -2,7 +2,7 @@
 let login = document.getElementById("header__navigation__login");
 let register = document.getElementById("header__navigation__register");
 let logout = document.getElementById("header__navigation__logout");
-let profile = document.getElementById("header__navigation__profiel");
+let profile = document.getElementById("header__navigation__profile");
 
 function handler() {
     // assuming we dont add extra cookies
