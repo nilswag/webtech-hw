@@ -14,6 +14,7 @@ import { execQuery, runQuery } from "./database.js";
  * Function to setup teams database table.
  */
 export async function teams() {
+    // runQuery("DROP TABLE Teams")
     await runQuery(`
         CREATE TABLE IF NOT EXISTS Teams(
             id INTEGER PRIMARY KEY,
@@ -22,9 +23,9 @@ export async function teams() {
             wins INTEGER,
             losses INTEGER,
             totalPoints INTEGER
-        );`
-    );
-}
+            );`
+        );
+    }
 
 /**
  * Function to setup players database table.
