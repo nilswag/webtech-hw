@@ -1,3 +1,5 @@
+import { getData } from "./util/api.js";
+
 class Card {
     #id;
     #image;
@@ -54,13 +56,17 @@ export class PlayerCard extends Card {
         return card;
     }
 
-    static createPlayerCards(players) {
+    static async createPlayerCards(players) {
         const playersList = document.getElementById("players__list");
+        let userData = await getData("/users/fetch");
+        let favoriteTeam = userData.favoriteTeam;
+        console.log(favoriteTeam)
     
         players.forEach(player => {
             let playerObj = new PlayerCard(player.id, player.photo, true, player.firstName, player.lastName);
             
             let playerCard = playerObj.createPlayerCard();
+            if(player.teamId === favoriteTeam) playerCard.classList.add("favorite");
             playersList.appendChild(playerCard);
     });
     }
@@ -87,12 +93,15 @@ export class TeamCard extends Card {
         return card;
     }
 
-    static createTeamCards(teams) {
+    static async createTeamCards(teams) {
         const teamsList = document.getElementById("teams__list");
+        let userData = await getData("/users/fetch");
+        let favoriteTeam = userData.favoriteTeam;
         
         teams.forEach(team => {
         let teamObj = new TeamCard(team.id, team.image, true, team.name);
         let teamCard = teamObj.createTeamCard();
+        if(team.id === favoriteTeam) teamCard.classList.add("favorite");
         teamsList.appendChild(teamCard);
     });
     }

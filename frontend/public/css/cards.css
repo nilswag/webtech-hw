@@ -40,6 +40,11 @@ h1 {
     width: 90%;
 }
 
+.favorite {
+    background-color: var(--secundary-theme-color);
+    color: var(--tertiary-text-color);
+}
+
 @media only screen and (min-width: 900px) {
     .card {
         width: 30%;
