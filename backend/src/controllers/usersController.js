@@ -61,7 +61,7 @@ export async function updateInformation(req, res, next) {
 
 export async function getUser(req, res, next) {
     try {
-        const userData = service.getUser(req.cookies.auth, req.params.id);
+        const userData = await service.getUser(req.cookies.auth, req.params.id);
         res.status(200).json(userData);
     } catch (err) {
         return next(err);
