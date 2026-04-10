@@ -9,6 +9,15 @@ export async function getLeaderboard(req, res, next) {
     }
 };
 
+export async function getSortedLeaderboard(req, res, next) {
+    try {
+        const result = await service.getLeaderboard(req.params.orderBy, req.params.sortDir);
+        res.status(200).json(result);
+    } catch(err) {
+        return next(err);
+    }
+};
+
 export async function getNextGame(req, res, next) {
     try {
         let game = await service.getNextGame();

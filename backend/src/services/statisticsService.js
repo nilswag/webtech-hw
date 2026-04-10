@@ -2,8 +2,8 @@ import * as gameQueries from "../../database/queries/gamesQueries.js";
 import * as teamQueries from "../../database/queries/teamsQueries.js";
 
 
-export async function getLeaderboard(){
-    let teams = await teamQueries.getTeams("name", "ASC");
+export async function getLeaderboard(orderBy = "id", sortDir = "ASC"){
+    let teams = await teamQueries.getTeams(orderBy, sortDir);
     return teams;
 }
 
