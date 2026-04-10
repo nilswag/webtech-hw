@@ -64,5 +64,6 @@ export async function login(email, password) {
 export async function logout(token) {
     const sessions = await getSessions();
     const session = sessions.find(s => bcrypt.compare(token, s.token));
+    if (!session) return;
     await removeSession(session.userId);
 }
